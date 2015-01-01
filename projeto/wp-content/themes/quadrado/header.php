@@ -76,7 +76,7 @@
 		<header class="header">
 			<div class="center">
 				<div class="row">
-					<div class="col-m-12 align-right">
+					<div class="col-m-12 align-right header__top">
 						<div class="header__search">
 							<a href="#this" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
 
@@ -88,24 +88,16 @@
 						<div class="header__social">
 							<a href="https://www.facebook.com/QuadradoBrasilia/" target="_blank" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
 						</div>
+
+						<a href="<?php echo get_permalink( get_page_by_path('contato')); ?>" class="btn btn-default btn-contact">contato</a>
+
+						<a href="<?php echo get_permalink( get_page_by_path('sobre-a-gente')); ?>" class="btn btn-default btn-about">sobre a gente</a>
 					</div>
 				</div>
 
 				<div class="row">
-					<div class="col-m-3">
-						<nav>
-							<a href="<?php echo get_permalink( get_page_by_path('sobre-a-gente')); ?>" class="btn btn-link">sobre a gente</a>
-						</nav>
-					</div>
-
-					<div class="col-m-6 align-center">
+					<div class="col-m-3 align-center">
 						<h1 class="header__logo"><a href="<?php bloginfo('url'); ?>"><span>Quadrado Brasilia</span> a cidade é do tamanho que a gente quer</a></h1>
-					</div>
-
-					<div class="col-m-3 align-right">
-						<nav>
-							<a href="<?php echo get_permalink( get_page_by_path('contato')); ?>" class="btn btn-link">contato</a>
-						</nav>
 					</div>
 				</div>
 			</div>
