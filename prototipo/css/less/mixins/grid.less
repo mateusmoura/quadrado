@@ -1,0 +1,242 @@
+/**
+* Arquivo responsavel pelo estilo dos GRIDs do projeto
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados a 
+*/
+
+/* MIXIS
+	Para gerar as GRIDS em determinados elementos
+________________________________________________________________ */
+
+// 
+.conteudo-fixo(@espaco: @grid-separacao) {
+	margin-right: auto;
+	margin-left: auto;
+	padding-left:  (@espaco / 2);
+	padding-right: (@espaco / 2);
+	.clearfix();
+}
+
+// Gera o elemento que vai englobar todas as colunas.
+.criar-linha( @espaco: @grid-separacao ){
+	margin-left: (@espaco / -2);
+	margin-right: (@espaco / -2);
+	.clearfix();
+}
+
+// Cria todas as colunas para CELULAR, TABLET, DESKTOP E DESKTOP COM MONITORES GRANDES.
+.criar-grid-colunas(@i: 1; @espaco: @grid-separacao) {
+	// Loop de Breakpoints.
+	.loop-breakpoints (@indice) when ( @indice =< @breakpoints ){
+		// Extraindo a classe do loop no @indice.
+		@coluna: extract(@classes-celular, @indice);
+		@coluna-es: extract(@classes-tablet, @indice);
+		@coluna-emp: extract(@classes-desktop, @indice);
+		@coluna-pux: extract(@classes-desktop-Grande, @indice);
+
+		// Colocando Float Left para todas as colunas.
+		@col-r: replace(@coluna, '.', '');
+		[class*=@{col-r}]{
+			float: left;
+			padding-left:  (@espaco / 2);
+			padding-right: (@espaco / 2);
+		}
+		// Definindo os atributos de cada coluna e suas respectivas classes.
+		// OBS: Verificar possiblidade de automatizar essa funcionalidade.
+		& when ( @indice = 1 ){
+			.loop-colunas (@i);
+			.loop-colunas-espacamento(@i);
+			.loop-colunas-empurrar(@i);
+			.loop-colunas-puxar(@i);
+		}
+		& when ( @indice = 2 ){
+			@media ( min-width: @resolucao-p-min ) {
+				.loop-colunas (@i);
+				.loop-colunas-espacamento(@i);
+				.loop-colunas-empurrar(@i);
+				.loop-colunas-puxar(@i);
+			}
+		}
+		& when ( @indice = 3 ){
+			@media ( min-width: @resolucao-m-min ) {
+				.loop-colunas (@i);
+				.loop-colunas-espacamento(@i);
+				.loop-colunas-empurrar(@i);
+				.loop-colunas-puxar(@i);
+			}
+		}
+		& when ( @indice = 4 ){
+			@media ( min-width: @resolucao-g-min ) {
+				.loop-colunas (@i);
+				.loop-colunas-espacamento(@i);
+				.loop-colunas-empurrar(@i);
+				.loop-colunas-puxar(@i);
+			}
+		}
+
+		.loop-breakpoints ( @indice + 1);
+	}
+
+	// Loop das colunas defindo a largura em sua determinada media queries.
+	.loop-colunas (@numero) when ( @numero >= 1 ){
+		@col-e: e(@coluna);
+
+		@{col-e}@{numero}{
+			width: percentage((@numero / @grid-colunas));
+		}
+
+		.loop-colunas (@numero - 1);
+	}
+
+	// Gerar o espacamento entre as colunas, para que não seja necessário criar uma coluna vazia.
+	.loop-colunas-espacamento (@numero) when ( @numero >= 1 ){
+		@col-e: e(@coluna-es);
+
+		@{col-e}@{numero}{
+			margin-left: percentage((@numero / @grid-colunas));
+		}
+
+		.loop-colunas-espacamento (@numero - 1);
+	}
+
+	// Usado para reposicionar a Coluna a Esquerda.
+	.loop-colunas-empurrar (@numero) when ( @numero >= 1 ){
+		@col-e: e(@coluna-emp);
+
+		@{col-e}@{numero}{
+			left: percentage((@numero / @grid-colunas));
+		}
+
+		.loop-colunas-empurrar (@numero - 1);
+	}
+
+	// Usado para reposicionar a Coluna a Direita.
+	.loop-colunas-puxar (@numero) when ( @numero >= 1 ){
+		@col-e: e(@coluna-pux);
+
+		@{col-e}@{numero}{
+			right: percentage((@numero / @grid-colunas));
+		}
+
+		.loop-colunas-puxar (@numero - 1);
+	}
+
+	.loop-breakpoints (1);
+
+	.coluna-largura(@numero){
+		@col-e: e(@coluna);
+
+		@{col-e}@{numero}{
+			width: percentage((@numero / @grid-colunas));
+		}
+	}
+}
+
+// Gerar coluna para Celulares
+.gerar-coluna( @coluna; @espaco: @grid-separacao ) {
+	padding-left:  (@espaco / 2);
+	padding-right: (@espaco / 2);
+	float: left;
+	width: percentage((@coluna / @grid-colunas));
+}
+
+// Gerar coluna para Tablets
+.gerar-p-coluna( @coluna; @espaco: @grid-separacao ) {
+	position: relative;
+	min-height: 1px;
+	padding-left:  (@espaco / 2);
+	padding-right: (@espaco / 2);
+
+	@media ( min-width: @resolucao-p-min ) {
+		float: left;
+		width: percentage((@coluna / @grid-colunas));
+	}
+}
+
+// Gerar o espacamento entre as colunas, para que não seja necessário criar uma coluna vazia. Para Tablets
+.gerar-p-coluna-espacamento(@coluna) {
+	@media (min-width: @resolucao-p-min) {
+		margin-left: percentage((@coluna / @grid-colunas));
+	}
+}
+
+// Usado para reposicionar a Coluna a Esquerda. Para Tablets
+.gerar-p-coluna-empurrar(@coluna) {
+	@media (min-width: @resolucao-p-min) {
+		left: percentage((@coluna / @grid-colunas));
+	}
+}
+// Usado para reposicionar a Coluna a Direita. Para Tablets
+.gerar-p-coluna-puxar(@coluna) {
+	@media (min-width: @resolucao-p-min) {
+		right: percentage((@coluna / @grid-colunas));
+	}
+}
+
+// Gerar coluna para Desktops
+.gerar-m-coluna( @coluna; @espaco: @grid-separacao ) {
+	position: relative;
+	min-height: 1px;
+	padding-left:  (@espaco / 2);
+	padding-right: (@espaco / 2);
+
+	@media ( min-width: @resolucao-m-min ) {
+		float: left;
+		width: percentage((@coluna / @grid-colunas));
+	}
+}
+
+// Gerar o espacamento entre as colunas, para que não seja necessário criar uma coluna vazia. Para Desktops
+.gerar-m-coluna-espacamento(@coluna) {
+	@media (min-width: @resolucao-m-min) {
+		margin-left: percentage((@coluna / @grid-colunas));
+	}
+}
+
+// Usado para reposicionar a Coluna a Esquerda. Para Desktops
+.gerar-m-coluna-empurrar(@coluna) {
+	@media (min-width: @resolucao-m-min) {
+		left: percentage((@coluna / @grid-colunas));
+	}
+}
+// Usado para reposicionar a Coluna a Direita. Para Desktops
+.gerar-m-coluna-puxar(@coluna) {
+	@media (min-width: @resolucao-m-min-min) {
+		right: percentage((@coluna / @grid-colunas));
+	}
+}
+
+// Gerar coluna para Desktops com Grandes monitores
+.gerar-g-coluna( @coluna; @espaco: @grid-separacao ) {
+	position: relative;
+	min-height: 1px;
+	padding-left:  (@espaco / 2);
+	padding-right: (@espaco / 2);
+
+	@media ( min-width: @resolucao-g-min ) {
+		float: left;
+		width: percentage((@coluna / @grid-colunas));
+	}
+}
+
+// Gerar o espacamento entre as colunas, para que não seja necessário criar uma coluna vazia. Para Desktops com Grandes monitores
+.gerar-g-coluna-espacamento(@coluna) {
+	@media (min-width: @resolucao-g-min) {
+		margin-left: percentage((@coluna / @grid-colunas));
+	}
+}
+
+// Usado para reposicionar a Coluna a Esquerda. Para Desktops com Grandes monitores
+.gerar-g-coluna-empurrar(@coluna) {
+	@media (min-width: @resolucao-g-min) {
+		left: percentage((@coluna / @grid-colunas));
+	}
+}
+// Usado para reposicionar a Coluna a Direita. Para Desktops com Grandes monitores
+.gerar-g-coluna-puxar(@coluna) {
+	@media (min-width: @resolucao-g-min-min) {
+		right: percentage((@coluna / @grid-colunas));
+	}
+}

@@ -1,0 +1,169 @@
+/**
+* Arquivo responsavel pelo estilo da Galeria de Imagens
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* Galeria de Fotos
+____________________________________________________________________________________ */
+
+
+.gallery{
+	max-width: 654px;
+	min-height: 640px;
+	position: relative;
+
+	.center{
+		width: 100%;
+		max-width: 654px;
+	}
+
+	.gallery__navigation{
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 9;
+	}
+
+	.gallery__btn--prev, .gallery__btn--next{
+		cursor: default;
+		display: block;
+		height: 68%;
+		position: relative;
+		width: 25%;
+
+		span{
+			.transition(opacity);
+			.text-hide;
+			.opacity(0);
+			cursor: pointer;
+			height: 68px;
+			margin: 0 90px;
+			position: absolute;
+			top: 42%;
+			width: 35px;
+		}
+
+		&:hover{
+			span{
+				.opacity(1);
+			}
+		}
+
+		&.inactive{
+			display: none;
+		}
+	}
+
+	.gallery__btn--prev{
+		float: left;
+
+		span{
+			background: url("../img/ico/gallery-nav-left.png") no-repeat 0 0;
+		}
+	}
+
+	.gallery__btn--next{
+		float: right;
+
+		span{
+			background: url("../img/ico/gallery-nav-right.png") no-repeat 0 0;
+		}
+	}
+
+	.gallery__view{
+		margin-bottom: 35px;
+		position: relative;
+
+		img{
+			position: relative;
+			z-index: 1;
+		}
+
+		figcaption{
+			background: url('../img/bkg/overlay.png');
+			bottom: 2px;
+			color: #fff;
+			font-size: 14px;
+			left: 2px;
+			padding: 15px 20px 12px;
+			position: absolute;
+			z-index: 2;
+		}
+	}
+
+	.gallery__thumbnails{
+		overflow: hidden;
+		margin: 0 auto 20px;
+		position: relative;
+		z-index: 10;
+		width: 540px;
+
+		ul{
+			left: 0;
+			list-style: none;
+			margin-left: 0;
+			position: relative;
+			width: 10000px;
+		}
+
+		li{
+			margin-left: 15px;
+			float: left;
+			height: 76px;
+			width: 124px;
+
+			&:first-child{
+				margin-left: 0;
+			}
+
+			a{
+				display: block;
+				height: 76px;
+				overflow: hidden;
+				position: relative;
+				width: 124px;
+
+				&:hover, &.active{
+					.opacity(0.6);
+				}
+			}
+
+			img{
+				display: block;
+				left: 0;
+				max-height: 76px;
+				max-width: 124px;
+				position: absolute;
+				top: 0;
+			}
+		}
+	}
+
+	.gallery__index{
+		line-height: 20px;
+		position: relative;
+		text-align: center;
+		z-index: 10;
+
+		a{
+			color: #867d7f;
+			font-size: 48px;
+			letter-spacing: 2px;
+			outline: 0;
+
+			&:hover, &.active{
+				color: @cor-verde-claro;
+				text-decoration: none;
+			}
+
+			&.active{
+				cursor: default;
+			}
+		}
+	}
+}

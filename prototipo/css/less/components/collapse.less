@@ -1,0 +1,63 @@
+/**
+*  Arquivo responsavel pelo estilo do COLLAPSE
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+
+/* COLLAPSE
+________________________________________________________________ */
+
+.collapse{
+	margin-bottom: 25px;
+
+	&.open{
+		.coll_title{
+			border-bottom: none;
+
+			a {
+				color: @cor-vermelha;
+				font-weight: 700;
+			}
+		}
+
+		.coll_content{
+			display: block;
+		}
+	}
+
+	&.close{
+		
+	}
+
+	.coll_title{
+		border-bottom: solid 1px #ededed;
+		padding: 0 0 15px;
+
+		h4 {
+			margin: 0;
+		}
+
+		a {
+			color: #3f3f3f;
+			font-family: @font-family-sans-serif-2;
+			font-size: 15px;
+			font-weight: 700;
+		}
+
+	}
+
+	.coll_content{
+		display: none;
+		border-bottom: solid 1px #ededed;
+
+		p {
+			color: #3f3f3f;
+			font-family: @font-family-sans-serif-2;
+			font-size: 15px;
+			font-weight: 400;
+		}
+	}
+}

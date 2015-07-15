@@ -1,0 +1,97 @@
+@charset "UTF-8";
+
+/* LESS
+	>> Funções
+________________________________________________________________ */
+
+.border-radius(@arguments: 5px){
+	-webkit-border-radius: @arguments;
+	-moz-border-radius: @arguments;
+	border-radius: @arguments;
+}
+
+.centerContent(@wid: 960px){ // Centraliza o conteúdo com a largura do conteúdo passado como parametro
+	margin: 0 auto;
+	position: relative;
+	width: @wid;
+}
+
+.transition(@type: opacity, @time: 0.5s, @anim: ease-in-out, @tm: 0.5s){ /*, @type2: display, @time2: 0, @tm2: 0s*/ 
+	transition: @type @time @anim @tm; /*, @type2 @time2 @tm2*/
+	-moz-transition: @type @time @anim @tm; /* Firefox 4 */
+	-webkit-transition: @type @time @anim @tm; /* Safari and Chrome */
+	-o-transition: @type @time @anim @tm; /* Opera */
+}
+
+.transform(@type){
+	 -webkit-transform: @type;
+	-moz-transform: @type;
+	-ms-transform: @type;
+	transform: @type;
+}
+
+.textShadow(@l: 0px, @t: -2px, @r: 2px, @color: #000){
+	text-shadow: @l @t @r @color;
+}
+
+.box-shadow (@arguments) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+
+.boxShadow(@lateral: 10px, @b: 10px, @c: 5px, @color: #888, @inset: false){ // FAZER FUNÇÃO PARA ACEITAR UMA SEGUNDA CAMADA NO BOX-SHADOW
+	.insetShadow(@inset) when (@inset = false){
+		-moz-box-shadow: @lateral @b @c @color;
+		-webkit-box-shadow: @lateral @b @c @color;
+		box-shadow: @lateral @b @c @color;
+	}
+	.insetShadow(@inset) when (@inset = true){
+		-moz-box-shadow: inset @lateral @b @c @color;
+		-webkit-box-shadow: inset @lateral @b @c @color;
+		box-shadow: inset @lateral @b @c @color;
+	}
+	
+	.insetShadow(@inset);
+}
+
+.selectionCustom(@bg: #94bb24, @letter: #fff){
+	*::-moz-selection{
+		background: none repeat scroll 0 0 @bg;
+		color: @letter;
+		text-shadow: none;
+	}
+	*::selection{
+		background: none repeat scroll 0 0 @bg;
+		color: @letter;
+		text-shadow: none;
+	}
+	*::-webkit-selection{
+		background: none repeat scroll 0 0 @bg;
+		color: @letter;
+		text-shadow: none;
+	}
+}
+
+.backgroundCover(@img: ''){
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	filter: ~"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@{img}', sizingMethod='scale')";
+	-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='@{img}', sizingMethod='scale')";
+}
+
+.background-size( @value: 100% ){
+	-webkit-background-size: @value;
+	-moz-background-size: @value;
+	-o-background-size: @value;
+	background-size: @value;
+}
+
+.linear-gradient (@argument1, @argument2, @argument3, @argument4) {
+	background-image: -webkit-linear-gradient(@argument1, @argument3, @argument4);
+	background-image: -moz-linear-gradient(@argument1, @argument3, @argument4);
+	background-image: -o-linear-gradient(@argument1, @argument3, @argument4);
+	background-image: linear-gradient(@argument2, @argument3, @argument4);
+}

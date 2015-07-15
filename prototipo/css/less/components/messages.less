@@ -1,0 +1,199 @@
+/**
+* Arquivo responsavel pelo estilo das MENSAGENS do site
+*
+* @version: 1.0
+*
+* Copyright(c) Todos os direitos reservados a
+*/
+
+/* INHERIT
+	>> Mensagens
+________________________________________________________________ */
+
+.caixa-dialogo{
+	background: url('../img/bkg/erro_bg.png');
+	margin-bottom: 15px;
+	padding: 15px;
+	position: relative;
+	overflow: hidden;
+
+	p{
+		color: #fff;
+		margin-bottom: 5px;
+	}
+
+	.icon-alerta{
+		.opacity(0.0);
+		float: left;
+		margin: 0 15px 0 65px;
+	}
+
+	.bt-fechar{
+		position: absolute;
+		top: 3px;
+		right: 15px;
+	}
+
+	.bloco-texto{
+		.opacity(0.0);
+		float: left;
+		margin-left: 65px;
+		position: relative;
+		height: 100%;
+	}
+}
+
+/* MENSSAGEM COM OVERLAY
+________________________________________________________________ */
+
+.message-alert{
+	background-color: #ffffff;
+	border-top: 4px solid @cor-sucesso !important;
+	display:none;
+	left:50%;
+	margin-left:-245px;
+	padding: 35px 20px;
+	position:fixed;
+	top:50%;
+	margin-top: -66px;
+	width:450px;
+	z-index:10000;
+
+	&.erro{
+		border-top: 4px solid @cor-erro !important;
+
+		.bg{
+			
+		}
+	}
+
+	&.visual{
+		display: block;
+		position: relative;
+		margin: 0;
+		left: 0;
+		top: 0;
+		width: 80%;
+	}
+
+	h2{
+		//display: none;
+		font-size: 2.4em;
+	}
+
+	p{
+		color:#002e45;
+		display:block;
+		font-size: 2.0em;
+		line-height:1.3em;
+		text-align:center;
+	}
+	.bg{ // Caso seja necessário colocar um indicador de Sucesso ou Erro
+		display: none;
+		height: 61px;
+		margin: 0 auto 40px;
+		width: 61px;
+	}
+
+	.btn-fechar{
+		background-color: #fff;
+		border-radius: 50%;
+		color: @cinza-base;
+		font-size: 20px;
+		height: 34px;
+		overflow: hidden;
+		line-height: 32px;
+		position: absolute;
+		right: -34px;
+		top: -32px;
+		text-align: center;
+		width: 34px;
+	}
+}
+
+/* MENSSAGEM DE FEEDBACK
+________________________________________________________________ */
+
+.feedback{
+	.opacity(0);
+	background-color: @cinza-lighter;
+	border-radius: @border-radius-grande;
+	border: solid 1px @cinza;
+	padding: 1% 5%;
+	text-align: left;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+
+	&.sucesso{
+		background-color: @cor-verde-claro;
+		border-color: @cor-verde;
+
+		p, a{
+			color: @cor-verde-escuro;
+		}
+	}
+
+	&.erro{
+		background-color: lighten(@cor-erro, 18.9%);
+		border-color: @cor-erro;
+
+		p, a{
+			color: darken(@cor-erro, 27%);
+		}
+	}
+
+	&.alerta{ /// Pensar e cores que são variadas dela mesma se possivel.
+		background-color: #f8f4cf;
+		border-color: @cor-alerta;
+
+		p, a{
+			color: #c3770a;
+		}
+	}
+
+	&.info{ /// Pensar e cores que são variadas dela mesma se possivel.
+		background-color: lighten(@cor-info, 34.4%);
+		border-color: @cor-info;
+
+		p, a{
+			color: darken(@cor-info, 7%);
+		}
+	}
+
+	&.visual{
+		.opacity(1);
+		left: 0;
+		position: relative;
+		top: 0;
+	}
+
+	p, a{
+		color: @cinza-darker;
+		display: inline;
+		font-size: @font-size-base - 2;
+		font-weight: 400;
+		font-style: normal;
+	}
+
+	p{
+		padding-right: 5px;
+	}
+
+	strong{
+		display: inline-block;
+
+		&.inline{
+			display: inline-block;
+		}
+	}
+
+	.btn-fechar{
+		font-size: 20px;
+		margin-top: -14px;
+		position: absolute;
+		right: 10px;
+		top: 50%;
+	}
+}

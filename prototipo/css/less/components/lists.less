@@ -1,0 +1,191 @@
+/**
+* Arquivo responsavel pelo estilo das LISTAS do projeto
+*
+* @version: 1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* LISTA
+________________________________________________________________ */
+
+.lista{
+	list-style: none;
+
+	&.lista-cor{
+		li{
+			&:nth-child(odd){
+				background-color: #f9f9f9;
+			}
+		}
+	}
+
+	li{
+		clear: both;
+		padding: 8px 40px;
+	}
+
+	.esquerda{
+		float: left;
+		padding: 0 10px 0 0;
+	}
+
+	.direita{
+		float: right;
+		padding: 0 0 0 10px;
+	}
+
+	.centro{
+		padding: 5px 0;
+	}
+}
+
+.list__block{
+	margin-bottom: 20px;
+
+	.list__header{
+		background-color: #e3dccd;
+		padding: 20px 33px;
+
+		.title-3{
+			margin: 0;
+			font-size: 32px;
+		}
+
+		small{
+			color: #7d512b;
+			display: block;
+			font-family: "MyriadPro-Regular";
+			font-size: 20px;
+		}
+	}
+
+	.list__content{
+		background-color: #fff;
+		border-left: solid 1px #e3dccd;
+		border-right: solid 1px #e3dccd;
+		padding: 32px 38px;
+		position: relative;
+
+		img{
+			border: solid 1px #eaeaea;
+			width: 100%;
+		}
+
+		a{
+			display: inline-block;
+			font-family: 'MyriadPro-Bold';
+			font-size: 16px;
+			line-height: 18px;
+		}
+
+		p{
+			font-family: 'MyriadPro-Regular';
+			font-size: 14px;
+			line-height: 16px;
+		}
+
+		span{
+			color: #7d512b;
+			font-family: 'MyriadPro-Bold';
+			font-size: 14px;
+		}
+
+		.row{
+			margin-top: 50px;
+
+			&:first-child{
+				margin-top: 0;
+			}
+		}
+	}
+
+	.list__date{
+		color: #7d512b;
+		font-family: 'MyriadPro-Regular';
+		font-size: 14px;
+	}
+
+	.list__date--event{
+		.list__date;
+
+		background: url('../img/bkg/list--time.png') no-repeat 0 0;
+		color: @cor-verde;
+		display: inline-block;
+		font-family: "MyriadPro-BoldCond";
+		font-size: 22px;
+		height: 103px;
+		line-height: 22px;
+		padding-top: 38px;
+		text-align: center;
+		width: 97px;
+	}
+
+	.list__footer{
+		background-color: #fff;
+		border: solid 1px #e3dccd;
+		border-top: 0;
+		padding: 0 0 30px;
+	}
+
+	.list__scroll{
+		overflow: hidden;
+		margin: 0 auto;
+		width: 89%;
+
+		ul{
+			width: 10000px;
+		}
+
+		li{
+			float: left;
+			display: inline-block;
+			margin-left: 30px;
+			width: 176px;
+
+			&:first-child{
+				margin-left: 0;
+			}
+
+			span{
+				font-family: 'MyriadPro-Regular';
+				display: block;
+			}
+		}
+	}
+
+	.btn-padrao{
+		min-width: 208px;
+	}
+
+	.list__nav--left, .list__nav--right{
+		.text-hide;
+		background: no-repeat 0 0;
+		cursor: pointer;
+		height: 69px;
+		margin-top: -34px;
+		position: absolute;
+		top: 50%;
+		width: 35px;
+	}
+
+	.list__nav--left{
+		background-image: url('../img/ico/list-nav-left.png');
+		left: 2%;
+	}
+
+	.list__nav--right {
+		background-image: url('../img/ico/list-nav-right.png');
+		right: 2%;
+	}
+}
+
+.list__block--event{
+	.list__block;
+
+	.list__content{
+		.row{
+			margin-top: 17px;
+		}
+	}
+}

@@ -1,0 +1,44 @@
+/**
+* Arquivo responsavel pelo estilo dos ICONES e BULLETS do projeto
+*
+* @version: 1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* INHERIT
+	>> Icones
+	>> Importando Font Awesome
+________________________________________________________________ */
+
+@import "font-awesome/font-awesome.less";
+
+/* INHERIT
+	>> Bullets
+________________________________________________________________ */
+
+.bullet{
+	display: inline-block;
+	font-size: 14px;
+	font-weight: 900;
+	margin-right: 10px;
+
+	&x2{
+		display: inline-block;
+		font-weight: 900;
+		font-size: 2.8em;
+
+		&.bullet-num{
+			padding: 4px 0;
+			width:40px;
+		}
+	}
+
+	&-num{
+		border: solid 1px #fff;
+		color: #fff;
+		padding: 2px 0;
+		text-align: center;
+		width: 25px;
+	}
+}

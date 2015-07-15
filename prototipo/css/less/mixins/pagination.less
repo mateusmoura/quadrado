@@ -1,0 +1,32 @@
+/**
+* Arquivo responsavel pelo mixins da PAGINAÇÃO do projeto
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* MIXIS
+	Para definir o tamanho da paginação
+________________________________________________________________ */
+
+.tamanho-paginacao( @padding-vertical, @padding-horizontal, @font-size, @border-radius ) {
+	> li{
+		> a, > span{
+			padding: @padding-vertical @padding-horizontal;
+			font-size: @font-size + 7;
+		}
+
+		&:first-child{
+			> a, > span{
+				.border-radius(@border-radius-base 0 0 @border-radius-base);
+			}
+		}
+
+		&:last-child{
+			> a, >span{
+				.border-radius(0 @border-radius-base @border-radius-base 0);
+			}
+		}
+	}
+}

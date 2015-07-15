@@ -1,0 +1,153 @@
+/**
+* Arquivo responsavel pelo estilo dos BOTÕES do projeto
+*
+* @version: 1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* INHERIT
+	>> Botão ( Interface de todos os botões do site e suas cores )
+________________________________________________________________ */
+
+.btn{
+	//.border-radius(4px);
+	//.box-shadow(inset 2px 2px 1px #fff ~"," inset -2px -2px 1px #fff);
+	background-image: none;
+	border: solid 2px transparent;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: @btn-font-weight;
+	margin-bottom: 0;
+	text-align: center;
+	touch-action: manipulation;
+	text-transform: uppercase;
+	vertical-align: middle;
+	white-space: nowrap;
+	max-width: 100%;
+
+	& when ( @shadow-button = true ){
+		&.btn-error {
+			text-shadow: 0.7px 0.7px 0 #84180d;
+			box-shadow: 0 1px 0 #801d13;
+		}
+	}
+
+	// PADDING DO BOTÃO
+	.tamanho-botoes( @btn-padding-vertical, @btn-padding-horizontal, @btn-font-size, @line-height-base, @border-radius-base );
+
+	&, &:active, &.active{
+		&:focus, &.focus{
+			// Veficar focus no ativo
+		}
+	}
+
+	&:hover, &:focus, &.focus{
+		color: @btn-default-color;
+		text-decoration: none;
+	}
+
+	&:active, &.active{
+		outline: 0;
+		background-image: none;
+
+		// VERIFICAR BORDER SHADOW
+	}
+
+	&.disabled, &[disabled] {
+		.opacity(0.65);
+		cursor: @curso-desativado;
+		pointer-events: none;
+
+		//VERIFICAR SHADOW
+	}
+}
+
+/*
+*	BOTÕES ALTERNATIVOS
+*/
+
+// Botão padrão
+.btn-default {
+	.variacao-botoes(@btn-default-color, @btn-default-bg, @btn-default-border, @btn-default-hover);
+}
+// Botão principal
+.btn-main {
+	.variacao-botoes(@btn-primaria-color, @btn-primaria-bg, @btn-primaria-border);
+}
+// Botão de sucesso. Cor verde
+.btn-success {
+	.variacao-botoes(@btn-sucesso-color, @btn-sucesso-bg, @btn-sucesso-border, @btn-sucesso-hover);
+}
+// Botão de informações. Cor azul
+.btn-info {
+	.variacao-botoes(@btn-info-color, @btn-info-bg, @btn-info-border);
+}
+// Botão de alerta. Cor laranja
+.btn-alert {
+	.variacao-botoes(@btn-alerta-color, @btn-alerta-bg, @btn-alerta-border);
+}
+// Botão de erro. Cor vermelha
+.btn-danger, .btn-error {
+	.variacao-botoes(@btn-erro-color, @btn-erro-bg, @btn-erro-border);
+}
+// Botão voltar
+.btn-back {
+	.variacao-botoes(@btn-back-color, @btn-back-bg, @btn-back-border);
+}
+
+/*
+*	BOTÃO SIMULANDO LINK
+*/
+
+.btn-link{
+	.border-radius(0);
+	.box-shadow(none);
+	color: @link-color;
+	font-weight: bold;
+
+	&, &:active, &.active, &[disabled]{
+		background-color: transparent;
+		.box-shadow(none);
+	}
+
+	&, &:hover, &:focus, &:active {
+		border-color: transparent;
+	}
+
+	&:hover, &:focus{
+		color: @link-hover-color;
+		text-decoration: underline;
+		background-color: transparent;
+	}
+
+	&[disabled]{
+		&, &:hover, &:focus{
+			color: @btn-link-disabled-color;
+			text-decoration: none;
+		}
+	}
+
+	i{
+		margin: 0 10px 0 0;
+	}
+}
+
+/*
+*	TAMANHO DOS BOTÕES
+*/
+
+// Grande
+.btn-gr{
+	.tamanho-botoes( @padding-grande-vertical, @padding-grande-horizontal, @font-size-grande, @line-height-grande, @border-radius-grande );
+}
+
+// Pequeno
+.btn-pq{
+	.tamanho-botoes( @padding-pequeno-vertical + 4, @padding-pequeno-horizontal + 10, @font-size-pequeno, @line-height-pequeno, @border-radius-pequeno );
+}
+
+// Tamanho Normal
+.btn-base{
+	.tamanho-botoes( @btn-padding-vertical, @btn-padding-horizontal, @btn-font-size, @line-height-grande, @border-radius-grande );
+}

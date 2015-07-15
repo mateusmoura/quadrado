@@ -1,0 +1,332 @@
+/**
+* Arquivo responsavel pelo estilo da Tipografia do site
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados a 
+*/
+
+/* Importando Fontes
+____________________________________________________________________________________ */
+
+/* Definição da tipografia
+____________________________________________________________________________________ */
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{
+	font-family: @reset-font-family;
+	font-weight: @reset-font-weight;
+	line-height: @reset-line-height;
+	color: @reset-color;
+
+	small,
+	.small{
+		font-weight: normal;
+		line-height: 1;
+		color: @cinza-light;
+	}
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3 {
+	margin-top: @line-height-computed;
+	margin-bottom: (@line-height-computed / 2);
+
+	small,
+	.small {
+		font-size: 65%;
+	}
+}
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	margin-top: (@line-height-computed / 2);
+	margin-bottom: (@line-height-computed / 2);
+
+	small,
+	.small {
+		font-size: 75%;
+	}
+}
+
+h1, .h1 { font-size: @font-size-h1; }
+h2, .h2 { font-size: @font-size-h2; }
+h3, .h3 { font-size: @font-size-h3; }
+h4, .h4 { font-size: @font-size-h4; }
+h5, .h5 { font-size: @font-size-h5; }
+h6, .h6 { font-size: @font-size-h6; }
+
+// Texto do conteúdo geral do site
+p {
+	margin: 0 0 (@line-height-computed / 2);
+	line-height: @line-height-computed;
+}
+
+.lead {
+	margin-bottom: @line-height-computed;
+	font-size: floor((@font-size-base * 1.15));
+	font-weight: 300;
+	line-height: 1.4;
+
+	@media (min-width: @resolucao-p-min) {
+		font-size: (@font-size-base * 1.5);
+	}
+}
+
+// Enfase e 
+
+small,
+.small {
+	font-size: floor((100% * @font-size-pequeno / @font-size-base));
+}
+
+mark,
+.mark {
+	//background-color: @state-warning-bg;
+	padding: .2em;
+}
+
+// Alinhamento
+.text-left				{ text-align: left; }
+.text-right				{ text-align: right; }
+.text-center			{ text-align: center; }
+.text-justify			{ text-align: justify; }
+.text-nowrap			{ white-space: nowrap; }
+
+// Transformação
+.text-lowercase			{ text-transform: lowercase; }
+.text-uppercase			{ text-transform: uppercase; }
+.text-capitalize		{ text-transform: capitalize; }
+
+// Listas
+// -------------------------
+
+ul,
+ol {
+	margin-top: 0;
+	margin-bottom: (@line-height-computed / 2);
+	margin-left: 25px;
+
+	ul,
+	ol {
+		margin-bottom: 0;
+	}
+}
+
+li > ul, li > ol{
+	margin-left: 18px;
+}
+
+// Opções da lista
+
+// Colocar os bullets da lista dentro da UL.
+.list-custom{
+	list-style: none;
+
+	ul{
+		list-style: none;
+	}
+
+	li{
+		padding-left: 1em;
+		text-indent: -.7em;
+
+		&.uncustom{
+			&:before{
+				display: none;
+			}
+		}
+
+		&:before{
+			content: "• ";
+			color: @cor-verde-claro;
+		}
+
+		li{
+			&:before{
+				font-size: 12px;
+				position: relative;
+				top: -2px;
+			}
+		}
+	}
+}
+// Tira a estilo padrão da listagem.
+.list-unstyled {
+	padding-left: 0;
+	list-style: none;
+}
+// Listagem lado a lado usando inline-block
+.list-inline {
+	.list-unstyled;
+	margin-left: -5px;
+
+	> li {
+		display: inline-block;
+		padding-left: 5px;
+		padding-right: 5px;
+	}
+}
+
+/* TIPOGRAFIA
+	>>> Elementos especificos para o Projeto.
+________________________________________________________________ */
+
+/**
+*	TITULOS
+*/
+
+// Titulo H1
+.title-1{
+	font-family: @font-family-base;
+	font-size: @font-size-h1;
+}
+// Titulo H2
+.title-2{
+	font-family: @font-family-base;
+	font-size: @font-size-h2;
+}
+// Titulo h3
+.title-3{
+	font-family: @font-family-base;
+	font-size: @font-size-h3;
+}
+// Titulos H4
+.title-4{
+	font-family: @font-family-base;
+	font-size: @font-size-h4;
+}
+//Titulos H5
+.title-5{
+	font-size: @font-size-h5;
+	font-family: @font-family-base;
+}
+// Titulos H6
+.title-6{
+	font-size: @font-size-h6;
+	font-family: @font-family-base;
+}
+// Texto de introdução
+.intro{
+	color: @cor-marron;
+	font-size: @font-size-grande + 1;
+}
+
+.text--result{
+	margin-bottom: 25px;
+}
+
+/**
+*	TAGS
+*/
+
+.tag{
+	background-color: @cor-marron-claro;
+	//border: solid 1px @cor-marron;
+	//border-radius: 50px;
+	color: #262626;
+	display: inline-block;
+	font-family: @font-family-sans-serif-2;
+	font-weight: 400;
+	font-size: @font-size-pequeno - 3;
+	padding: 0 12px;
+	text-transform: uppercase;
+}
+
+/**
+*	TITLE MARK
+*/
+
+.title--mark{
+	background-color: #e3dccd;
+	color: @cor-verde;
+	display: inline-block;
+	font-family: 'MyriadPro-Bold';
+	padding: 19px 24px;
+	position: relative;
+	left: -19px;
+
+	h3{
+		font-size: 32px;
+		margin: 0;
+
+		@media ( min-width: @resolucao-p-min ) {
+			font-size: 28px;
+		}
+	}
+
+	small{
+		color: #7d512b;
+		display: block;
+		font-family: 'MyriadPro-Regular';
+		font-size: 20px;
+	}
+
+	&:before{
+		background: url("../img/ico/title--mark.png") no-repeat 0 0;
+		bottom: -18px;
+		content: " ";
+		height: 18px;
+		left: 0;
+		position: absolute;
+		width: 19px;
+	}
+}
+
+/**
+*	COLOURS
+*/
+
+.color-1 {
+	color: @cor-azulClaro;
+}
+.bgcolor-1 {
+	background-color: @cor-azulClaro;
+}
+.color-2 {
+	color: @cor-roxa;
+}
+.bgcolor-2 {
+	background-color: @cor-roxa;
+	color: #fff;
+}
+.color-3 {
+	color: @cor-vermelha;
+}
+.bgcolor-3 {
+	background-color: @cor-vermelha;
+	color: #fff;
+}
+.color-4 {
+	color: @cor-amarela;
+}
+.bgcolor-4 {
+	background-color: @cor-amarela;
+}
+.color-5 {
+	color: @cor-azul;
+}
+.bgcolor-5 {
+	background-color: @cor-azul;
+	color: #fff;
+}
+.color-6 {
+	color: @cor-rosa;
+}
+.bgcolor-6 {
+	background-color: @cor-rosa;
+	color: #fff;
+}
+.color-7 {
+	color: @cor-laranja;
+}
+.bgcolor-7 {
+	background-color: @cor-laranja;
+}
+.color-8 {
+	color: @cor-amareloQueimado;
+}
+.bgcolor-8 {
+	background-color: @cor-amareloQueimado;
+}
