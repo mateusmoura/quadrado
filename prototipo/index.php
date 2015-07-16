@@ -16,7 +16,7 @@
 
 						<div class="block__post--content">
 							<div class="block__post--category">
-								<a href="#this" class="btn btn-black">compras</a>
+								<a href="#this" class="btn btn-default">compras</a>
 							</div>
 
 							<div class="block__post--entries">
@@ -54,7 +54,7 @@
 							</div>
 
 							<div class="block__post--category">
-								<a href="#this" class="btn btn-black">bebes</a>
+								<a href="#this" class="btn btn-default">bebes</a>
 							</div>
 
 							<div class="block__post--content">
@@ -87,7 +87,7 @@
 							</div>
 
 							<div class="block__post--category">
-								<a href="#this" class="btn btn-black">compras</a>
+								<a href="#this" class="btn btn-default">compras</a>
 							</div>
 
 							<div class="block__post--content">
@@ -114,7 +114,7 @@
 					<div class="col-m-4">
 						<div class="block__post--highlights">
 							<div class="block__post--category">
-								<a href="#this" class="btn btn-black">agenda</a>
+								<a href="#this" class="btn btn-default">agenda</a>
 							</div>
 
 							<div class="row">
@@ -180,7 +180,7 @@
 									</div>
 
 									<div class="col-m-">
-										<a href="#this" class="btn btn-black">ver toda a agenda</a>
+										<a href="#this" class="btn btn-default">ver toda a agenda</a>
 									</div>
 								</div>
 							</div>
@@ -194,7 +194,7 @@
 							</div>
 
 							<div class="block__post--category">
-								<a href="#this" class="btn btn-black">3x4</a>
+								<a href="#this" class="btn btn-default">3x4</a>
 							</div>
 
 							<div class="block__post--content">
@@ -222,7 +222,7 @@
 
 			<div class="block__map">
 				<div class="block__post--category">
-					<a href="#this" class="btn btn-black">onde</a>
+					<a href="#this" class="btn btn-default">onde</a>
 				</div>
 
 				<div id="google__map">

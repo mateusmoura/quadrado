@@ -21,7 +21,7 @@ ________________________________________________________________ */
 	margin-bottom: 0;
 	text-align: center;
 	touch-action: manipulation;
-	text-transform: uppercase;
+	//text-transform: uppercase;
 	vertical-align: middle;
 	white-space: nowrap;
 	max-width: 100%;
@@ -69,7 +69,11 @@ ________________________________________________________________ */
 
 // Botão padrão
 .btn-default {
-	.variacao-botoes(@btn-default-color, @btn-default-bg, @btn-default-border, @btn-default-hover);
+	.variacao-botoes(@btn-default-color, @btn-default-bg, @btn-default-border, @btn-default-hover-bg, @btn-default-hover);
+
+	&:hover {
+		border-bottom: solid 1px #333;
+	}
 }
 // Botão principal
 .btn-main {
@@ -117,7 +121,7 @@ ________________________________________________________________ */
 
 	&:hover, &:focus{
 		color: @link-hover-color;
-		text-decoration: underline;
+		text-decoration: @link-hover-decoration;
 		background-color: transparent;
 	}
 

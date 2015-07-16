@@ -28,14 +28,14 @@ ________________________________________________________________ */
 // Cor do background da `<body>`.
 @body-bg:						#fff;
 // Cor geral da `<body>`.
-@text-color:					#000;
+@text-color:					@cinza-dark;
 
 // Cor geral dos links.
 @link-color:					@text-color;
 // Cor do hover dos links.
-@link-hover-color:				darken(@link-color, 5%);
+@link-hover-color:				#ebebeb;
 // Link hover decoration.
-@link-hover-decoration:			underline;
+@link-hover-decoration:			none;
 
 
 // Cores definidas no Layout do Guia de Estilo
@@ -278,9 +278,10 @@ ________________________________________________________________ */
 @btn-padding-horizontal:		34px;
 
 @btn-default-color:				#fff;
-@btn-default-bg:				#437642;
+@btn-default-bg:				#333;
 @btn-default-border:			none; //#94d400;
-@btn-default-hover:				#2f522e;
+@btn-default-hover:				#333;
+@btn-default-hover-bg:			#ebebeb;
 
 @btn-primaria-color:			#fff;
 @btn-primaria-bg:				@cor-primaria;
@@ -310,6 +311,8 @@ ________________________________________________________________ */
 @btn-link-disabled-color:		@cinza-lighter;
 // Colocar sombra no texto e no botão
 @shadow-button:					true;
+// Habilitar/Desabilitar border radius no botão
+@allowed-border-radius:			false;
 
 /* VARIÁVEIS
 	>>> Váriaveis globais para a PAGINAÇÃO

@@ -16,6 +16,10 @@
 		<script src="js/plugins/css3-mediaqueries.js"></script>
 		<![endif]-->
 
+		<link href='http://fonts.googleapis.com/css?family=Martel:400,200,300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
+
 		<link rel="stylesheet" href="css/base.css" media="screen" />
 		<!--[if IE]><link rel="stylesheet" href="css/ie.css" media="screen" /><![endif]-->
 
@@ -35,17 +39,17 @@
 <![endif]-->
 		<header>
 			<div class="header__image--post">
-				<img src="#image" alt="Imagem do post">
+				<img src="img/fke/post-header-image-1.png" alt="Imagem do post">
 			</div>
 			<div class="center">
 				<div class="row">
-					<div class="col-m-6 align-right">
-						<div class="header__social">
-							<a href="#this" class="btn btn-black btn-facebook"><i class="fa fa-facebook"></i></a>
+					<div class="col-m-12 align-right">
+						<div class="header__search">
+							<a href="#this" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
 						</div>
 
-						<div class="header__search">
-							<a href="#this" class="btn btn-black btn-search"><i class="fa fa-search"></i></a>
+						<div class="header__social">
+							<a href="#this" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
 						</div>
 					</div>
 				</div>
@@ -57,11 +61,11 @@
 						</nav>
 					</div>
 
-					<div class="col-m-6">
-						<h1 class="header__logo"><a href="#this">Quadrado Brasilia - a cidade é do tamanho que a gente quer</a></h1>
+					<div class="col-m-6 align-center">
+						<h1 class="header__logo"><a href="#this"><span>Quadrado Brasilia</span> a cidade é do tamanho que a gente quer</a></h1>
 					</div>
 
-					<div class="col-m-3">
+					<div class="col-m-3 align-right">
 						<nav>
 							<a href="#this" class="btn btn-link">contato</a>
 						</nav>
