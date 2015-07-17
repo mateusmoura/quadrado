@@ -1,0 +1,66 @@
+/**
+* Arquivo responsavel pelo estilo do Bloco de Destaque
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* Bloco de Destaque
+____________________________________________________________________________________ */
+
+.block__highlights {
+	.row {
+		height: 600px;
+		margin-bottom: 37px;
+
+		&.block__post--highlights-calendar {
+			height: auto;
+			margin-bottom: 0;
+		}
+	}
+
+	.col-m-4, .col-m-8 {
+		height: 600px;
+	}
+
+	.col-m-8, .col-m-4 {
+		.block__post--highlights {
+			height: 600px;
+		}
+
+		.block__post--content {
+			.transform(translateX(-50%));
+			bottom: 3%;
+			position: absolute;
+			left: 50%;
+			width: 96%;
+		}
+	}
+
+	.col-m-4 {
+		.block__post--content {
+			bottom: 1.5%;
+		}
+	}
+
+	.block__calendar {
+		margin-bottom: 12px;
+		max-height: 173px;
+	}
+
+	.block__actions {
+		.btn-white, .btn-default {
+			font-weight: 400;
+		}
+
+		.btn-white {
+			padding: 12px 31px;
+		}
+
+		.btn-default {
+			font-weight: 400;
+			text-transform: uppercase;
+		}
+	}
+}
