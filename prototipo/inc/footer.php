@@ -1,24 +1,32 @@
-		<footer>
-			<div class="center">
-				<div class="col-m-7">
-					<nav class="footer__menu">
-						<div class="dropdown">
-							<a href="#this">todos os posts <i class="fa fa-angle-down"></i></a>
-						</div>
+			<footer class="footer">
+				<div class="center">
+					<div class="col-m-8">
+						<nav class="footer__menu">
+							<div class="dropdown">
+								<a href="#this">todos os posts <i class="fa fa-angle-down"></i></a>
 
-						<a href="#this">mapa do quadrado</a>
-						<a href="#this">agenda</a>
-						<a href="#this">sobre a gente</a>
-						<a href="#this">contato</a>
-					</nav>
-				</div>
+								<ul>
+									<li><a href="#">Link 1</a></li>
+									<li><a href="#">Link 2</a></li>
+									<li><a href="#">Link 3</a></li>
+									<li><a href="#">Link 4</a></li>
+								</ul>
+							</div>
 
-				<div class="col-m-5">
-					<h2 class="footer__logo"><a href="#this">Quadrado Brasília</a></h2>
-					<p>todos os direitos reservados</p>
+							<a href="#this">mapa do quadrado</a>
+							<a href="#this">agenda</a>
+							<a href="#this">sobre a gente</a>
+							<a href="#this">contato</a>
+						</nav>
+					</div>
+
+					<div class="col-m-4 align-center ">
+						<h2 class="footer__logo central"><a href="#this">Quadrado Brasília</a></h2>
+						<p>todos os direitos reservados</p>
+					</div>
 				</div>
-			</div>
-		</footer>
+			</footer>
+		</div>
 
 		<div id="loading"></div>
 

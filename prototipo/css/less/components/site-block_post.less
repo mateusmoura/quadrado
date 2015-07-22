@@ -50,7 +50,6 @@ ________________________________________________________________________________
 		.clearfix;
 		.box-shadow(0 1px 1px rgba(0, 0, 0, 0.1));
 		background-color: #fff;
-		padding: 0 30px;
 		position: relative;
 
 		.block__post--category {
@@ -82,6 +81,8 @@ ________________________________________________________________________________
 	}
 
 	&--entries {
+		padding: 0 30px;
+		
 		.btn-link {
 			padding: 0;
 		}
@@ -117,6 +118,19 @@ ________________________________________________________________________________
 			img {
 				width: 100%;
 				height: 600px;
+			}
+
+			&-auto {
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+
+				img{
+					height: auto;
+					width: 100%;
+				}
 			}
 		}
 

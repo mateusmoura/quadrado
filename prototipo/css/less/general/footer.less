@@ -9,6 +9,41 @@
 /* FOOTER
 ________________________________________________________________ */
 
-footer {
-	
+.footer {
+	background-color: @cor-beje;
+	bottom: 0;
+	height: 410px;
+	left: 0;
+	padding-top: 30px;
+	position: absolute;
+	width: 100%;
+	z-index: 2;
+
+	&__menu {
+		a {
+			color: @cor-branco;
+			font-family: @font-family-sans-serif-2;
+			font-size: 18px;
+			font-weight: 400;
+			padding: 0 4%;
+		}
+	}
+
+	&__logo {
+		padding-top: 10px;
+		
+		a {
+			.text-hide;
+			background: url('@{lgo}/logo-branca.png') no-repeat center 0;
+			height: 44px;
+			margin-bottom: 12px;
+			width: 271px;
+		}
+	}
+
+	p {
+		color: @cor-branco;
+		font-size: 15px;
+		font-weight: 200;
+	}
 }

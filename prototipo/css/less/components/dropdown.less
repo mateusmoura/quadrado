@@ -1,0 +1,43 @@
+/**
+* Arquivo responsavel pelo estilo dos DROPDOWNs
+*
+* @version: 1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* Dropdowns
+________________________________________________________________ */
+
+.dropdown {
+	display: inline-block;
+	position: relative;
+
+	ul {
+		.transition(all 0.5s ease-in-out 0s);
+		.opacity(0.0);
+		list-style: none;
+		left: 0;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: 100%;
+		visibility: hidden;
+
+
+	}
+
+	> a {
+		&:hover, &:focus, &:active {
+			~ ul {
+				.transition(all 0.5s easi-in-out 0s);
+				.opacity(1);
+				visibility: visible;
+			}
+
+			i {
+				.transform(rotate(-180deg));
+			}
+		}
+	}
+}

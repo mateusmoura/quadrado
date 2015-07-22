@@ -37,39 +37,40 @@
 <!--[if IE 10]>
 	<body class="ie10">
 <![endif]-->
-		<header>
-			<div class="header__image--post">
-				<img src="img/fke/post-header-image-1.png" alt="Imagem do post">
-			</div>
-			<div class="center">
-				<div class="row">
-					<div class="col-m-12 align-right">
-						<div class="header__search">
-							<a href="#this" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
+		<div id="global">
+			<header>
+				<div class="header__image--post">
+					<img src="img/fke/post-header-image-1.png" alt="Imagem do post">
+				</div>
+				<div class="center">
+					<div class="row">
+						<div class="col-m-12 align-right">
+							<div class="header__search">
+								<a href="#this" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
+							</div>
+
+							<div class="header__social">
+								<a href="#this" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-m-3">
+							<nav>
+								<a href="#this" class="btn btn-link">sobre a gente</a>
+							</nav>
 						</div>
 
-						<div class="header__social">
-							<a href="#this" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
+						<div class="col-m-6 align-center">
+							<h1 class="header__logo"><a href="#this"><span>Quadrado Brasilia</span> a cidade é do tamanho que a gente quer</a></h1>
+						</div>
+
+						<div class="col-m-3 align-right">
+							<nav>
+								<a href="#this" class="btn btn-link">contato</a>
+							</nav>
 						</div>
 					</div>
 				</div>
-
-				<div class="row">
-					<div class="col-m-3">
-						<nav>
-							<a href="#this" class="btn btn-link">sobre a gente</a>
-						</nav>
-					</div>
-
-					<div class="col-m-6 align-center">
-						<h1 class="header__logo"><a href="#this"><span>Quadrado Brasilia</span> a cidade é do tamanho que a gente quer</a></h1>
-					</div>
-
-					<div class="col-m-3 align-right">
-						<nav>
-							<a href="#this" class="btn btn-link">contato</a>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</header>
+			</header>

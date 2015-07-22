@@ -16,11 +16,11 @@ ________________________________________________________________ */
 	width: @wid;
 }
 
-.transition(@type: opacity, @time: 0.5s, @anim: ease-in-out, @tm: 0.5s){ /*, @type2: display, @time2: 0, @tm2: 0s*/ 
-	transition: @type @time @anim @tm; /*, @type2 @time2 @tm2*/
-	-moz-transition: @type @time @anim @tm; /* Firefox 4 */
-	-webkit-transition: @type @time @anim @tm; /* Safari and Chrome */
-	-o-transition: @type @time @anim @tm; /* Opera */
+.transition(@arguments){ /*, @type2: display, @time2: 0, @tm2: 0s   @type: opacity, @time: 0.5s, @anim: ease-in-out, @tm: 0.5s*/ 
+	transition: @arguments; /*, @type2 @time2 @tm2*/
+	-moz-transition: @arguments; /* Firefox 4 */
+	-webkit-transition: @arguments; /* Safari and Chrome */
+	-o-transition: @arguments; /* Opera */
 }
 
 .transform(@type){
