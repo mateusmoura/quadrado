@@ -34,6 +34,7 @@ ________________________________________________________________________________
 		clear: both;
 		border-top: solid 1px @text-color;
 		padding: 10px 0 20px 0;
+		position: relative;
 
 		p {
 			font-size: 18px;
@@ -43,6 +44,12 @@ ________________________________________________________________________________
 		.btn-link {
 			font-family: @font-family-sans-serif;
 			padding: 0;
+		}
+
+		.block__post--share {
+			position: absolute;
+			right: 0;
+			top: 10px;
 		}
 	}
 
@@ -184,5 +191,60 @@ ________________________________________________________________________________
 			position: relative;
 			z-index: 1;
 		}
+	}
+
+	&--go {
+		border-top: solid 1px #d7d7d7;
+		max-width: 710px;
+		margin: 0 auto 80px;
+		padding-top: 45px;
+		text-align: center;
+
+		h4 {
+			font-family: @font-family-cursive;
+			font-size: 70px;
+			font-weight: 400;
+			line-height: 24px;
+		}
+
+		p {
+			font-size: 16px;
+			font-weight: 200;
+			line-height: 38px;
+		}
+		
+		a {
+			font-size: 16px;
+			font-weight: 200;
+			line-height: 24px;
+
+			&:hover {
+				color: @text-color;
+				text-decoration: underline;
+			}
+		}
+
+		ul {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+	}
+
+	.block__gallery {
+		margin-bottom: 40px;
+		z-index: 4;
+	}
+
+	.bg-white {
+		background-color: @cor-branco;
+		position: relative;
+		padding-top: 270px;
+		margin-top: -270px;
+		z-index: 3;
+	}
+
+	.block__adsence--post {
+		margin-bottom: 88px;
 	}
 }
