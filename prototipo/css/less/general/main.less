@@ -14,13 +14,26 @@ main {
 	position: relative;
 	z-index: 2;
 
-	&.internal {
+	&.internal, &.search {
 		.block__post {
 			margin-bottom: 0;
 		}
 
 		.bg-white {
 			padding-bottom: 36px;
+		}
+	}
+
+	&.search {
+		.bg-white {
+			margin-top: 330px;
+			padding-top: 0;
+
+			.row {
+				&:first-child {
+					margin-top: -270px;
+				}
+			}
 		}
 	}
 
