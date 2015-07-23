@@ -1,154 +1,96 @@
 <?php include("inc/header.php"); ?>
 
-		<main role="main">
-			<div class="block__title">
-				<div class="center">
-					<div class="row">
-						<div class="col-m-12 block__title--breadcrumb">
-							<p class="breadcrumb"><a href="index.php">Página inicial</a> / Contato</p>
-						</div>
+			<main role="main" class="contact">
+				<section class="block__post">
+					<div class="center">
+						<div class="row">
+							<div class="col-m-12">
+								<div class="block__post--title">
+									<h1>fale com a gente</h1>
 
-						<div class="col-m-12">
-							<h1>Entre em <strong>Contato</strong></h1>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when anunknown.</p>
+									<div class="block__post--time"></div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="wrap">
-				<div class="bg"></div>
-				<div class="content">
-					<section class="block__page">
-						<div class="row padded-x2">
-							<div class="col-m-6">
-								<div class="block__form">
-									<form action="#url" class="validate">
-										<div class="row">
-											<div class="col-m-12">
-												<label for="nome">Nome:</label>
-												<input type="text" name="nome" id="nome" class="form-style radius required">
-											</div>
+					<div class="bg-white">
+						<div class="center">
+							<div class="block__post--content">
+								<div class="block__social">
+									<div class="row">
+										<div class="col-m-6 align-right">
+											<a href="http://facebook.com/quadradobrasilia" target="_blank" class="btn btn-link btn-facebook-2">
+												<i class="fa fa-facebook"></i>
+												facebook.com/quadradobrasilia
+											</a>
 										</div>
 
-										<div class="row">
-											<div class="col-m-6">
-												<label>Telefone</label>
-												<input type="text" name="telefone" class="mask-phone form-style radius required">
-											</div>
-
-											<div class="col-m-6">
-												<label for="email">E-mail</label>
-												<input type="text" name="email" class="form-style radius required">
-											</div>
+										<div class="col-m-6 align-left">
+										<a href="mailTo:aloquadrado@quadradobrasilia.com.br" target="_blank" class="btn btn-link btn-email-2">
+												<i class="fa fa-envelope-o"></i>
+												aloquadrado@quadradobrasilia.com.br
+											</a>
 										</div>
+									</div>
+								</div>
 
-										<div class="row">
-											<div class="col-m-12">
-												<label for="message">Mensagem:</label>
-												<textarea name="message" class="form-style radius required"></textarea>
+								<div class="block__newsletter">
+									<h3>assine a newsletter do quadrado</h3>
+
+									<form action="">
+										<div class="row padded-x2">
+											<div class="col-m-4 align-right">
+												<i class="fa fa-pencil bg-default"></i>
 											</div>
-										</div>
 
-										<div class="row">
-											<div class="col-m-6">
-												<button type="submit" class="btn btn-error">Enviar</button>
+											<div class="col-m-5 align-left">
+												<label for="field-newsletter">digite seu e-mail e seja avisado sobre novos posts</label>
+												<input type="text" name="field-newsletter" id="field-newsletter" class="form-style">
+
+												<div class="align-right">
+													<button type="submit" class="btn btn-white">assinar</button>
+												</div>
 											</div>
 										</div>
 									</form>
 								</div>
-							</div>
 
-							<div class="col-m-6">
-								<div class="block__faq">
-									<h2>DÚVIDAS FREQUENTES</h2>
+								<div class="block__form--contact">
+									<h3>fala que eu te escuto</h3>
 
-									<div class="collapse">
-										<div class="coll_title">
-											<h4><a href="#this">1. Lorem Ipsum is simply dummy text of the printing and typesetting industry?</a></h4>
+									<div class="row padded-x2">
+										<div class="col-m-5">
+											<div class="row">
+												<div class="col-m-12">
+													<label>seu nome (obrigatório)</label>
+													<input type="text" name="" id="" class="form-style">
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-m-12">
+													<label>seu e-mail (obrigatório)</label>
+													<input type="text" name="" id="" class="form-style">
+												</div>
+											</div>
 										</div>
 
-										<div class="coll_content">
-											<p>Typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-										</div>
-									</div>
+										<div class="col-m-7">
+											<label>abra seu coração</label>
 
-									<div class="collapse">
-										<div class="coll_title">
-											<h4><a href="#this">2. Lorem Ipsum is simply dummy text of the printing and typesetting industry?</a></h4>
-										</div>
+											<textarea name="" class="form-style"></textarea>
 
-										<div class="coll_content">
-											<p>Typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-										</div>
-									</div>
-
-									<div class="collapse">
-										<div class="coll_title">
-											<h4><a href="#this">3. Lorem Ipsum is simply dummy text of the printing and typesetting industry?</a></h4>
-										</div>
-
-										<div class="coll_content">
-											<p>Typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-										</div>
-									</div>
-
-									<div class="collapse">
-										<div class="coll_title">
-											<h4><a href="#this">4. Lorem Ipsum is simply dummy text of the printing and typesetting industry?</a></h4>
-										</div>
-
-										<div class="coll_content">
-											<p>Typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-										</div>
-									</div>
-
-									<div class="collapse">
-										<div class="coll_title">
-											<h4><a href="#this">5. Lorem Ipsum is simply dummy text of the printing and typesetting industry?</a></h4>
-										</div>
-
-										<div class="coll_content">
-											<p>Typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+											<div class="align-right">
+												<button type="submit" class="btn btn-default">enviar</button>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</section>
-
-					<aside>
-						<div class="aside__dataIcon">
-							<div class="date">
-								<i class="fa fa-phone-square"></i>
-
-								<div>
-									<label>Telefone</label>
-									<strong><span>61.</span> 3522-1699</strong>
-								</div>
-							</div>
-
-							<div class="time">
-								<i class="fa fa-envelope-o"></i>
-
-								<div>
-									<label>e-mail</label>
-									<a href="mailto:quatuorideias@gmail.com">quatuorideias@gmail.com</a>
-								</div>
-							</div>
-
-							<div class="map">
-								<i class="fa fa-map-marker"></i>
-
-								<div>
-									<label>local</label>
-									<p>CA 05, Lote F, Ed. San Raphael, Loja 09 Lago Norte - Brasília/DF</p>
-								</div>
-							</div>
-						</div>
-					</aside>
-				</div>
-			</div>
-		</main>
+					</div>
+				</section>
+			</main>
 
 <?php include("inc/footer.php"); ?>
