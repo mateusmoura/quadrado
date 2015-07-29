@@ -16,12 +16,18 @@ ________________________________________________________________________________
 	&--title {
 		position: relative;
 
-		h1 {
+		h1, h2, h3 {
 			.gerar-m-coluna(9);
 			font-family: @font-family-sans-serif-2;
 			font-size: 40px;
 			font-weight: 400;
 			margin: 0 0 10px;
+
+			a {
+				&:hover {
+					color: #989898;
+				}
+			}
 		}
 
 		.btn-seemore {
@@ -99,6 +105,14 @@ ________________________________________________________________________________
 		background-color: #ededee;
 		display: inline-block;
 		padding: 2px 5px;
+
+		&:hover {
+			background-color: @cinza-dark;
+
+			a {
+				color: @cor-branco;
+			}
+		}
 
 		a {
 			font-family: @font-family-sans-serif-2;

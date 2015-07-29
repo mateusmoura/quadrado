@@ -1,0 +1,117 @@
+/**
+* Arquivo responsavel pelo estilo do Bloco do Slider
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* Bloco do Slider
+____________________________________________________________________________________ */
+
+.block__slider {
+	.clearfix;
+	position: relative;
+	overflow: hidden;
+	z-index: 4;
+
+	&.full {
+		width: 100%;
+	}
+
+	&--item {
+		background-color: @cor-branco;
+		float: left;
+		position: relative;
+		overflow: hidden;
+		// width: 720px;
+		width: 20%;
+
+		&-entries {
+			padding: 50px;
+			width: 720px;
+		}
+
+		&.active {
+			margin: 0 2%;
+			width: 56%;
+			z-index: 7;
+
+			.block__slider--shadow {
+				display: none;
+			}
+		}
+
+		&.left {
+			.block__slider--item-entries {
+				.transform(translateX(-61%));
+			}
+		}
+
+		h2 {
+			font-family: @font-family-sans-serif-2;
+			font-size: 40px;
+			font-weight: 400;
+			margin: 0 0 32px;
+			text-align: center;
+		}
+
+		img {
+			display: block;
+			margin: 0 auto 44px;
+			text-align: center;
+		}
+
+		p {
+			font-size: 16px;
+			font-weight: 200;
+			margin-bottom: 22px;
+		}
+	}
+
+	&--shadow {
+		.opacity(0.9);
+		background-color: @cor-branco;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	&--link {
+		text-align: center;
+
+		a {
+			font-family: @font-family-sans-serif-2;
+			font-size: 40px;
+			font-weight: 400;
+		}
+	}
+
+	&--controls {
+		height: 100%;
+		position: absolute;
+		width: 100%;
+		z-index: 6;
+
+		.btn-default {
+			.transform(translateY(-50%));
+			position: absolute;
+			padding: 20px 25px;
+			top: 50%;
+
+			&.btn-left {
+				left: 10%;
+			}
+
+			&.btn-right {
+				right: 10%;
+			}
+		}
+	}
+
+}

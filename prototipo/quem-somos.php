@@ -1,105 +1,103 @@
 <?php include("inc/header.php"); ?>
 
-		<main role="main" class="home">
-			<div class="block__title">
-				<div class="center">
-					<div class="row">
-						<div class="col-m-12 block__title--breadcrumb">
-							<p class="breadcrumb"><a href="index.php">Página inicial</a> &nspsc;/ Quem somos</p>
-						</div>
+			<main role="main" class="about">
+				<section class="block__post">
+					<div class="center">
+						<div class="row">
+							<div class="col-m-12">
+								<div class="block__post--title">
+									<h1>sobre a gente</h1>
 
-						<div class="col-m-12">
-							<h1><strong>Quem</strong> somos</h1>
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when anunknown.</p>
+									<div class="block__post--time">
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
-				</div>
-			</div>
 
-			<div class="wrap">
-				<div class="bg"></div>
-				<div class="content">
-					<section class="block__page">
-						<div class="entries">
-							<img src="img/fke/image-002.png" alt="Imagem fake">
+					<div class="block__slider full">
+						<div class="block__slider--item left">
+							<div class="block__slider--item-entries">
+								<h2>Dani Cronemberger</h2>
 
-							<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+								<img src="img/fke/post-image-6.png" alt="Dani Cronemberger">
 
-							<p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+								<p>Daniela Cronemberger é jornalista e a doida dos gatos e publica agora seu primeiro livro. Viveu a experiência transformadora de morar cinco anos em Paris, onde estudou literatura e se tornou mãe dos gêmeos João e Pedro – o que mudou radicalmente seus padrões de normalidade. Entregou-se ao desenho e descobriu na escrita de ficção uma janela para um mundo muito mais real.</p>
 
-							<div class="teachers__list row">
-								<div class="col-m-3">
-									<h4>David Nogueira</h4>
-									<a href="#this" class="btn btn-link">&gt; Perfil completo</a>
-								</div>
-
-								<div class="col-m-3">
-									<h4>David Nogueira</h4>
-									<a href="#this" class="btn btn-link">&gt; Perfil completo</a>
-								</div>
-
-								<div class="col-m-3">
-									<h4>David Nogueira</h4>
-									<a href="#this" class="btn btn-link">&gt; Perfil completo</a>
-								</div>
-
-								<div class="col-m-3">
-									<h4>David Nogueira</h4>
-									<a href="#this" class="btn btn-link">&gt; Perfil completo</a>
+								<div class="block__slider--link">
+									<a href="www.danicronem.com.br" target="_blank">www.danicronem.com.br</a>
 								</div>
 							</div>
+
+							<div class="block__slider--shadow"></div>
 						</div>
-					</section>
 
-					<aside>
-						<div class="aside__courses">
-							<h2>Nossos cursos</h2>
+						<div class="block__slider--item active">
+							<div class="block__slider--item-entries">
+								<h2>sobre a gente</h2>
 
-							<div class="row">
-								<div class="col-m-12">
-									<div class="course">
-										<span class="tag bgcolor-1">Arte</span>
+								<img src="img/fke/post-image-5.png" alt="sobre a gente">
 
-										<h3><a href="#this">Conservação e Restauro de Obras de Arte</a></h3>
-										
-										<div class="information">
-											<p><span>com</span> Valéria de Mendonça</p>
-											<p><span>início:</span> 06 de Janeiro 2015</p>
-											<p><span>Investimento de</span> 3x R$ 450,00</p>
+								<p>Somos duas amigas de infância que nos reencontramos numa das voltas que a vida dá e resolvemos trocar figurinhas sobre a cidade onde nascemos e vivemos a maior parte da vida.</p>
+								<p>Nos empolgamos com a ideia de criar um espaço de troca com todo mundo que estiver a fim de viver Brasília intensamente, de todas as maneiras possíveis.</p>
+								<p>Quer entrar no nosso quadrado?</p>
+							</div>
+
+							<div class="block__slider--shadow"></div>
+						</div>
+
+						<div class="block__slider--item right">
+							<div class="block__slider--item-entries">
+								<h2>Carol Nogueira</h2>
+
+								<img src="img/fke/post-image-7.png" alt="sobre a gente">
+
+								<p>Carolina Nogueira é jornalista e ilustradora e publica agora seu primeiro livro. Viveu a experiência transformadora de morar cinco anos em Paris, onde estudou literatura e se tornou mãe dos gêmeos João e Pedro – o que mudou radicalmente seus padrões de normalidade. Entregou-se ao desenho e descobriu na escrita de ficção uma janela para um mundo muito mais real.</p>
+
+								<div class="block__slider--link">
+									<a href="www.carolinanogueira.com.br" target="_blank">www.carolinanogueira.com.br</a>
+								</div>
+							</div>
+
+							<div class="block__slider--shadow"></div>
+						</div>
+
+						<div class="block__slider--controls">
+							<button type="button" class="btn btn-default btn-left"><i class="fa fa-chevron-left"></i></button>
+							<button type="button" class="btn btn-default btn-right"><i class="fa fa-chevron-right"></i></button>
+						</div>
+					</div>
+
+					<div class="bg-white">
+						<div class="center">
+							<div class="block__post--content">
+								<div class="block__post--title">
+									<h3>sobre o quadrado</h3>
+
+									<div class="block__post--time">
+									</div>
+								</div>
+
+								<div class="block__post--entries">
+									<div class="row padded-x3">
+										<div class="col-4">
+											<p>Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico. Com mais de 2000 anos, suas raízes podem ser encontradas em uma obra de literatura latina clássica datada de 45 AC. Richard McClintock, um professor de latim do Hampden-Sydney College na Virginia, pesquisou uma das mais obscuras palavras em latim, consectetur, oriunda de uma passagem de Lorem Ipsum, e, procurando por entre citações da palavra na literatura clássica, descobriu a sua indubitável origem. Lorem Ipsum vem das seções 1.10.32 e 1.10.33 do "de Finibus Bonorum et Malorum" (Os Extremos do Bem e do Mal), de Cícero, escrito em 45 AC. Este livro é um tratado de teoria da ética muito popular na época da Renascença. A primeira linha de Lorem Ipsum, "Lorem Ipsum dolor sit amet..." vem de uma linha na seção 1.10.32.</p>
+											<p>O trecho padrão original de Lorem Ipsum, usado desde o século XVI, está reproduzido abaixo para os interessados. Seções 1.10.32 e 1.10.33 de "de Finibus Bonorum et Malorum" de Cicero também foram reproduzidas abaixo em sua forma exata original, acompanhada das versões para o inglês da tradução feita por H. Rackham em 1914.</p>
 										</div>
 
-										<a href="#this" class="btn btn-link">&gt; Saiba mais</a>
+										<div class="col-4">
+											<p>Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico. Com mais de 2000 anos, suas raízes podem ser encontradas em uma obra de literatura latina clássica datada de 45 AC. Richard McClintock, um professor de latim do Hampden-Sydney College na Virginia, pesquisou uma das mais obscuras palavras em latim, consectetur, oriunda de uma passagem de Lorem Ipsum, e, procurando por entre citações da palavra na literatura clássica, descobriu a sua indubitável origem. Lorem Ipsum vem das seções 1.10.32 e 1.10.33 do "de Finibus Bonorum et Malorum" (Os Extremos do Bem e do Mal), de Cícero, escrito em 45 AC. Este livro é um tratado de teoria da ética muito popular na época da Renascença. A primeira linha de Lorem Ipsum, "Lorem Ipsum dolor sit amet..." vem de uma linha na seção 1.10.32. O trecho padrão original de Lorem Ipsum, usado desde o século XVI, está reproduzido abaixo para os interessados. Seções 1.10.32 e 1.10.33 de "de Finibus Bonorum et Malorum" de Cicero também foram reproduzidas abaixo em sua forma exata original, acompanhada das versões para o inglês da tradução feita por H. Rackham em 1914.  também foram reproduzidas abaixo em sua forma exata original, acompanhada das versões para o inglês da tradução feita por H. Rackham em 1914.</p>
+										</div>
+
+										<div class="col-4">
+											<p>Ao contrário do que se acredita, Lorem Ipsum não é simplesmente um texto randômico. Com mais de 2000 anos, suas raízes podem ser encontradas em uma obra de literatura latina clássica datada de 45 AC. Richard McClintock, um professor de latim do Hampden-Sydney College na Virginia, pesquisou uma das mais obscuras palavras em latim, consectetur, oriunda de uma passagem de Lorem Ipsum, e, procurando por entre citações da palavra na literatura clássica, descobriu a sua indubitável origem. Lorem Ipsum vem das seções 1.10.32 e 1.10.33 do "de Finibus Bonorum et Malorum" (Os Extremos do Bem e do Mal), de Cícero, escrito em 45 AC. Este livro é um tratado de teoria da ética muito popular na época da Renascença. A primeira linha de Lorem Ipsum, "Lorem Ipsum dolor sit amet..." vem de uma linha na seção 1.10.32.  também foram reproduzidas abaixo em sua forma exata original, acompanhada das versões para o inglês da tradução feita por H. Rackham em 1914.O trecho padrão original de Lorem Ipsum, usado desde o século XVI, está reproduzido abaixo para os interessados. Seções 1.10.32 e 1.10.33 de "de Finibus Bonorum et Malorum" de Cicero também foram reproduzidas abaixo em sua forma exata original, acompanhada das versões para o inglês da tradução feita por H. Rackham em 1914.</p>
+										</div>
 									</div>
 								</div>
 							</div>
-
-							<div class="row">
-								<div class="col-m-12">
-									<div class="course">
-										<span class="tag bgcolor-2">Educação</span>
-
-										<h3><a href="#this">Educação Financeira em Cinco Passos</a></h3>
-										
-										<div class="information">
-											<p><span>com</span> Vários professores</p>
-											<p><span>início:</span> 25 de Janeiro 2015</p>
-											<p><span>Investimento de</span> 2x R$ 250,00</p>
-										</div>
-
-										<a href="#this" class="btn btn-link">&gt; Saiba mais</a>
-									</div>
-								</div>
-							</div>
-
-							<div class="row">
-								<div class="col-m-12 align-center seeAll">
-									<a href="#this" class="btn btn-error btn-seeall">Todos os nossos cursos</a>
-								</div>
-							</div>
 						</div>
-					</aside>
-				</div>
-			</div>
-		</main>
+					</div>
+				</section>
+			</main>
 
 <?php include("inc/footer.php"); ?>

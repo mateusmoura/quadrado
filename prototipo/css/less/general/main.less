@@ -29,7 +29,7 @@ main {
 		}
 	}
 
-	&.internal, &.search, &.contact {
+	&.internal, &.search, &.contact, &.about {
 		.block__post {
 			margin-bottom: 0;
 		}
@@ -60,6 +60,17 @@ main {
 
 		.block__post--content {
 			margin-top: -270px;
+		}
+	}
+
+	&.about {
+		.bg-white {
+			margin-top: -530px;
+			padding-top: 560px;
+		}
+
+		.block__post--content {
+			.box-shadow(none);
 		}
 	}
 

@@ -24,7 +24,7 @@
 									<p>Há muito tempo eu andava atrás da Moça do Buquê, sem saber que ela existia. Sei que flor é uma coisa linda de qualquer forma, mas sabe aquela vontade de presentear alguém com algo especial, fora daquele padrão floricultura que todo mundo conhece? Toda vez em que tive vontade de dar flores pra alguém, senti falta da Moça do Buquê. Sem saber que ela existia.</p>
 									<p>Primeiro, adorei a forma como ela chegou até a gente. O namorado da Moça foi quem mandou uma mensagem, apresentando o trabalho dela e ressaltando, com um orgulho discreto e bonito, a delicadeza de seus buquês.</p>
 									<p>Segundo, adorei o nome: Moça do Buquê. Não tem nome melhor pra ela, tem? E terceiro, a história por trás da Moça, que se chama Bruna Pelegio, tem 28 anos, e nasceu em Santana do Livramento, na fronteira com o Uruguai. Formada em contabilidade e trabalhando como analista de marketing, Bruna viu sua vida mudar há exatamente um ano.</p>
-									<p>Uma amiga pediu para ela fazer o buquê de seu casamento e lá foi Bruna, agarrada no buquê mais importante da sua vida, de Brasília... <a href="#this" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
+									<p>Uma amiga pediu para ela fazer o buquê de seu casamento e lá foi Bruna, agarrada no buquê mais importante da sua vida, de Brasília... <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
 								</div>
 
 								<div class="block__post--share">
@@ -69,7 +69,7 @@
 											</div>
 
 											<div class="block__post--title">
-												<h2>Atenção: Nós vamos sobreviver ao pós-feriado</h2>
+												<h2><a href="post-interna.php">Atenção: Nós vamos sobreviver ao pós-feriado</a></h2>
 											</div>
 
 											<div class="block__post--time">
@@ -77,7 +77,7 @@
 											</div>
 
 											<div class="block__post--entries">
-												<p>Nós, do Quadrado, fazemos um trabalho beneficente Nós, do Quadrado, fazemos um trabalho beneficente. Nós, do Quadrado <a href="#this" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
+												<p>Nós, do Quadrado, fazemos um trabalho beneficente Nós, do Quadrado, fazemos um trabalho beneficente. Nós, do Quadrado <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
 											</div>
 										</div>
 									</div>
@@ -102,7 +102,7 @@
 											</div>
 
 											<div class="block__post--title">
-												<h2>Quinta é quase sexta</h2>
+												<h2><a href="post-interna.php">Quinta é quase sexta</a></h2>
 											</div>
 
 											<div class="block__post--time">
@@ -110,7 +110,7 @@
 											</div>
 
 											<div class="block__post--entries">
-												<p>Em primeiro lugar, permita-me discorrer sobre o conceito que cunhei sobre música-boa. Segundo eu mesma, música-boa é aquela de que você gosta. Ponto. Aquela que você cresceu ouvindo. Ponto. Segundo eu mesma, música-boa é aquela de que você gosta. <a href="#this" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
+												<p>Em primeiro lugar, permita-me discorrer sobre o conceito que cunhei sobre música-boa. Segundo eu mesma, música-boa é aquela de que você gosta. Ponto. Aquela que você cresceu ouvindo. Ponto. Segundo eu mesma, música-boa é aquela de que você gosta. <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
 											</div>
 										</div>
 									</div>
@@ -135,7 +135,7 @@
 											</div>
 
 											<div class="block__post--title">
-												<h2>Faxina na vida</h2>
+												<h2><a href="post-interna.php">Faxina na vida</a></h2>
 											</div>
 
 											<div class="block__post--time">
@@ -143,7 +143,7 @@
 											</div>
 
 											<div class="block__post--entries">
-												<p>O melhor de mudar de casa é que você tem a oportunidade perfeita pra se livrar de tudo o que não presta, não te serve ou simplesmente você não quer mais. O melhor de mudar de casa é que você tem a oportunidade perfeita pra se livrar de tudo o que não presta. <a href="#this" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
+												<p>O melhor de mudar de casa é que você tem a oportunidade perfeita pra se livrar de tudo o que não presta, não te serve ou simplesmente você não quer mais. O melhor de mudar de casa é que você tem a oportunidade perfeita pra se livrar de tudo o que não presta. <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
 											</div>
 										</div>
 									</div>
@@ -242,7 +242,7 @@
 											</div>
 
 											<div class="block__post--title">
-												<h2>Ana Marta, 65</h2>
+												<h2><a href="post-interna.php">Ana Marta, 65</a></h2>
 											</div>
 
 											<div class="block__post--time">
@@ -250,7 +250,7 @@
 											</div>
 
 											<div class="block__post--entries">
-												<p>“ I’d try telling myself to quit being weak, and to snap out of it” “ I’d try telling myself to quit being weak, and to snap out of it”. <a href="#this" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
+												<p>“ I’d try telling myself to quit being weak, and to snap out of it” “ I’d try telling myself to quit being weak, and to snap out of it”. <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
 											</div>
 										</div>
 									</div>

@@ -15,13 +15,13 @@
 
 							<a href="#this">mapa do quadrado</a>
 							<a href="#this">agenda</a>
-							<a href="#this">sobre a gente</a>
-							<a href="#this">contato</a>
+							<a href="quem-somos.php">sobre a gente</a>
+							<a href="contato.php">contato</a>
 						</nav>
 					</div>
 
 					<div class="col-m-4 align-center ">
-						<h2 class="footer__logo central"><a href="#this">Quadrado Brasília</a></h2>
+						<h2 class="footer__logo central"><a href="index.php">Quadrado Brasília</a></h2>
 						<p>todos os direitos reservados</p>
 					</div>
 				</div>

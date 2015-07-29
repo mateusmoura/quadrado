@@ -46,7 +46,7 @@
 					<div class="row">
 						<div class="col-m-12 align-right">
 							<div class="header__search">
-								<a href="#this" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
+								<a href="search-result.php" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
 							</div>
 
 							<div class="header__social">
@@ -58,17 +58,17 @@
 					<div class="row">
 						<div class="col-m-3">
 							<nav>
-								<a href="#this" class="btn btn-link">sobre a gente</a>
+								<a href="quem-somos.php" class="btn btn-link">sobre a gente</a>
 							</nav>
 						</div>
 
 						<div class="col-m-6 align-center">
-							<h1 class="header__logo"><a href="#this"><span>Quadrado Brasilia</span> a cidade é do tamanho que a gente quer</a></h1>
+							<h1 class="header__logo"><a href="index.php"><span>Quadrado Brasilia</span> a cidade é do tamanho que a gente quer</a></h1>
 						</div>
 
 						<div class="col-m-3 align-right">
 							<nav>
-								<a href="#this" class="btn btn-link">contato</a>
+								<a href="contato.php" class="btn btn-link">contato</a>
 							</nav>
 						</div>
 					</div>
