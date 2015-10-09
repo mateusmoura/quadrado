@@ -164,13 +164,17 @@
 
 													<div class="block__calendar--title">
 														<a href="#this">Feira livre</a>
-														<span>@ Eixão norte, 15h</span>
+														<a href="#this"><span>@ Eixão norte, 15h</span></a>
 													</div>
 
 													<div class="block__calendar--date">
-														<span>domingo</span>
-														<p>24 <br /> <strong>maio</strong></p>
+														<a href="#this">
+															<span>domingo</span>
+															<p>24 <br /> <strong>maio</strong></p>
+														</a>
 													</div>
+
+													<div class="block__calendar--overlay"></div>
 												</div>
 											</div>
 
@@ -182,13 +186,17 @@
 
 													<div class="block__calendar--title">
 														<a href="#this">Picnik</a>
-														<span>@ Praça dos cristais, 15h</span>
+														<a href="#this"><span>@ Praça dos cristais, 15h</span></a>
 													</div>
 
 													<div class="block__calendar--date">
-														<span>segunda</span>
-														<p>25 <br /> <strong>maio</strong></p>
+														<a href="#this">
+															<span>segunda</span>
+															<p>25 <br /> <strong>maio</strong></p>
+														</a>
 													</div>
+
+													<div class="block__calendar--overlay"></div>
 												</div>
 											</div>
 
@@ -200,13 +208,17 @@
 
 													<div class="block__calendar--title">
 														<a href="#this">Santuário apresenta...</a>
-														<span>@ SQN 214, 15h</span>
+														<a href="#this"><span>@ SQN 214, 15h</span></a>
 													</div>
 
 													<div class="block__calendar--date">
-														<span>sexta</span>
-														<p>30 <br /> <strong>maio</strong></p>
+														<a href="#this">
+															<span>sexta</span>
+															<p>30 <br /> <strong>maio</strong></p>
+														</a>
 													</div>
+
+													<div class="block__calendar--overlay"></div>
 												</div>
 											</div>
 										</div>

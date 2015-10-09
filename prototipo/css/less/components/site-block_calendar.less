@@ -12,6 +12,12 @@ ________________________________________________________________________________
 .block__calendar {
 	position: relative;
 
+	&:hover {
+		.block__calendar--overlay {
+			display: block;
+		}
+	}
+
 	&--image {
 		width: 100%;
 
@@ -24,10 +30,12 @@ ________________________________________________________________________________
 		.transform(translateY(-50%));
 		position: absolute;
 		top: 50%;
+		z-index: 3;
 	}
 
 	&--title {
 		left: 6%;
+		max-width: 220px;
 
 		a, span {
 			color: @cor-branco;
@@ -77,5 +85,20 @@ ________________________________________________________________________________
 				padding-top: 5px;
 			}
 		}
+
+		a {
+			color: @text-color;
+		}
+	}
+
+	&--overlay {
+		background: url('@{bkg}/overlay.png');
+		display: none;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 2;
 	}
 }
