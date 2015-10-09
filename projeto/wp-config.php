@@ -16,19 +16,19 @@
 
 // ** Configurações do MySQL - Você pode pegar essas informações com o serviço de hospedagem ** //
 /** O nome do banco de dados do WordPress */
-define('DB_NAME', 'quadrado');
+define('DB_NAME', 'webfacetecnolo19');
 
 /** Usuário do banco de dados MySQL */
-define('DB_USER', 'root');
+define('DB_USER', 'webfacetecnolo19');
 
 /** Senha do banco de dados MySQL */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', 'face486125');
 
 /** nome do host do MySQL */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'mysql16.webfacetecnologia.com.br');
 
 /** Conjunto de caracteres do banco de dados a ser usado na criação das tabelas. */
-define('DB_CHARSET', 'utf8mb4');
+define('DB_CHARSET', 'utf8');
 
 /** O tipo de collate do banco de dados. Não altere isso se tiver dúvidas. */
 define('DB_COLLATE', '');
