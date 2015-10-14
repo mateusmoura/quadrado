@@ -77,4 +77,46 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="header__menu--second">
+					<div class="center">
+						<div class="col-m-2">
+							<a href="index.php" class="header__menu--logo"><span>Quadrado Brasilia</span></a>
+						</div>
+
+						<div class="col-m-7">
+							<nav class="header__menu--links">
+								<div class="dropdown">
+									<a href="#this">todos os posts <i class="fa fa-angle-down"></i></a>
+
+									<ul>
+										<li><a href="#">Link 1</a></li>
+										<li><a href="#">Link 2</a></li>
+										<li><a href="#">Link 3</a></li>
+										<li><a href="#">Link 4</a></li>
+									</ul>
+								</div>
+
+								<a href="#this">mapa do quadrado</a>
+								<a href="#this">agenda</a>
+								<a href="quem-somos.php">sobre a gente</a>
+								<a href="contato.php">contato</a>
+							</nav>
+						</div>
+
+						<div class="col-m-3 align-right">
+							<div class="header__search">
+								<a href="search-result.php" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
+
+								<form action="search-result.php" name="search" class="form-search">
+									<input type="text" name="search" id="form-search" class="form-style" placeholder="O que deseja buscar?">
+								</form>
+							</div>
+
+							<div class="header__social">
+								<a href="#this" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</header>

@@ -10,5 +10,85 @@
 ________________________________________________________________ */
 
 .header__menu{
-	
+	&--second {
+		background-color: fade(@cinza-dark, 90);
+		display: none;
+		position: fixed;
+		top: 0;
+		width: 100%;
+		z-index: 5;
+
+		nav {
+			padding-top: 0;
+		}
+
+		.header__search, .header__social {
+			margin-bottom: 0;
+		}
+
+		.header__search {
+
+			&:hover, &:focus, &:active {
+				form {
+					width: 160px !important;
+				}
+			}
+		}
+	}
+
+	&--logo {
+		.text-hide();
+		background: url('../img/lgo/logo-branca.png') no-repeat 0 0;
+		.background-size(100%);
+		display: block;
+		height: 27px;
+		margin-top: 13px;
+		width: 162px;
+
+		&:hover, &:focus, &:active {
+			.text-hide();
+		}
+	}
+
+	&--links {
+		a {
+			color: @cor-branco;
+			display: inline-block;
+			font-family: @font-family-sans-serif-2;
+			font-size: 18px;
+			font-weight: 400;
+			padding: 15px 3% 0;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		.dropdown {
+			width: 150px;
+
+			&:hover{
+				background-color: @cinza-dark;
+
+				a {
+					color: @cor-branco;
+				}
+			}
+
+			ul {
+				background-color: @cinza-dark;
+				padding-top: 10px;
+
+				li {
+					border-top: solid 1px #797879;
+
+					a {
+						padding: 10px 0 10px 20px;
+					}
+				}
+			}
+		}
+	}
+
+
 }
