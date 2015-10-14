@@ -60,7 +60,7 @@
 								</div>
 
 								<div class="block__adsence--post">
-									<div class="row unicelular align-center">
+									<div class="row unicelular align-center center">
 										<div class="col-m-4">
 											<img src="img/fke/adsence-post.png">
 										</div>

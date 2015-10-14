@@ -17,7 +17,7 @@
 
 					<div class="block__slider full">
 						<div class="block__slider--item left">
-							<div class="block__slider--item-entries">
+							<div class="block__slider--item-entries center">
 								<h2>Dani Cronemberger</h2>
 
 								<img src="img/fke/post-image-6.png" alt="Dani Cronemberger">
@@ -33,7 +33,7 @@
 						</div>
 
 						<div class="block__slider--item active">
-							<div class="block__slider--item-entries">
+							<div class="block__slider--item-entries center">
 								<h2>sobre a gente</h2>
 
 								<img src="img/fke/post-image-5.png" alt="sobre a gente">
@@ -47,7 +47,7 @@
 						</div>
 
 						<div class="block__slider--item right">
-							<div class="block__slider--item-entries">
+							<div class="block__slider--item-entries center">
 								<h2>Carol Nogueira</h2>
 
 								<img src="img/fke/post-image-7.png" alt="sobre a gente">
