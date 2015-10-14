@@ -1,0 +1,18 @@
+/**
+* Arquivo responsavel pelo estilo do Bloco de Publicidade
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+/* Bloco de Publicicdade
+____________________________________________________________________________________ */
+.block__adsence--full {
+  margin-bottom: 46px;
+}
+.block__adsence--medium {
+  height: 100%;
+}
+.block__adsence--medium img {
+  height: 100%;
+}

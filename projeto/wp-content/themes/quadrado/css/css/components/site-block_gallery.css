@@ -1,0 +1,15 @@
+/**
+* Arquivo responsavel pelo estilo do Bloco da Galeria
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+/* Bloco da Galeria
+____________________________________________________________________________________ */
+.block__gallery {
+  position: relative;
+}
+.block__gallery [class*="col-"] {
+  vertical-align: top;
+}
