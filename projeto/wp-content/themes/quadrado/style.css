@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+/*
+Theme Name: Quadrado Brasília
+Theme URI: 
+Description: Tema desenvolvido por Mateus Moura baseado no template Black and White
+Author: Mateus Moura | chagas.mateus@gmail.com
+Author URI: https://br.linkedin.com/in/mateusmouraprofile
+Version: 1.0
+License: GNU General Public License
+License URI: license.txt
+Tags: 
+*/
+
+/* -------------|
+/* - FONTES
+/* ----- */
+
+
+
+/* -------------|
+/* - CABECALHO
+/* ----- */
+
+header {
+	
+}
+
+/* -------------|
+/* - CONTEUDO
+/* ----- */
+
+/* Se apresentar algum problema com a TAG MAIN deve substituir ela por uma div com ID main e colocar o atributo rule="main" */
+
+main {
+
+}
+
+/* -------------|
+/* - BARRA LATERAL
+/* ----- */
+
+aside {
+
+}
+
+/* -------------|
+/* - RODAPE
+/* ----- */
+
+footer {
+
+}
+
+
+/* Set fonts */
+
+
+
+/* Colors */
+
+{
+	color: #fff;
+}
+
+/* Float */
+
+{
+	float: left;
+}
+{
+	float: right;
+}
+
+/* Font Size */
+

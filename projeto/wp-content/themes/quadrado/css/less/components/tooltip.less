@@ -1,0 +1,43 @@
+/**
+* Arquivo responsavel pelo estilo dos TOOLTIP dos USUARIOS do projeto
+*
+* @version: 1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* INHERIT
+	>> Tooltip
+________________________________________________________________ */
+
+.btn-tooltip{
+	position: relative;
+}
+
+.tooltip{
+	background:  url("../img/ico/setas-tooltip.png") no-repeat bottom center;
+	bottom: 100%;
+	display: none;
+	position: absolute;
+	left: 50%;
+	vertical-align: top;
+	text-align: center;
+	z-index: 99;
+
+	p{
+		.border_radius(5px);
+		background-color: #062640;
+		color: #fff !important;
+		font-size: 14px !important;
+		line-height: 1;
+		margin: 0 !important;
+		padding: 15px 10px;
+		white-space: nowrap;
+	}
+
+	.icon{
+		line-height: 1;
+		position: relative;
+		top: -4px;
+	}
+}

@@ -1,0 +1,64 @@
+/**
+* Arquivo responsavel pelo estilo dos POP-UP do projeto
+*
+* @version: 1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* INHERIT
+	>> Pop-up
+________________________________________________________________ */
+
+.popup{
+	.transition(top, 0.3s, ease-in-out, 0.0s);
+	background-color: #33586a;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	.border_radius(5px);
+	box-shadow: 0 2px 5px #33586a;
+	display: none;
+	// max-width: 250px;
+	padding: 20px;
+	position: absolute;
+	// right: 0;
+	// top: 0;
+	z-index: 900;
+
+	&:before{
+		background-color: #33586a;
+		background-image: none;
+		box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+		box-sizing: border-box;
+		content: "";
+		height: 35px;
+		position: absolute;
+		-webkit-transform: rotate(45deg);
+		-moz-transform: rotate(45deg);
+		-ms-transform: rotate(45deg);
+		transform: rotate(45deg);
+		width: 35px;
+		z-index: 2;
+		bottom: -18px;
+	}
+
+	&.centro{
+		&:before{
+			left: 50%;
+			margin-left: -17px;
+		}
+	}
+
+	&.direita{
+		&:before{
+			right: 10%;
+			margin-left: 0;
+		}
+	}
+
+	 &.esquerda{
+		&:before{
+			left: 10%;
+			margin-left: 0;
+		}
+	}
+}

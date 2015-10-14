@@ -1,0 +1,62 @@
+/**
+* Arquivo responsavel pelo estilo dos BOTÕES do projeto
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados a
+*/
+
+/* MIXIS
+	Para as cores dos BOTÔES e do :hover, :active, :focus
+________________________________________________________________ */
+
+.variacao-botoes( @cor, @background, @borda, @cor-hover: none, @text-color: none ){
+	background-color: @background;
+
+	& when not( @borda = none ){
+		border-color: @borda;
+	}
+
+	color: @cor;
+
+	&:hover, &:focus, &.focus, &:active, &.active {
+		color: @cor;
+		& when not (@text-color = none) {
+			color: @text-color;
+		}
+
+		background-color: darken(@background, 10%);
+		& when not( @cor-hover = none ){
+			background-color: @cor-hover;
+		}
+
+		& when not( @borda = none ){
+			border-color: darken(@borda, 12%);
+		}
+		
+	}
+
+	&:active, &.active{
+		background-image: none;
+	}
+	&.disabled, &[disabled]{
+		&, &:hover, &:focus, &.focus, &:active, &.active{
+			background-color: @background;
+			border-color: @borda;
+		}
+	}
+}
+
+/* MIXIS
+	Para definir o tamanho dos botões
+________________________________________________________________ */
+
+.tamanho-botoes( @padding-vertical, @padding-horizontal, @font-size, @line-height, @border-radius ) {
+	& when (@allowed-border-radius) {
+		.border-radius( @border-radius );
+	}
+	
+	font-size: @font-size - 2;
+	line-height: @line-height;
+	padding: @padding-vertical @padding-horizontal;
+}

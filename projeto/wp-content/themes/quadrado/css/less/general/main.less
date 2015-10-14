@@ -1,0 +1,81 @@
+/**
+* Arquivo responsavel pelo estilo do MAIN do projeto
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* MAIN
+________________________________________________________________ */
+
+main {
+	padding-bottom: 410px;
+	position: relative;
+	z-index: 2;
+
+	&.home {
+		.block__post {
+			position: relative;
+			z-index: 4;
+		}
+
+		.bg-white {
+			background-color: @cor-branco;
+			position: relative;
+			padding-top: 130px;
+			margin-top: -130px;
+			z-index: 3;
+		}
+	}
+
+	&.internal, &.search, &.contact, &.about {
+		.block__post {
+			margin-bottom: 0;
+		}
+
+		.bg-white {
+			padding-bottom: 36px;
+		}
+	}
+
+	&.search {
+		.bg-white {
+			margin-top: 330px;
+			padding-top: 0;
+
+			.row {
+				&:first-child {
+					margin-top: -270px;
+				}
+			}
+		}
+	}
+
+	&.contact {
+		.bg-white {
+			margin-top: 280px;
+			padding-top: 0;
+		}
+
+		.block__post--content {
+			margin-top: -270px;
+		}
+	}
+
+	&.about {
+		.bg-white {
+			margin-top: -530px;
+			padding-top: 560px;
+		}
+
+		.block__post--content {
+			.box-shadow(none);
+		}
+	}
+
+	.btn-link {
+		font-family: @font-family-sans-serif-2;
+		font-size: 18px;
+	}
+}

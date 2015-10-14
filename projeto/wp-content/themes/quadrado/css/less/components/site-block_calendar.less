@@ -1,0 +1,104 @@
+/**
+* Arquivo responsavel pelo estilo do Bloco de Calendário
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* Bloco de Calendário
+____________________________________________________________________________________ */
+
+.block__calendar {
+	position: relative;
+
+	&:hover {
+		.block__calendar--overlay {
+			display: block;
+		}
+	}
+
+	&--image {
+		width: 100%;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	&--title, &--date {
+		.transform(translateY(-50%));
+		position: absolute;
+		top: 50%;
+		z-index: 3;
+	}
+
+	&--title {
+		left: 6%;
+		max-width: 220px;
+
+		a, span {
+			color: @cor-branco;
+			font-family: @font-family-sans-serif-2;
+			font-weight: 400;
+		}
+
+		a {
+			font-size: 30px;
+			line-height: 17px;
+		}
+
+		span {
+			display: block;
+			font-size: 20px;
+			line-height: 25px;
+		}
+	}
+
+	&--date {
+		background-color: @cor-branco;
+		padding: 4px 26px 12px;
+		right: 6%;
+		text-align: center;
+
+		span, p {
+			font-family: @font-family-sans-serif-2;
+		}
+
+		span {
+			display: inline-block;
+			font-size: 14px;
+			font-weight: 400;
+			line-height: 25px;
+			margin-bottom: 8px;
+		}
+
+		p {
+			font-size: 28px;
+			font-weight: 400;
+			line-height: 25px;
+			margin-bottom: 0;
+
+			strong {
+				display: inline-block;
+				line-height: 31px;
+				padding-top: 5px;
+			}
+		}
+
+		a {
+			color: @text-color;
+		}
+	}
+
+	&--overlay {
+		background: url('@{bkg}/overlay.png');
+		display: none;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 2;
+	}
+}

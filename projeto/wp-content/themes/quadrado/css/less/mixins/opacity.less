@@ -1,0 +1,17 @@
+/**
+* Arquivo responsavel pela opacidade dos elementos no projeto
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados a 
+*/
+
+/* OPACITY
+________________________________________________________________ */
+
+.opacity(@opacity) {
+	opacity: @opacity;
+	// IE8 filter
+	@opacity-ie: (@opacity * 100);
+	filter: ~"alpha(opacity=@{opacity-ie})";
+}

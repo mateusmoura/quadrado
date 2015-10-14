@@ -1,0 +1,120 @@
+/**
+* Arquivo responsavel pelo estilo da HEADER do projeto
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* HEADER
+________________________________________________________________ */
+
+header {
+	margin-bottom: 240px;
+	position: relative;
+
+	.center {
+		position: relative;
+		z-index: 2;
+	}
+
+	.header {
+		&__image--post {
+			height: 100vh;
+			left: 0;
+			position: fixed;
+			top: 0;
+			max-width: 100%;
+			width: 100%;
+			z-index: 1;
+
+			img {
+				width: 100%;
+			}
+		}
+
+		&__social {
+			float: right;
+			margin: 0 2px 15px 0;
+
+			.btn-facebook {
+				font-size: 23px;
+				line-height: 23px;
+				padding: 13px 20px;
+			}
+		}
+
+		&__search {
+			float: right;
+			margin: 0 0 15px 0;
+
+			.btn-search {
+				float: right;
+				font-size: 23px;
+				line-height: 23px;
+				padding: 13px 20px;
+
+				&:hover, &:focus, &:active {
+					& ~ form {
+						.transition(all 0.5s easi-in-out 0s);
+						.opacity(1);
+						visibility: visible;
+						padding: 5px;
+						width: 250px;
+					}
+				}
+			}
+
+			form {
+				.transition(all 0.5s ease-in-out 0s);
+				.opacity(0.0);
+				background-color: @cinza-dark;
+				float: right;
+				visibility: hidden;
+				width: 0;
+
+				&:hover, &:focus, &:active {
+					.transition(all 0.5s easi-in-out 0s);
+					.opacity(1);
+					visibility: visible;
+					padding: 5px;
+					width: 250px;
+				}
+			}
+		}
+
+		&__logo {
+			font-family: @font-family-cursive;
+			font-size: 36px;
+			font-weight: 400;
+			text-align: center;
+			margin: 0;
+
+			a {
+				&:hover {
+					color: @text-color;
+				}
+			}
+
+			span {
+				.text-hide;
+				background: url('@{lgo}/logo.png') no-repeat 0 0;
+				display: block;
+				height: 87px;
+				margin: 0 auto;
+				width: 542px;
+			}
+		}
+	}
+
+	.btn-link {
+		font-family: @font-family-sans-serif-2;
+		font-size: 18px;
+		font-weight: 400;
+		padding: 0;
+	}
+
+	nav {
+		padding-top: 44px;
+	}
+}

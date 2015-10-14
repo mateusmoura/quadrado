@@ -1,0 +1,174 @@
+/**
+* Arquivo responsavel pelo estilo dos GRIDs do projeto
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* Sistema de GRIDS
+____________________________________________________________________________________ */
+
+// Conteúdo com largura Fixa
+//
+// Define a largura para o conteúdo geral do site e pode ser alterado com a media queries.
+
+.content {
+	.conteudo-fixo();
+
+	@media (min-width: @resolucao-p-min) {
+		width: @conteudo-tablet;
+	}
+	@media (min-width: @resolucao-m-min) {
+		width: @conteudo-desktop;
+	}
+	@media (min-width: @resolucao-g-min) {
+		width: @conteudo-desktop-grande;
+	}
+}
+
+// Conteúdo Fluido
+.content-fluid {
+  .conteudo-fixo;
+}
+
+// Linhas
+.row{
+	.criar-linha(@grid-separacao);
+}
+
+// Colunas CELULAR, TABLET, DESKTOP
+.criar-grid-colunas(@grid-colunas);
+
+// .col-12, .col-11, .col-10, .col-9, .col-8, .col-7, .col-6, .col-5, .col-4, .col-3, .col-2, .col-1{
+// 	border: solid 1px red;
+// 	background-color: gray;
+// }
+
+.unicelular{
+	display: table;
+
+	.row{
+		display: table;
+	}
+
+	[class*="col-"], [class*="col-p-"], [class*="col-m-"], [class*="col-g-"]{
+		display: table-cell;
+		float: none;
+	}
+
+	.central{
+		display: block;
+		float: none;
+	}
+}
+
+.nocelular{
+	display: block;
+
+	&.borda{
+		border-top: solid 1px #e0e0e0 !important;
+		border-bottom: 0;
+	}
+
+	.row{
+		display: block;
+		margin-right: 0;
+		margin-left: 0;
+	}
+
+	[class*="col-"], [class*="col-p-"], [class*="col-m-"], [class*="col-g-"]{
+		display: block;
+		float: left;
+	}
+}
+
+.mobi-nocelular{
+	@media (max-width: @resolucao-max) {
+		border: solid 4px red;
+		.nocelular;
+	}
+}
+
+.padded{
+	.row{
+		.criar-linha(@grid-separacao);
+	}
+
+	[class*="col-"], [class*="col-p-"], [class*="col-m-"], [class*="col-g-"]{
+		padding-left:  (@grid-separacao / 2);
+		padding-right: (@grid-separacao / 2);
+	}
+	
+	&-x2{
+		&.row{
+			.criar-linha(@grid-separacao-2);
+		}
+
+		[class*="col-"], [class*="col-p-"], [class*="col-m-"], [class*="col-g-"]{
+			padding-left:  (@grid-separacao-2 / 2);
+			padding-right: (@grid-separacao-2 / 2);
+		}
+	}
+	&-x3{
+		&.row{
+			.criar-linha(@grid-separacao-3);
+		}
+
+		[class*="col-"], [class*="col-p-"], [class*="col-m-"], [class*="col-g-"]{
+			padding-left:  (@grid-separacao-3 / 2);
+			padding-right: (@grid-separacao-3 / 2);
+		}
+	}
+	&-x4{
+		&.row{
+			.criar-linha(@grid-separacao-4);
+		}
+
+		[class*="col-"], [class*="col-p-"], [class*="col-m-"], [class*="col-g-"]{
+			padding-left:  (@grid-separacao-4 / 2);
+			padding-right: (@grid-separacao-4 / 2);
+		}
+	}
+}
+
+.no-padded {
+	[class*="col-"], [class*="col-p-"], [class*="col-m-"], [class*="col-g-"]{
+		padding: 0;
+	}
+}
+
+.margin{
+	&-x2{
+		&.row{
+			margin-bottom: 35px;
+		}
+	}
+}
+
+.central{
+	float: none !important;
+	margin: 0 auto;
+}
+
+.align-right {
+	text-align: right;
+}
+
+.align-left {
+	text-align: left;
+}
+
+.align-center {
+	text-align: center;
+}
+
+.vertical-top{
+	vertical-align: top;
+}
+.vertical-bottom{
+	vertical-align: bottom;
+}
+.vertical-middle{
+	vertical-align: middle;
+}
