@@ -47,6 +47,10 @@
 						<div class="col-m-12 align-right">
 							<div class="header__search">
 								<a href="search-result.php" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
+
+								<form action="search-result.php" name="search" class="form-search">
+									<input type="text" name="search" id="form-search" class="form-style" placeholder="O que deseja buscar?">
+								</form>
 							</div>
 
 							<div class="header__social">
