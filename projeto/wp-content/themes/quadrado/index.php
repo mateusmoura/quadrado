@@ -1,157 +1,311 @@
 <?php get_header(); ?>
-	
-	<?php if (have_posts()) : while (have_posts()) : the_post();
-		$viewID = get_the_ID();
-		$resumo = get_post_meta($viewID, "Resumo");
-	 ?>
-	<main role="main" class="home">
-		<div class="block__title">
-			<div class="center">
-				<div class="row">
-					<div class="col-m-12 block__title--image">
-						
+
+			<main role="main" class="home">
+				<section class="block__post">
+					<?php 
+						$args = array(
+						'numberposts'			=> 1,
+						'offset'				=> 0,
+						'category'				=> '',
+						'category_name'			=> '',
+						'orderby'				=> 'post_date',
+						'order'					=> 'DESC',
+						'include'				=> '',
+						'exclude'				=> '',
+						'meta_key'				=> '',
+						'meta_value'			=> '',
+						'post_type'				=> array('artes', 'eu-acho', 'feiras', 'mesas', 'passeios', 'pessoas', 'pistas', 'sacolas'),
+						'post_mime_type'		=> '',
+						'post_parent'			=> '',
+						'post_status'			=> 'publish',
+						'suppress_filters'		=> true );
+
+						$recent_posts = get_posts( $args );
+
+						foreach ( $recent_posts as $post ) : setup_postdata( $post );
+							$postID 		= get_the_ID();
+							$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+
+							var_dump($post);
+					?>
+					<div class="center">
+						<div class="row">
+							<div class="block__post--title">
+								<h1><?php the_title(); ?></h1>
+
+								<a href="<?php the_permalink(); ?>" class="btn btn-link btn-seemore">Ler post completo <i class="fa fa-arrow-right"></i></a>
+
+								<div class="block__post--time">
+									<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+								</div>
+							</div>
+
+							<div class="block__post--content">
+								<div class="block__post--category">
+									<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+								</div>
+
+								<div class="block__post--entries">
+									<?php the_excerpt(); ?>
+								</div>
+
+								<div class="block__post--share">
+									<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+									<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+								</div>
+							</div>
+						</div>
 					</div>
 
-					<div class="col-m-12">
-						<h1><?php the_title(); ?></h1>
-						<p><?php echo $viewID; ?></p>
-						<p><?php echo $resumo[0]; ?></p>
+					<?php endforeach; wp_reset_postdata(); ?>
+				</section>
+
+				<div class="bg-white">
+					<div class="center">
+						<div class="block__adsence--full">
+							<div class="align-center">
+								<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-full.png" alt="Publicidade Full">
+							</div>
+						</div>
+					</div>
+
+					<div class="center">
+						<div class="block__highlights">
+							<div class="row">
+								<div class="col-m-4">
+									<!-- <div class="block__adsence--medium">
+										<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-medium.png" alt="Publicidade Media">
+									</div> -->
+
+									<div class="block__post--highlights">
+										<div class="block__post--image-auto">
+											<img src="<?php bloginfo('template_url'); ?>/img/fke/post-image-4.png" alt="Atenção: Nós vamos sobreviver ao pós-feriado">
+										</div>
+
+										<div class="block__post--category">
+											<a href="#this" class="btn btn-default">comes</a>
+										</div>
+
+										<div class="block__post--content">
+											<div class="block__post--share">
+												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+												<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+											</div>
+
+											<div class="block__post--title">
+												<h2><a href="post-interna.php">Atenção: Nós vamos sobreviver ao pós-feriado</a></h2>
+											</div>
+
+											<div class="block__post--time">
+												<p>Em 5 de maio de 2015 por <a href="#this" class="btn btn-link"><strong>carolnogueira76</strong></a></p>
+											</div>
+
+											<div class="block__post--entries">
+												<p>Nós, do Quadrado, fazemos um trabalho beneficente Nós, do Quadrado, fazemos um trabalho beneficente. Nós, do Quadrado <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+
+								<div class="col-m-8">
+									<div class="block__post--highlights">
+										<div class="block__post--image">
+											<img src="<?php bloginfo('template_url'); ?>/img/fke/post-image-1.png" alt="Quinta é quase sexta">
+										</div>
+
+										<div class="block__post--category">
+											<a href="#this" class="btn btn-default">bebes</a>
+										</div>
+
+										<div class="block__post--content">
+											<div class="block__post--share">
+												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+												<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+											</div>
+
+											<div class="block__post--title">
+												<h2><a href="post-interna.php">Quinta é quase sexta</a></h2>
+											</div>
+
+											<div class="block__post--time">
+												<p>Em 5 de maio de 2015 por <a href="#this" class="btn btn-link"><strong>danicronemberger</strong></a></p>
+											</div>
+
+											<div class="block__post--entries">
+												<p>Em primeiro lugar, permita-me discorrer sobre o conceito que cunhei sobre música-boa. Segundo eu mesma, música-boa é aquela de que você gosta. Ponto. Aquela que você cresceu ouvindo. Ponto. Segundo eu mesma, música-boa é aquela de que você gosta. <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-m-4">
+									<div class="block__post--highlights">
+										<div class="block__post--image">
+											<img src="<?php bloginfo('template_url'); ?>/img/fke/post-image-2.png" alt="Faxina na vida">
+										</div>
+
+										<div class="block__post--category">
+											<a href="#this" class="btn btn-default">compras</a>
+										</div>
+
+										<div class="block__post--content">
+											<div class="block__post--share">
+												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+												<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+											</div>
+
+											<div class="block__post--title">
+												<h2><a href="post-interna.php">Faxina na vida</a></h2>
+											</div>
+
+											<div class="block__post--time">
+												<p>Em 5 de maio de 2015 por <a href="#this" class="btn btn-link"><strong>carolnogueira76</strong></a></p>
+											</div>
+
+											<div class="block__post--entries">
+												<p>O melhor de mudar de casa é que você tem a oportunidade perfeita pra se livrar de tudo o que não presta, não te serve ou simplesmente você não quer mais. O melhor de mudar de casa é que você tem a oportunidade perfeita pra se livrar de tudo o que não presta. <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-m-4">
+									<div class="block__post--highlights">
+										<div class="block__post--category">
+											<a href="#this" class="btn btn-default">agenda</a>
+										</div>
+
+										<div class="row block__post--highlights-calendar">
+											<div class="col-m-12">
+												<div class="block__calendar">
+													<div class="block__calendar--image">
+														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-1.png" alt="Feira livre">
+													</div>
+
+													<div class="block__calendar--title">
+														<a href="#this">Feira livre</a>
+														<a href="#this"><span>@ Eixão norte, 15h</span></a>
+													</div>
+
+													<div class="block__calendar--date">
+														<a href="#this">
+															<span>domingo</span>
+															<p>24 <br /> <strong>maio</strong></p>
+														</a>
+													</div>
+
+													<div class="block__calendar--overlay"></div>
+												</div>
+											</div>
+
+											<div class="col-m-12">
+												<div class="block__calendar">
+													<div class="block__calendar--image">
+														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-2.png" alt="Picnik">
+													</div>
+
+													<div class="block__calendar--title">
+														<a href="#this">Picnik</a>
+														<a href="#this"><span>@ Praça dos cristais, 15h</span></a>
+													</div>
+
+													<div class="block__calendar--date">
+														<a href="#this">
+															<span>segunda</span>
+															<p>25 <br /> <strong>maio</strong></p>
+														</a>
+													</div>
+
+													<div class="block__calendar--overlay"></div>
+												</div>
+											</div>
+
+											<div class="col-m-12">
+												<div class="block__calendar">
+													<div class="block__calendar--image">
+														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-3.png" alt="Feira livre">
+													</div>
+
+													<div class="block__calendar--title">
+														<a href="#this">Santuário apresenta...</a>
+														<a href="#this"><span>@ SQN 214, 15h</span></a>
+													</div>
+
+													<div class="block__calendar--date">
+														<a href="#this">
+															<span>sexta</span>
+															<p>30 <br /> <strong>maio</strong></p>
+														</a>
+													</div>
+
+													<div class="block__calendar--overlay"></div>
+												</div>
+											</div>
+										</div>
+
+										<div class="block__actions">
+											<div class="row">
+												<div class="col-m-5">
+													<a href="#this" class="btn btn-full btn-white">sugerir evento</a>
+												</div>
+
+												<div class="col-m-7">
+													<a href="#this" class="btn btn-full btn-default">ver toda a agenda</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-m-4">
+									<div class="block__post--highlights">
+										<div class="block__post--image">
+											<img src="<?php bloginfo('template_url'); ?>/img/fke/post-image-3.png" alt="Ana Marta, 65">
+										</div>
+
+										<div class="block__post--category">
+											<a href="#this" class="btn btn-default">3x4</a>
+										</div>
+
+										<div class="block__post--content">
+											<div class="block__post--share">
+												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+												<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+											</div>
+
+											<div class="block__post--title">
+												<h2><a href="post-interna.php">Ana Marta, 65</a></h2>
+											</div>
+
+											<div class="block__post--time">
+												<p>Em 5 de maio de 2015 por <a href="#this" class="btn btn-link"><strong>carolnogueira76</strong></a></p>
+											</div>
+
+											<div class="block__post--entries">
+												<p>“ I’d try telling myself to quit being weak, and to snap out of it” “ I’d try telling myself to quit being weak, and to snap out of it”. <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="block__map">
+						<div class="center">
+							<div class="block__post--category">
+								<a href="#this" class="btn btn-default">onde</a>
+							</div>
+						</div>
+
+						<div id="google__map">
+							<img src="<?php bloginfo('template_url'); ?>/img/fke/mapa.png" alt="Google Maps - ONDE">
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
-
-		<section class="block__courses">
-			<div class="bg"></div>
-			<div class="center">
-				<h2>Nossos cursos</h2>
-
-				<div class="courses__list row">
-					<div class="col-m-3">
-						<div class="course">
-							<span class="tag bgcolor-1">Arte</span>
-
-							<h3><a href="#this">Conservação e Restauro de Obras de Arte</a></h3>
-							
-							<div class="information">
-								<p><span>com</span> Valéria de Mendonça</p>
-								<p><span>início:</span> 06 de Janeiro 2015</p>
-								<p><span>Investimento de</span> 3x R$ 450,00</p>
-							</div>
-
-							<a href="#this" class="btn btn-error">Saiba mais</a>
-						</div>
-					</div>
-
-					<div class="col-m-3">
-						<div class="course">
-							<span class="tag bgcolor-2">Educação</span>
-
-							<h3><a href="#this">Educação Financeira em Cinco Passos</a></h3>
-							
-							<div class="information">
-								<p><span>com</span> Vários professores</p>
-								<p><span>início:</span> 25 de Janeiro 2015</p>
-								<p><span>Investimento de</span> 2x R$ 250,00</p>
-							</div>
-
-							<a href="#this" class="btn btn-error">Saiba mais</a>
-						</div>
-					</div>
-
-					<div class="col-m-3">
-						<div class="course">
-							<span class="tag bgcolor-3">filosofia</span>
-
-							<h3><a href="#this">A Contra-História da Filosofia</a></h3>
-							
-							<div class="information">
-								<p><span>com</span> Valéria de Mendonça</p>
-								<p><span>início:</span> 06 de Janeiro 2015</p>
-								<p><span>Investimento de</span> 3x R$ 450,00</p>
-							</div>
-
-							<a href="#this" class="btn btn-error">Saiba mais</a>
-						</div>
-					</div>
-
-					<div class="col-m-3">
-						<div class="course">
-							<span class="tag bgcolor-4">gestão e negócios</span>
-
-							<h3><a href="#this">A Era da Responsabilidade</a></h3>
-							
-							<div class="information">
-								<p><span>com</span> Alejandro Pinedo</p>
-								<p><span>início:</span> 25 de Janeiro 2015</p>
-								<p><span>Investimento de</span> 2x R$ 250,00</p>
-							</div>
-
-							<a href="#this" class="btn btn-error">Saiba mais</a>
-						</div>
-					</div>
-				</div>
-
-				<a href="#this" class="btn-link btn-courses">&gt; Conheça os nossos cursos</a>
-			</div>
-		</section>
-
-		<section class="block__blog">
-			<div class="bg"></div>
-
-			<div class="center">
-				<h2>Blog</h2>
-
-				<div class="posts__list row">
-					<div class="col-m-4">
-						<div class="post">
-							<h3><a href="#this">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in.</a></h3>
-
-							<div class="information">
-								<time datetime="2015-02-26">26/02/2015</time>
-								<p>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum... <a href="#this">Continue lendo</a></p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-m-4">
-						<div class="post">
-							<h3><a href="#this">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in.</a></h3>
-
-							<div class="information">
-								<time datetime="2015-02-26">26/02/2015</time>
-								<p>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum... <a href="#this">Continue lendo</a></p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-m-4">
-						<div class="post">
-							<h3><a href="#this">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in.</a></h3>
-
-							<div class="information">
-								<time datetime="2015-02-26">26/02/2015</time>
-								<p>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum... <a href="#this">Continue lendo</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<a href="#this" class="btn-link btn-blog">&gt; Leia nosso blog</a>
-			</div>
-		</section>
-
-		<div class="block__maps">
-			<img src="<?php bloginfo('template_url'); ?>/img/fke/maps.png" alt="imagem fake">
-		</div>
-
-		<!-- <section>
-			<div class="entries">
-				<?php the_content(); ?>
-			</div>
-		</section> -->
-
-		<?php endwhile; else: ?>
-		<?php endif; ?>
-	</main>
-	<?php get_footer(); ?>
+			</main>
+<?php get_footer(); ?>

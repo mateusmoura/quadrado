@@ -18,7 +18,9 @@ function the_slug() {
 }
 
 function new_excerpt_more( $more ) {
-	return ' <a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . __( 'Continue lendo', 'your-text-domain' ) . '</a>';
+	//return ' <a class="read-more" href="' . get_permalink( get_the_ID() ) . '">' . __( 'Continue lendo', 'your-text-domain' ) . '</a>';
+
+	return ' <a class="btn btn-link" href="' . get_permalink( get_the_ID() ) . '" title="' . __( 'Continue lendo', 'your-text-domain' ) . '"><i class="fa fa-arrow-right"></i></a>';
 }
 add_filter( 'excerpt_more', 'new_excerpt_more' );
 

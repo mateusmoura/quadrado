@@ -118,7 +118,7 @@
 					</div>
 
 					<div class="col-m-6 align-center">
-						<h1 class="header__logo"><a href="index.php"><span>Quadrado Brasilia</span> a cidade é do tamanho que a gente quer</a></h1>
+						<h1 class="header__logo"><a href="<?php bloginfo('url'); ?>"><span>Quadrado Brasilia</span> a cidade é do tamanho que a gente quer</a></h1>
 					</div>
 
 					<div class="col-m-3 align-right">
