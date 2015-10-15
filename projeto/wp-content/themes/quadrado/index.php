@@ -14,7 +14,7 @@
 						'exclude'				=> '',
 						'meta_key'				=> '',
 						'meta_value'			=> '',
-						'post_type'				=> array('artes', 'eu-acho', 'feiras', 'mesas', 'passeios', 'pessoas', 'pistas', 'sacolas'),
+						'post_type'				=> array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas'),
 						'post_mime_type'		=> '',
 						'post_parent'			=> '',
 						'post_status'			=> 'publish',
@@ -25,8 +25,6 @@
 						foreach ( $recent_posts as $post ) : setup_postdata( $post );
 							$postID 		= get_the_ID();
 							$date 			= get_the_date('d \d\e F \d\e Y', $postID);
-
-							var_dump($post);
 					?>
 					<div class="center">
 						<div class="row">
