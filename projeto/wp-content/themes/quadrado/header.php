@@ -113,7 +113,7 @@
 				<div class="row">
 					<div class="col-m-3">
 						<nav>
-							<a href="quem-somos.php" class="btn btn-link">sobre a gente</a>
+							<a href="<?php echo get_permalink( get_page_by_path('sobre-a-gente')); ?>" class="btn btn-link">sobre a gente</a>
 						</nav>
 					</div>
 
