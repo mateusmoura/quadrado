@@ -88,11 +88,7 @@
 	<body class="ie10">
 <![endif]-->
 	<div id="global">
-		<header>
-			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-			<div class="header__image--post">
-				<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-1.png" alt="Imagem do post">
-			</div>
+		<header class="header">
 			<div class="center">
 				<div class="row">
 					<div class="col-m-12 align-right">
