@@ -94,6 +94,14 @@
 								</div>
 							</div>
 						</div>
+
+						<div class="block__comments">
+							<div class="row unicelular align-center center">
+								<div class="col-m-11">
+									<?php comments_template(); ?>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
