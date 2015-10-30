@@ -4,10 +4,11 @@
 		$postID					= get_the_ID();
 		$date					= get_the_date('d \d\e F \d\e Y', $postID);
 		$imagem_de_fundo		= get_field('imagem_de_fundo');
+		$bora					= get_field('bora');
 		$imagem_do_post			= get_field('imagens_do_postd');
 		$image_count			= floor(10 / count($imagem_do_post));
 
-		var_dump(count($imagem_de_fundo) );
+		var_dump($bora);
 	?>
 
 	<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
@@ -68,18 +69,14 @@
 							<?php the_content(); ?>
 						</div>
 
-						<!-- <div class="block__post--go">
+						<?php if ($bora) { ?>
+						<div class="block__post--go">
 							<h4>Bora?</h4>
-							<p>Moça do Buquê</p>
+							
+							<?php echo $bora; ?>
+						</div>
 
-							<a href="tel:+6181414433">(61) 8141-4433</a> e <a href="mailTo:mocadobuque@gmail.com">mocadobuque@gmail.com</a></p>
-
-							<ul class="block__post--go-social">
-								<li>Instagram: <a href="#this">@moca_do_buque</a></li>
-								<li>Facebook: <a href="#this">@moca_do_buque</a></li>
-								<li>Twitter: <a href="#this">@moca_do_buque</a></li>
-							</ul>
-						</div> -->
+						<?php } ?>
 
 						<div class="block__adsence--post">
 							<div class="row unicelular align-center center">
