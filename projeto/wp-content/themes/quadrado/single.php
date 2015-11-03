@@ -8,7 +8,6 @@
 		$imagem_do_post			= get_field('imagens_do_postd');
 		$image_count			= floor(10 / count($imagem_do_post));
 
-		var_dump($bora);
 	?>
 
 	<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
@@ -75,19 +74,18 @@
 							
 							<?php echo $bora; ?>
 						</div>
-
 						<?php } ?>
 
 						<div class="block__adsence--post">
 							<div class="row unicelular align-center center">
 								<div class="col-m-4">
-									<img src="img/fke/adsence-post.png">
+									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
 								</div>
 								<div class="col-m-4">
-									<img src="img/fke/adsence-post.png">
+									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
 								</div>
 								<div class="col-m-4">
-									<img src="img/fke/adsence-post.png">
+									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
 								</div>
 							</div>
 						</div>

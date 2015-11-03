@@ -44,7 +44,7 @@ var site = {
 		MM.Mascarar();
 
 		if($('.header__image--post').hasClass('header__image--post-random')){
-			MM.Random($('.header__image--post'), 'img/fke/post-header-image-', 8, 5000);
+			MM.Random($('.header__image--post'), 'img/fke/post-header-image-', 8, 30000);
 		}
 		for (var i = _collapse.length - 1; i >= 0; i--) {
 			MM.Collapsible(_collapse.eq(i), true);
