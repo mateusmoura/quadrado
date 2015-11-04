@@ -57,5 +57,5 @@ upgrade
 upload
 
 # Tarefas #
-*.todo
-*.TODO
+#*.todo
+#*.TODO
