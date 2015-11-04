@@ -74,7 +74,7 @@
 										</div>
 										<?php $page_index = 0; } else {
 											++$page_index;
-										} 
+										}
 
 										++$counter;
 										?>
