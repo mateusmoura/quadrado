@@ -1,0 +1,50 @@
+ADMIN:
+  ☐ Alterar post_type "mesa" para "mesas";
+  ☐ Alterar post_type "passeio" para "passeios";
+
+
+
+
+
+
+
+DUVIDAS: 
+  ☐ Funcionalidade de selecionar o post para destaque;
+  ☐ Alterar os nomes dos posts_types para plural ou singular?
+
+
+
+
+
+
+AJUSTES AMBIENTE DEV:
+  ☐ Alterar features dos posts_types. Mostrar "Campos personlizados", "Revisões" e "Imagem em Destaque";
+  ☐ Adicionar os "Campos personlizados";
+
+
+
+
+
+
+
+TO-DO:
+  ☐ Adicionar menu ao fazer o scroll no site;
+  ☐ Desenvolver opções de compartilhamento;
+  ☐ Desenvolver funcionalidade de banners;
+  ☐ Desenvolver a BUSCA;
+  ☐ Desenvolver Lista de Posts de cada "post_type";
+  ☐ Desenvolver página de CONTATO;
+  ☐ Desenvolver animação na página "sobre a gente";
+  ☐ Desenvolver o MENU no rodapá;
+  ☐ Desenvolver o MAPA;
+  ☐ Desenvolver a parte de EVENTOS;
+  ☐ 
+
+
+
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Desenvolver o destaque dos posts; @done (15-10-30 03:01) @project(TO-DO)
+ ✔ Criar todas as páginas de tipo de post; @done (15-10-30 03:01) @project(TO-DO)
+ ✔ Adicionar o plugin de comentários; @done (15-10-30 03:01) @project(TO-DO)
