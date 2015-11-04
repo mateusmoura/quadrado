@@ -1,120 +1,111 @@
 <?php get_header(); ?>
-	<main role="main" class="home">
-		<div class="block__title">
-			<div class="center">
-				<div class="row">
-					<div class="col-m-12 block__title--breadcrumb">
-						<?php wp_custom_breadcrumbs(); ?>
-					</div>
 
-					<div class="col-m-12">
-						<h1>Resultado <strong>Busca</strong></h1>
-						<p>Os resultados abaixo são da busca de "<?php echo get_search_query() ?>"</p>
-					</div>
-				</div>
-			</div>
-		</div>
+<?php $posts_types = array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas'); ?>
 
-		<div class="wrap">
-			<div class="bg"></div>
-			<div class="content">
-				<section class="block__page">
-					<div class="block__courses--list">
-						<?php if (have_posts() && $_GET['post_type']) : while (have_posts()) : the_post();
-							$courseID = get_the_ID();
-							$c_title = get_the_title($courseID);
-							$categories = get_the_category($courseID);
-							$professor = get_field('professores', $courseID);
-							$data = get_field('inicio_do_curso', $courseID);
-							$valor = get_field('valor_do_curso', $courseID);
-							$parcelas = get_field('parcelas', $courseID);
-						?>
+<?php
+	// global $query_string;
 
-						<?php if( $counter % 3 == 0 ) { ?>
-							
-							<div class="row">
-						<?php } ?>
-								<div class="col-m-4">
-									<div class="course">
-										<span class="tag bgcolor-<?php echo $categories[0]->slug; ?>"><?php echo $categories[0]->name; ?></span>
+	// $query_args = explode("&", $query_string);
+	// $search_query = array( 'post_type' => 'post' );
 
-										<h3><a href="<?php echo the_permalink(); ?>"><?php echo str_replace('/', '', $c_title); ?></a></h3>
-										
-										<div class="information">
-											<p><span>com</span> <?php echo $professor[0]["nome"] ?></p>
-											<p><span>início:</span> <?php echo $data ?></p>
-											<p><span>Investimento de</span> <?php echo $parcelas; ?>x R$ <?php echo $valor; ?></p>
-										</div>
+	// foreach($query_args as $key => $string) {
+	// 	$query_split = explode("=", $string);
+	// 	$search_query[$query_split[0]] = urldecode($query_split[1]);
+	// }
 
-										<a href="<?php echo the_permalink(); ?>" class="btn btn-error">Saiba mais</a>
+	// //var_dump($search_query);
+
+	// $search = new WP_Query(array('post_type' => $posts_types));
+
+	// var_dump($search);
+?>
+
+			<main role="main" class="search">
+				<section class="block__post">
+					<div class="center">
+						<div class="row">
+							<div class="col-m-12">
+								<div class="block__post--title">
+									<h1>encontramos <?php echo $search->found_posts; ?> posts com a palavra “<?php echo get_search_query() ?>”</h1>
+
+									<div class="block__post--category align-right">
+										<a href="#this" class="btn btn-default">ver todos os posts</a>
 									</div>
-								</div>
-						<?php if( $page_index > 1 ) { ?>
-							</div>
-						<?php $page_index = 0; } else {
-							++$page_index;
-						} 
 
-						++$counter;
-						?>
-						<?php endwhile; ?>
+									<div class="block__post--time"></div>
+								</div>
+							</div>
 						</div>
-						<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('Pr&oacute;xima p&aacute;gina &raquo;')); ?>
-						<?php else: ?>
-							<p>Não foi encontrado nenhum resultado para <?php echo get_search_query(); ?>. <a href="<?php bloginfo('url'); ?>/cursos/">Volte aos cursos</a></p>
-						<?php endif; ?>
+					</div>
+
+					<div class="bg-white">
+						<div class="center">
+							<div class="block__highlights">
+								<?php if (have_posts()) : while (have_posts()) : setup_postdata( the_post() );
+									$postID			= get_the_ID();
+									$date			= get_the_date('d \d\e F \d\e Y', $postID);;
+								?>
+
+								<?php if( $counter % 3 == 0 ) { ?>
+									
+									<div class="row">
+								<?php } ?>
+										<div class="col-m-4">
+											<div class="block__post--highlights">
+												<div class="block__post--image-auto">
+													<?php the_post_thumbnail(); ?>
+												</div>
+
+												<div class="block__post--category">
+													<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+												</div>
+
+												<div class="block__post--content">
+													<div class="block__post--share">
+														<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+														<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+													</div>
+
+													<div class="block__post--title">
+														<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+													</div>
+
+													<div class="block__post--time">
+														<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+													</div>
+
+													<div class="block__post--entries">
+														<?php the_excerpt(); ?>
+													</div>
+												</div>
+											</div>
+										</div>
+								<?php if( $page_index > 1 ) { ?>
+									</div>
+								<?php $page_index = 0; } else {
+									++$page_index;
+								} 
+
+								++$counter;
+								?>
+								<?php endwhile; ?>
+								</div>
+								<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('Pr&oacute;xima p&aacute;gina &raquo;')); ?>
+								<?php else: ?>
+									<p>Não foi encontrado nenhum resultado para <?php echo get_search_query(); ?>. <a href="<?php bloginfo('url'); ?>/cursos/">Volte aos cursos</a></p>
+								<?php endif; ?>
+							</div>
+
+							
+
+							<div class="block__loading">
+								<div class="loading"></div>
+								<p>rapidão, estamos carregando mais resultados da sua busca</p>
+							</div>
+						</div>
 					</div>
 				</section>
+			</main>
 
-				<aside>
-					<div class="aside__searchCourses">
-						<form id="searchform" action="<?php bloginfo('home'); ?>/" method="get">
-							<div class="row">
-								<div class="col-m-12 button-inset">
-									<input id="s" type="text" class="form-style" placeholder="Encontre um curso" name="s" value="<?php echo wp_specialchars($s, 1); ?>" />
-									<input type="hidden" name="post_type" value="cursos" />
-									<button type="submit" id="searchsubmit" class="btn btn-error">OK</button>
-								</div>
-							</div>
-						</form>
-					</div>
-
-					<div class="aside__categories">
-						<h2>categorias</h2>
-
-						<div class="tags">
-						<?php 
-							$args = array(
-								'type'                     => 'post',
-								'child_of'                 => 0,
-								'parent'                   => '',
-								'orderby'                  => 'name',
-								'order'                    => 'ASC',
-								'hide_empty'               => 1,
-								'hierarchical'             => 1,
-								'exclude'                  => '1',
-								'post_type'                => 'cursos',
-								'include'                  => '',
-								'number'                   => '',
-								'taxonomy'                 => 'category',
-								'pad_counts'               => false 
-							);
-
-							$categories = get_categories( $args );
-
-							foreach ( $categories as $category ) :
-
-							$cat_url = get_site_url().'/category/'.$category->category_nicename;
-						?>
-
-							<a href="<?php echo $cat_url; ?>" class="tag bgcolor-<?php echo $category->slug; ?>"><?php echo $category->cat_name; ?></a>
-
-						<?php endforeach; wp_reset_postdata();?>
-						</div>
-					</div>
-				</aside>
-			</div>
-		</div>
-	</main>
-	<?php get_footer(); ?>
+<?php get_footer(); ?>
 

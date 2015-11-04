@@ -93,10 +93,10 @@
 				<div class="row">
 					<div class="col-m-12 align-right">
 						<div class="header__search">
-							<a href="search-result.php" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
+							<a href="<?php bloginfo('home'); ?>" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
 
-							<form action="search-result.php" name="search" class="form-search">
-								<input type="text" name="search" id="form-search" class="form-style" placeholder="O que deseja buscar?">
+							<form name="search" class="form-search" action="<?php bloginfo('home'); ?>/" method="get">
+								<input type="search" name="s" id="s" class="form-style" placeholder="O que deseja buscar?" value="<?php echo wp_specialchars($s, 1); ?>">
 							</form>
 						</div>
 
@@ -155,8 +155,8 @@
 						<div class="header__search">
 							<a href="search-result.php" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
 
-							<form action="search-result.php" name="search" class="form-search">
-								<input type="text" name="search" id="form-search" class="form-style" placeholder="O que deseja buscar?">
+							<form name="search" class="form-search" action="<?php bloginfo('home'); ?>/" method="get">
+								<input type="search" name="s" id="s" class="form-style" placeholder="O que deseja buscar?" value="<?php echo wp_specialchars($s, 1); ?>">
 							</form>
 						</div>
 
