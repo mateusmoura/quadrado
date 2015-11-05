@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 
-<?php $posts_types = array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas'); ?>
+<?php 
+	$posts_types = array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas'); 
+	$recent_posts_count = 0;
+?>
 
 
 			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
@@ -13,7 +16,7 @@
 				<section class="block__post">
 					<?php 
 						$args = array(
-						'numberposts'			=> 1,
+						'numberposts'			=> 6,
 						'offset'				=> 0,
 						'category'				=> '',
 						'category_name'			=> '',
@@ -21,17 +24,20 @@
 						'order'					=> 'DESC',
 						'include'				=> '',
 						'exclude'				=> '',
-						'meta_key'				=> '',
-						'meta_value'			=> '',
+						'meta_key'				=> 'destaque',
+						'meta_value'			=> 'sem_posicao',
 						'post_type'				=> $posts_types,
 						'post_mime_type'		=> '',
 						'post_parent'			=> '',
 						'post_status'			=> 'publish',
 						'suppress_filters'		=> true );
 
-						$recent_posts = get_posts( $args );
+						$recent_posts			= get_posts($args);
+						$first_post				= array($recent_posts[$recent_posts_count]);
 
-						foreach ( $recent_posts as $post ) : setup_postdata( $post );
+						++$recent_posts_count;
+
+						foreach ( $first_post as $post ) : setup_postdata( $post );
 							$postID 		= get_the_ID();
 							$date 			= get_the_date('d \d\e F \d\e Y', $postID);
 					?>
@@ -92,7 +98,10 @@
 											'meta_value'	=> 'posicao_2'
 										));
 
-										//var_dump($highlights_post_1);
+										if (!count($highlights_post_2)) {
+											$highlights_post_2 = array($recent_posts[$recent_posts_count]);
+											++$recent_posts_count;
+										}
 
 										foreach ( $highlights_post_2 as $post ) : setup_postdata( $post );
 												$postID 		= get_the_ID();
@@ -102,12 +111,10 @@
 									<div class="block__post--highlights">
 										<div class="block__post--image-auto">
 											<?php the_post_thumbnail(); ?>
-											<!-- <img src="<?php bloginfo('template_url'); ?>/img/fke/post-image-4.png" alt="Atenção: Nós vamos sobreviver ao pós-feriado"> -->
 										</div>
 
 										<div class="block__post--category">
 											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
-											<!-- <a href="#this" class="btn btn-default">comes</a> -->
 										</div>
 
 										<div class="block__post--content">
@@ -122,12 +129,10 @@
 
 											<div class="block__post--time">
 												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
-												<!-- <p>Em 5 de maio de 2015 por <a href="#this" class="btn btn-link"><strong>carolnogueira76</strong></a></p> -->
 											</div>
 
 											<div class="block__post--entries">
 												<?php the_excerpt(); ?>
-												<!-- <p>Nós, do Quadrado, fazemos um trabalho beneficente Nós, do Quadrado, fazemos um trabalho beneficente. Nós, do Quadrado <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p> -->
 											</div>
 										</div>
 									</div>
@@ -144,7 +149,10 @@
 											'meta_value'	=> 'posicao_1'
 										));
 
-										//var_dump($highlights_post_1);
+										if (!count($highlights_post_1)) {
+											$highlights_post_1 = array($recent_posts[$recent_posts_count]);
+											++$recent_posts_count;
+										}
 
 										foreach ( $highlights_post_1 as $post ) : setup_postdata( $post );
 												$postID 		= get_the_ID();
@@ -154,12 +162,10 @@
 									<div class="block__post--highlights">
 										<div class="block__post--image-auto">
 											<?php the_post_thumbnail(); ?>
-											<!-- <img src="<?php bloginfo('template_url'); ?>/img/fke/post-image-4.png" alt="Atenção: Nós vamos sobreviver ao pós-feriado"> -->
 										</div>
 
 										<div class="block__post--category">
 											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
-											<!-- <a href="#this" class="btn btn-default">comes</a> -->
 										</div>
 
 										<div class="block__post--content">
@@ -174,12 +180,10 @@
 
 											<div class="block__post--time">
 												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
-												<!-- <p>Em 5 de maio de 2015 por <a href="#this" class="btn btn-link"><strong>carolnogueira76</strong></a></p> -->
 											</div>
 
 											<div class="block__post--entries">
 												<?php the_excerpt(); ?>
-												<!-- <p>Nós, do Quadrado, fazemos um trabalho beneficente Nós, do Quadrado, fazemos um trabalho beneficente. Nós, do Quadrado <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p> -->
 											</div>
 										</div>
 									</div>
@@ -198,7 +202,10 @@
 											'meta_value'	=> 'posicao_3'
 										));
 
-										//var_dump($highlights_post_1);
+										if (!count($highlights_post_3)) {
+											$highlights_post_3 = array($recent_posts[$recent_posts_count]);
+											++$recent_posts_count;
+										}
 
 										foreach ( $highlights_post_3 as $post ) : setup_postdata( $post );
 												$postID 		= get_the_ID();
@@ -208,12 +215,10 @@
 									<div class="block__post--highlights">
 										<div class="block__post--image-auto">
 											<?php the_post_thumbnail(); ?>
-											<!-- <img src="<?php bloginfo('template_url'); ?>/img/fke/post-image-4.png" alt="Atenção: Nós vamos sobreviver ao pós-feriado"> -->
 										</div>
 
 										<div class="block__post--category">
 											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
-											<!-- <a href="#this" class="btn btn-default">comes</a> -->
 										</div>
 
 										<div class="block__post--content">
@@ -228,12 +233,10 @@
 
 											<div class="block__post--time">
 												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
-												<!-- <p>Em 5 de maio de 2015 por <a href="#this" class="btn btn-link"><strong>carolnogueira76</strong></a></p> -->
 											</div>
 
 											<div class="block__post--entries">
 												<?php the_excerpt(); ?>
-												<!-- <p>Nós, do Quadrado, fazemos um trabalho beneficente Nós, do Quadrado, fazemos um trabalho beneficente. Nós, do Quadrado <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p> -->
 											</div>
 										</div>
 									</div>
@@ -338,7 +341,10 @@
 											'meta_value'	=> 'posicao_4'
 										));
 
-										//var_dump($highlights_post_1);
+										if (!count($highlights_post_4)) {
+											$highlights_post_4 = array($recent_posts[$recent_posts_count]);
+											++$recent_posts_count;
+										}
 
 										foreach ( $highlights_post_4 as $post ) : setup_postdata( $post );
 												$postID 		= get_the_ID();
@@ -348,12 +354,10 @@
 									<div class="block__post--highlights">
 										<div class="block__post--image-auto">
 											<?php the_post_thumbnail(); ?>
-											<!-- <img src="<?php bloginfo('template_url'); ?>/img/fke/post-image-4.png" alt="Atenção: Nós vamos sobreviver ao pós-feriado"> -->
 										</div>
 
 										<div class="block__post--category">
 											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
-											<!-- <a href="#this" class="btn btn-default">comes</a> -->
 										</div>
 
 										<div class="block__post--content">
@@ -368,12 +372,10 @@
 
 											<div class="block__post--time">
 												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
-												<!-- <p>Em 5 de maio de 2015 por <a href="#this" class="btn btn-link"><strong>carolnogueira76</strong></a></p> -->
 											</div>
 
 											<div class="block__post--entries">
 												<?php the_excerpt(); ?>
-												<!-- <p>Nós, do Quadrado, fazemos um trabalho beneficente Nós, do Quadrado, fazemos um trabalho beneficente. Nós, do Quadrado <a href="post-interna.php" class="btn btn-link"><i class="fa fa-arrow-right"></i></a></p> -->
 											</div>
 										</div>
 									</div>
