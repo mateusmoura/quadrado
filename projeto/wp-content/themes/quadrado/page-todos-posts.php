@@ -3,7 +3,9 @@
 <?php 
 	$counter				= 0;
 	$page_index				= 0;
-	$posts_types			= array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas'); 
+	$posts_types			= array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas');
+
+	query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '9', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
 ?>
 
 		<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
@@ -18,10 +20,10 @@
 						<div class="row">
 							<div class="col-m-12">
 								<div class="block__post--title">
-									<h1>encontramos <?php echo $search->found_posts; ?> posts com a palavra “<?php echo get_search_query() ?>”</h1>
+									<h1>todos os posts</h1>
 
 									<div class="block__post--category align-right">
-										<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>" class="btn btn-default">ver todos os posts</a>
+										<a href="#this" class="btn btn-default">pesquisar posts no arquivo</a>
 									</div>
 
 									<div class="block__post--time"></div>
