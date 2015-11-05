@@ -26,35 +26,37 @@
 				</div>
 			</div>
 		</footer>
+	</div>
 
-		<div id="loading"></div>
+	<div id="loading"></div>
 
-		<script>
-			base_url = "<?php bloginfo('template_url'); ?>/";
-			base_url_project = "<?php bloginfo('url'); ?>";
-		</script>
+	<script>
+		base_url = "<?php bloginfo('template_url'); ?>/";
+		base_url_project = "<?php bloginfo('url'); ?>";
+	</script>
 
-		<script src="<?php bloginfo('template_url'); ?>/js/plugins/module.js"></script>
-		<script src="<?php bloginfo('template_url'); ?>/js/plugins/jQuery-1.11.0.min.js"></script>
-		
-		<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Mascarar.js"></script>
-		<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Mensagem.js"></script>
-		<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Modal.js"></script>
-		<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.VerificarNavegador.js"></script>
-		<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.ValidarFormularios.js"></script>
-		<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Collapsible.js"></script>
-		<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Feedback.js"></script>
-		<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Random.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/plugins/module.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/plugins/jQuery-1.11.0.min.js"></script>
+	
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Mascarar.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Mensagem.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Modal.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.VerificarNavegador.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.ValidarFormularios.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Collapsible.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Feedback.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Random.js"></script>
 
-		<!--[if lte IE 9]><script src="<?php bloginfo('template_url'); ?>/js/plugins/jQuery.placeholder.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('input[placeholder], textarea[placeholder]').placeholder();
-			});
-		</script><![endif]-->
+	<!--[if lte IE 9]><script src="<?php bloginfo('template_url'); ?>/js/plugins/jQuery.placeholder.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('input[placeholder], textarea[placeholder]').placeholder();
+		});
+	</script><![endif]-->
 
-		<script src="<?php bloginfo('template_url'); ?>/js/base.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/base.js"></script>
 
-		<?php wp_footer(); ?>
+	<?php wp_footer(); ?>
+
 	</body>
 </html>

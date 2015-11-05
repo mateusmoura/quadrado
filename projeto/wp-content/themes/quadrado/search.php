@@ -80,8 +80,9 @@
 										?>
 									<?php //endif; ?>
 								<?php endwhile; ?>
-								</div>
+
 								<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('Pr&oacute;xima p&aacute;gina &raquo;')); ?>
+
 								<?php else: ?>
 									<p>Não foi encontrado nenhum resultado para "<?php echo get_search_query(); ?>". <a href="<?php bloginfo('url'); ?>/cursos/">Ver todos os posts</a></p>
 								<?php endif; ?>
