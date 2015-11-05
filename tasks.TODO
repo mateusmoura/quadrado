@@ -36,10 +36,13 @@ TO-DO:
   ☐ Desenvolver página de CONTATO;
   ☐ Desenvolver animação na página "sobre a gente";
   ☐ Desenvolver o MENU no rodapá;
-  ☐ Desenvolver o MAPA;
+  ✔ Desenvolver o MAPA; @done (15-11-05 02:32)
+  ☐ Fazer o CSS da Janela do Google Maps;
+  ☐ Customizar os Markers e os Clusters;
+  ☐ Desenvolver o filtro do Mapa;
   ☐ Desenvolver a parte de EVENTOS;
   ☐ Desenvolver paginação por scroll na página de resultado de busca;
-  ☐ Desenvolver página de TODOS os posts;
+  ✔ Desenvolver página de TODOS os posts; @done (15-11-04 23:50)
   ☐ Desenvolver o filtro de todos os posts;
   ☐ 
 

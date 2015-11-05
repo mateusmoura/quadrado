@@ -1,127 +1,401 @@
 <?php get_header(); ?>
-	
-	<?php if (have_posts()) : while (have_posts()) : the_post(); 
-		$pageID = get_the_ID();
-		$title = get_the_title($pageID);
-		remove_filter( 'the_content', 'wpautop' );
-	?>
-	<main role="main" class="home">
-		<div class="block__title">
-			<div class="center">
-				<div class="row">
-					<div class="col-m-12 block__title--image">
-					</div>
 
-					<div class="col-m-12">
-						<h1><?php echo str_replace('/', '<strong>', $title); ?></h1>
-						<p><?php echo wpautop(the_content()); ?></p>
-					</div>
-				</div>
+<?php 
+	$posts_types = array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas'); 
+	$recent_posts_count = 0;
+?>
+
+			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
+			<div class="header__image--post header__image--post-random">
+				<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
+				<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
 			</div>
-		</div>
 
-		<section class="block__courses">
-			<div class="bg"></div>
-			<div class="center">
-				<h2>Nossos cursos</h2>
+			<main role="main" class="home">
+				<section class="block__post">
+					<?php 
+						$args = array(
+						'numberposts'			=> 6,
+						'offset'				=> 0,
+						'category'				=> '',
+						'category_name'			=> '',
+						'orderby'				=> 'post_date',
+						'order'					=> 'DESC',
+						'include'				=> '',
+						'exclude'				=> '',
+						'meta_key'				=> 'destaque',
+						'meta_value'			=> 'sem_posicao',
+						'post_type'				=> $posts_types,
+						'post_mime_type'		=> '',
+						'post_parent'			=> '',
+						'post_status'			=> 'publish',
+						'suppress_filters'		=> true );
 
-				<div class="courses__list row">
-					<?php query_posts( array( 'post_type' => 'cursos', 'posts_per_page' => '4', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+						$recent_posts			= get_posts($args);
+						$first_post				= array($recent_posts[$recent_posts_count]);
 
-					if ( have_posts() ) : while ( have_posts() ) : the_post();
-						$courseID = get_the_ID();
-						$c_title = get_the_title($courseID);
-						$categories = get_the_category($courseID);
-						$professor = get_field('professores', $courseID);
-						$data = get_field('inicio_do_curso', $courseID);
-						$valor = get_field('valor_do_curso', $courseID);
-						$parcelas = get_field('parcelas', $courseID);
+						++$recent_posts_count;
+
+						foreach ( $first_post as $post ) : setup_postdata( $post );
+							$postID 		= get_the_ID();
+							$date 			= get_the_date('d \d\e F \d\e Y', $postID);
 					?>
-					<div class="col-m-3">
-						<div class="course">
-							<span class="tag bgcolor-<?php echo $categories[0]->slug; ?>"><?php echo $categories[0]->name; ?></span>
+					<div class="center">
+						<div class="row">
+							<div class="block__post--title">
+								<h1><?php the_title(); ?></h1>
 
-							<h3><a href="<?php echo the_permalink(); ?>"><?php echo str_replace('/', '', $c_title); ?></a></h3>
-							
-							<div class="information">
-								<p><span>com</span> <?php echo $professor[0]["nome"] ?></p>
-								<p><span>início:</span> <?php echo $data ?></p>
-								<p><span>Investimento de</span> <?php echo $parcelas; ?>x R$ <?php echo $valor; ?></p>
+								<a href="<?php the_permalink(); ?>" class="btn btn-link btn-seemore">Ler post completo <i class="fa fa-arrow-right"></i></a>
+
+								<div class="block__post--time">
+									<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+								</div>
 							</div>
 
-							<a href="<?php echo the_permalink(); ?>" class="btn btn-error">Saiba mais</a>
-						</div>
-					</div>
-					<?php endwhile; endif; wp_reset_query(); ?>
-				</div>
+							<div class="block__post--content">
+								<div class="block__post--category">
+									<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+								</div>
 
-				<a href="<?php bloginfo('url'); ?>/cursos/" class="btn-link btn-courses">&gt; Conheça os nossos cursos</a>
-			</div>
-		</section>
+								<div class="block__post--entries">
+									<?php the_excerpt(); ?>
+								</div>
 
-		<section class="block__blog">
-			<div class="bg"></div>
-
-			<div class="center">
-				<h2>Blog</h2>
-
-				<div class="posts__list row">
-					<?php $args = array(
-						'posts_per_page'   => 3,
-						'offset'           => 0,
-						'category'         => '',
-						'category_name'    => '',
-						'orderby'          => 'post_date',
-						'order'            => 'DESC',
-						'include'          => '',
-						'exclude'          => '',
-						'meta_key'         => '',
-						'meta_value'       => '',
-						'post_type'        => 'post',
-						'post_mime_type'   => '',
-						'post_parent'      => '',
-						'post_status'      => 'publish',
-						'suppress_filters' => true 
-					);
-					$posts_array = get_posts( $args ); 
-
-					//var_dump($posts_array);
-					foreach ( $posts_array as $post ) : setup_postdata( $post ); 
-						$postID = get_the_ID();
-						$date = get_the_date('Ymd', $postID);
-						$date2 = get_the_date('d/m/Y', $postID);
-					?>
-
-					<div class="col-m-4">
-						<div class="post">
-							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-
-							<div class="information">
-								<time datetime="<?php echo $date; ?>"><?php echo $date2; ?></time>
-								<?php the_excerpt(); ?>
+								<div class="block__post--share">
+									<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+									<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+								</div>
 							</div>
 						</div>
 					</div>
 
-					<?php endforeach; wp_reset_postdata();?>
+					<?php endforeach; wp_reset_postdata(); ?>
+				</section>
+
+				<div class="bg-white">
+					<div class="center">
+						<div class="block__adsence--full">
+							<div class="align-center">
+								<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-full.png" alt="Publicidade Full">
+							</div>
+						</div>
+					</div>
+
+					<div class="center">
+						<div class="block__highlights">
+							<div class="row">
+								<div class="col-m-4">
+									<!-- <div class="block__adsence--medium">
+										<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-medium.png" alt="Publicidade Media">
+									</div> -->
+
+									<?php 
+										$highlights_post_2 = get_posts(array(
+											'numberposts'	=> -1,
+											'post_type'		=> $posts_types,
+											'meta_key'		=> 'destaque',
+											'meta_value'	=> 'posicao_2'
+										));
+
+										if (!count($highlights_post_2)) {
+											$highlights_post_2 = array($recent_posts[$recent_posts_count]);
+											++$recent_posts_count;
+										}
+
+										foreach ( $highlights_post_2 as $post ) : setup_postdata( $post );
+												$postID 		= get_the_ID();
+												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+									?>
+
+									<div class="block__post--highlights">
+										<div class="block__post--image-auto">
+											<?php the_post_thumbnail(); ?>
+										</div>
+
+										<div class="block__post--category">
+											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+										</div>
+
+										<div class="block__post--content">
+											<div class="block__post--share">
+												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+												<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+											</div>
+
+											<div class="block__post--title">
+												<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+											</div>
+
+											<div class="block__post--time">
+												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+											</div>
+
+											<div class="block__post--entries">
+												<?php the_excerpt(); ?>
+											</div>
+										</div>
+									</div>
+
+									<?php endforeach; wp_reset_postdata(); ?>
+								</div>
+
+								<div class="col-m-8">
+									<?php 
+										$highlights_post_1 = get_posts(array(
+											'numberposts'	=> -1,
+											'post_type'		=> $posts_types,
+											'meta_key'		=> 'destaque',
+											'meta_value'	=> 'posicao_1'
+										));
+
+										if (!count($highlights_post_1)) {
+											$highlights_post_1 = array($recent_posts[$recent_posts_count]);
+											++$recent_posts_count;
+										}
+
+										foreach ( $highlights_post_1 as $post ) : setup_postdata( $post );
+												$postID 		= get_the_ID();
+												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+									?>
+
+									<div class="block__post--highlights">
+										<div class="block__post--image-auto">
+											<?php the_post_thumbnail(); ?>
+										</div>
+
+										<div class="block__post--category">
+											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+										</div>
+
+										<div class="block__post--content">
+											<div class="block__post--share">
+												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+												<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+											</div>
+
+											<div class="block__post--title">
+												<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+											</div>
+
+											<div class="block__post--time">
+												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+											</div>
+
+											<div class="block__post--entries">
+												<?php the_excerpt(); ?>
+											</div>
+										</div>
+									</div>
+
+									<?php endforeach; wp_reset_postdata(); ?>
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col-m-4">
+									<?php 
+										$highlights_post_3 = get_posts(array(
+											'numberposts'	=> -1,
+											'post_type'		=> $posts_types,
+											'meta_key'		=> 'destaque',
+											'meta_value'	=> 'posicao_3'
+										));
+
+										if (!count($highlights_post_3)) {
+											$highlights_post_3 = array($recent_posts[$recent_posts_count]);
+											++$recent_posts_count;
+										}
+
+										foreach ( $highlights_post_3 as $post ) : setup_postdata( $post );
+												$postID 		= get_the_ID();
+												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+									?>
+
+									<div class="block__post--highlights">
+										<div class="block__post--image-auto">
+											<?php the_post_thumbnail(); ?>
+										</div>
+
+										<div class="block__post--category">
+											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+										</div>
+
+										<div class="block__post--content">
+											<div class="block__post--share">
+												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+												<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+											</div>
+
+											<div class="block__post--title">
+												<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+											</div>
+
+											<div class="block__post--time">
+												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+											</div>
+
+											<div class="block__post--entries">
+												<?php the_excerpt(); ?>
+											</div>
+										</div>
+									</div>
+
+									<?php endforeach; wp_reset_postdata(); ?>
+								</div>
+
+								<div class="col-m-4">
+									<div class="block__post--highlights">
+										<div class="block__post--category">
+											<a href="#this" class="btn btn-default">agenda</a>
+										</div>
+
+										<div class="row block__post--highlights-calendar">
+											<div class="col-m-12">
+												<div class="block__calendar">
+													<div class="block__calendar--image">
+														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-1.png" alt="Feira livre">
+													</div>
+
+													<div class="block__calendar--title">
+														<a href="#this">Feira livre</a>
+														<a href="#this"><span>@ Eixão norte, 15h</span></a>
+													</div>
+
+													<div class="block__calendar--date">
+														<a href="#this">
+															<span>domingo</span>
+															<p>24 <br /> <strong>maio</strong></p>
+														</a>
+													</div>
+
+													<div class="block__calendar--overlay"></div>
+												</div>
+											</div>
+
+											<div class="col-m-12">
+												<div class="block__calendar">
+													<div class="block__calendar--image">
+														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-2.png" alt="Picnik">
+													</div>
+
+													<div class="block__calendar--title">
+														<a href="#this">Picnik</a>
+														<a href="#this"><span>@ Praça dos cristais, 15h</span></a>
+													</div>
+
+													<div class="block__calendar--date">
+														<a href="#this">
+															<span>segunda</span>
+															<p>25 <br /> <strong>maio</strong></p>
+														</a>
+													</div>
+
+													<div class="block__calendar--overlay"></div>
+												</div>
+											</div>
+
+											<div class="col-m-12">
+												<div class="block__calendar">
+													<div class="block__calendar--image">
+														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-3.png" alt="Feira livre">
+													</div>
+
+													<div class="block__calendar--title">
+														<a href="#this">Santuário apresenta...</a>
+														<a href="#this"><span>@ SQN 214, 15h</span></a>
+													</div>
+
+													<div class="block__calendar--date">
+														<a href="#this">
+															<span>sexta</span>
+															<p>30 <br /> <strong>maio</strong></p>
+														</a>
+													</div>
+
+													<div class="block__calendar--overlay"></div>
+												</div>
+											</div>
+										</div>
+
+										<div class="block__actions">
+											<div class="row">
+												<div class="col-m-5">
+													<a href="#this" class="btn btn-full btn-white">sugerir evento</a>
+												</div>
+
+												<div class="col-m-7">
+													<a href="#this" class="btn btn-full btn-default">ver toda a agenda</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="col-m-4">
+									<?php 
+										$highlights_post_4 = get_posts(array(
+											'numberposts'	=> -1,
+											'post_type'		=> $posts_types,
+											'meta_key'		=> 'destaque',
+											'meta_value'	=> 'posicao_4'
+										));
+
+										if (!count($highlights_post_4)) {
+											$highlights_post_4 = array($recent_posts[$recent_posts_count]);
+											++$recent_posts_count;
+										}
+
+										foreach ( $highlights_post_4 as $post ) : setup_postdata( $post );
+												$postID 		= get_the_ID();
+												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+									?>
+
+									<div class="block__post--highlights">
+										<div class="block__post--image-auto">
+											<?php the_post_thumbnail(); ?>
+										</div>
+
+										<div class="block__post--category">
+											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+										</div>
+
+										<div class="block__post--content">
+											<div class="block__post--share">
+												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
+												<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+											</div>
+
+											<div class="block__post--title">
+												<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+											</div>
+
+											<div class="block__post--time">
+												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+											</div>
+
+											<div class="block__post--entries">
+												<?php the_excerpt(); ?>
+											</div>
+										</div>
+									</div>
+
+									<?php endforeach; wp_reset_postdata(); ?>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="block__map">
+						<div class="center">
+							<div class="block__post--category">
+								<a href="#this" class="btn btn-default">onde</a>
+							</div>
+						</div>
+
+						<div id="google__map">
+							<img src="<?php bloginfo('template_url'); ?>/img/fke/mapa.png" alt="Google Maps - ONDE">
+						</div>
+					</div>
 				</div>
-
-				<a href="<?php bloginfo('url'); ?>/blog/" class="btn-link btn-blog">&gt; Leia nosso blog</a>
-			</div>
-		</section>
-
-		<div class="block__maps">
-			<div id="map-canvas">
-				<img src="<?php bloginfo('template_url'); ?>/img/fke/maps.png" alt="imagem fake">
-			</div>
-		</div>
-
-		<!-- <div class="blocks">
-			<div class="center">
-				<?php the_content(); ?>
-			</div>
-		</div> -->
-		<?php endwhile; else: ?>
-		<?php endif; ?>
-	</main>
-	<?php get_footer(); ?>
+			</main>
+<?php get_footer(); ?>

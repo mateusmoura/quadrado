@@ -46,6 +46,7 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Collapsible.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Feedback.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Random.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.GoogleMaps.js"></script>
 
 	<!--[if lte IE 9]><script src="<?php bloginfo('template_url'); ?>/js/plugins/jQuery.placeholder.js"></script>
 	<script>
