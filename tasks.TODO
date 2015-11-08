@@ -19,7 +19,6 @@ DUVIDAS:
 
 AJUSTES AMBIENTE DEV:
   ☐ Alterar features dos posts_types. Mostrar "Campos personlizados", "Revisões" e "Imagem em Destaque";
-  ✔ Adicionar os "Campos personlizados"; @done (15-11-04 18:47)
 
 
 
@@ -31,18 +30,13 @@ TO-DO:
   ☐ Adicionar menu ao fazer o scroll no site;
   ☐ Desenvolver opções de compartilhamento;
   ☐ Desenvolver funcionalidade de banners;
-  ✔ Desenvolver a BUSCA; @done (15-11-04 13:58)
   ☐ Desenvolver Lista de Posts de cada "post_type";
   ☐ Desenvolver página de CONTATO;
   ☐ Desenvolver animação na página "sobre a gente";
   ☐ Desenvolver o MENU no rodapá;
-  ✔ Desenvolver o MAPA; @done (15-11-05 02:32)
-  ☐ Fazer o CSS da Janela do Google Maps;
-  ☐ Customizar os Markers e os Clusters;
   ☐ Desenvolver o filtro do Mapa;
   ☐ Desenvolver a parte de EVENTOS;
   ☐ Desenvolver paginação por scroll na página de resultado de busca;
-  ✔ Desenvolver página de TODOS os posts; @done (15-11-04 23:50)
   ☐ Desenvolver o filtro de todos os posts;
   ☐ 
 
@@ -51,6 +45,12 @@ TO-DO:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Fazer o CSS da Janela do Google Maps; @done (15-11-08 17:27) @project(TO-DO)
+ ✔ Customizar os Markers e os Clusters; @done (15-11-08 17:27) @project(TO-DO)
+ ✔ Desenvolver o MAPA; @done (15-11-05 02:32) @project(TO-DO)
+ ✔ Desenvolver página de TODOS os posts; @done (15-11-04 23:50) @project(TO-DO)
+ ✔ Adicionar os "Campos personlizados"; @done (15-11-04 18:47) @project(AJUSTES AMBIENTE DEV)
+ ✔ Desenvolver a BUSCA; @done (15-11-04 13:58) @project(TO-DO)
  ✔ Desenvolver o destaque dos posts; @done (15-10-30 03:01) @project(TO-DO)
  ✔ Criar todas as páginas de tipo de post; @done (15-10-30 03:01) @project(TO-DO)
  ✔ Adicionar o plugin de comentários; @done (15-10-30 03:01) @project(TO-DO)
