@@ -12,11 +12,20 @@
 		$link_do_post									= get_field('link_do_post_sobre_o_lugar', $places[$i]->ID);
 		$imagem											= get_field('imagem', $places[$i]->ID);
 		$horario_de_funcionamento						= get_field('horario_de_funcionamento', $places[$i]->ID);
+		$categories										= wp_get_post_categories($places[$i]->ID);
+		$cats											= array();
+
+		foreach($categories as $c){
+			$cat										= get_category( $c );
+			$category_link								= get_category_link($c);
+			$cats[]										= array( 'name' => $cat->name, 'slug' => $cat->slug, 'permalink' => esc_url( $category_link ) );
+		}
 
 		$places[$i]->localizacao						= $lat_long;
 		$places[$i]->link_do_post						= $link_do_post;
 		$places[$i]->imagem								= $imagem;
 		$places[$i]->horario_de_funcionamento			= $horario_de_funcionamento;
+		$places[$i]->categories							= $cats;
 	}
 
 	$json_pages				= json_encode($places);
@@ -44,7 +53,7 @@
 			<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
 		</div>
 
-			<main role="main" class="search">
+			<main role="main" class="map">
 				<section class="block__post">
 					<div class="center">
 						<div class="row">

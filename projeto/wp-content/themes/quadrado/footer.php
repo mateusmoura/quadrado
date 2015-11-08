@@ -13,7 +13,7 @@
 							</ul>
 						</div>
 
-						<a href="#this">mapa do quadrado</a>
+						<a href="<?php echo get_permalink( get_page_by_path('mapa')); ?>">mapa do quadrado</a>
 						<a href="#this">agenda</a>
 						<a href="<?php echo get_permalink( get_page_by_path('sobre-a-gente')); ?>" title="Sobre a gente">sobre a gente</a>
 						<a href="contato.php">contato</a>

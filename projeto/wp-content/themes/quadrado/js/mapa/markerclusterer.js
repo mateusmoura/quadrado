@@ -963,7 +963,7 @@ ClusterIcon.prototype.createCss = function(pos) {
     style.push('filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(' +
         'sizingMethod=scale,src="' + this.url_ + '");');
   } else {
-    style.push('background:url(' + this.url_ + ');');
+    style.push('background:url(' + this.url_ + ') no-repeat center;');
   }
 
   if (typeof this.anchor_ === 'object') {
@@ -972,7 +972,7 @@ ClusterIcon.prototype.createCss = function(pos) {
       style.push('height:' + (this.height_ - this.anchor_[0]) +
           'px; padding-top:' + this.anchor_[0] + 'px;');
     } else {
-      style.push('height:' + this.height_ + 'px; line-height:' + this.height_ +
+      style.push('height:' + this.height_ + 'px; line-height:' + (this.height_ - 14) +
           'px;');
     }
     if (typeof this.anchor_[1] === 'number' && this.anchor_[1] > 0 &&
@@ -984,7 +984,7 @@ ClusterIcon.prototype.createCss = function(pos) {
     }
   } else {
     style.push('height:' + this.height_ + 'px; line-height:' +
-        this.height_ + 'px; width:' + this.width_ + 'px; text-align:center;');
+        (this.height_ - 14) + 'px; width:' + this.width_ + 'px; text-align:center;');
   }
 
   var txtColor = this.textColor_ ? this.textColor_ : 'black';

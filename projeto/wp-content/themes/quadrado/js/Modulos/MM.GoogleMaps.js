@@ -27,7 +27,7 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 		this.typesFilter		= ["3000", "3002", "3001", "3003", "4004", "4001", "4000", "4002", "4003", "5000", "5002", "5001", "6002", "6000", "6001", "1000", "1004", "1005", "1002", "1001", "1003", "2004", "2005", "2000", "2001", "2002", "2003"];
 		this.listDivs			= []; // Lista das divs do customLabel
 		this.map				= null;
-		this.imageUrl			= base_url + "img/mapa/pin/verde.png";//'http://chart.apis.google.com/chart?cht=mm&chs=24x32&' + 'chco=FFFFFF,008CFF,000000&ext=.png';
+		this.imageUrl			= base_url + "img/mapa/pin/preto.png";//'http://chart.apis.google.com/chart?cht=mm&chs=24x32&' + 'chco=FFFFFF,008CFF,000000&ext=.png';
 		this.styles				= {
 									t1: { name: "violeta", cod: "A578D4" },
 									t2: { name: "verde", cod: "7BC12A" },
@@ -117,88 +117,66 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 			});
 		});
 
-		for (var i = 0; i < this.data_json.length; i++) {
-			var latLng = new google.maps.LatLng(this.data_json[i].localizacao.lat, this.data_json[i].localizacao.lng);
-			var marker = new google.maps.Marker({
-				position			: latLng,
-				draggable			: false,
-				icon				: new google.maps.MarkerImage(base_url + 'img/mapa/pin/verde.png', new google.maps.Size(24, 32)),
-				title				: this.data_json[i].post_title,
-				//horario				: this.data_json[i].horario_de_funcionamento,
-				//endereco			: this.data_json[i].localizacao.address,
-				//link_do_post		: this.data_json[i].link_do_post,
-				//imagem				: this.data_json[i].imagem,
-				html: '<div class="block__infobox">'+
-							'<div class="block__infobox--body">'+
-								'<img src="' + this.data_json[i].imagem + '" />' +
-								'<h3>' + this.data_json[i].post_title + '</h3>' +
-								'<p>' + this.data_json[i].localizacao.address + '</p>' +
-								'<span>' + this.data_json[i].horario_de_funcionamento + '</span>' +
+		for (var i = this.data_json.length - 1; i >= 0; i--) {
+		//for (var i = 0; i < this.data_json.length; i++) {
+			var latLng = new google.maps.LatLng(this.data_json[i].localizacao.lat, this.data_json[i].localizacao.lng),
+				marker = new google.maps.Marker({
+					position			: latLng,
+					draggable			: false,
+					icon				: new google.maps.MarkerImage(base_url + 'img/mapa/pin/preto.png', new google.maps.Size(25, 34)),
+					title				: this.data_json[i].post_title,
+					categories			: this.data_json[i].categories,
+					//horario				: this.data_json[i].horario_de_funcionamento,
+					//endereco			: this.data_json[i].localizacao.address,
+					//link_do_post		: this.data_json[i].link_do_post,
+					//imagem				: this.data_json[i].imagem,
+					html: '<div class="block__infobox">'+
+								'<div class="block__infobox--body">'+
+									'<img src="' + this.data_json[i].imagem + '" />' +
+									'<h3>' + this.data_json[i].post_title + '</h3>' +
+									'<p>' + this.data_json[i].localizacao.address + '</p>' +
+									'<span>' + this.data_json[i].horario_de_funcionamento + '</span>' +
 
-								'<div class="block__infobox--category">' +
-									'<nav><a href="#this">categoria 1</a><a href="#this">categoria 2</a></nav>' +
-								'</div>' +
+									'<div class="block__infobox--category">' +
+										'<nav></nav>' +
+									'</div>' +
 
-								'<div class="block__infobox--content"><span class="loading"></span></div>'+
-								'<div class="block__infobox--foot">'+
-									'<a class="fechar" href="' + this.data_json[i].link_do_post + '">Ler post sobre este lugar <i class="icon icon-arrow"></i></a>'+
-									'<a class="fechar" title="Fechar" href="#">Fechar</a>'+
+									'<div class="block__infobox--content"><span class="loading"></span></div>'+
+									'<div class="block__infobox--foot">'+
+										'<a class="fechar" href="' + this.data_json[i].link_do_post + '">Ler post sobre este lugar <i class="icon icon-arrow"></i></a>'+
+									'</div>'+
 								'</div>'+
-							'</div>'+
-							'<div class="block__infobox--footer"></div>'+
-						'</div>'
-
-			});
+								'<div class="block__infobox--footer"></div>'+
+							'</div>'
+				});
 
 			google.maps.event.addListener(marker, 'click', function	(event) {
-					var ev = event,
-						$mevent = this,
-						buildInfo = function( json, center )
-						{
-							var buildHTML = $( $mevent.html ),
-								tablecont = $( "div.content", buildHTML );
-							
-							$( "span.loading", buildHTML ).remove();
-							
-							buildHTML.find( "div.infobox_body h3" ).text( json.titulo );
-							
-							$( includeField( "Estados", json.uf ) ).appendTo( tablecont );
-							$( includeField( "Município", json.municipios ) ).appendTo( tablecont );
-							$( includeField( "Executor", json.executor ) ).appendTo( tablecont );
-							$( includeField( "Responsável", json.responsavel ) ).appendTo( tablecont );
-							$( includeField( "Investimento total", toCurrency( json.investimento_total ) ) ).appendTo( tablecont );
-							$( includeField( "Investiomento até 2014", toCurrency( json.investimento_2011 ) ) ).appendTo( tablecont );
-							$( includeField( "Investimento após 2014", toCurrency( json.investimento_2014 ) ) ).appendTo( tablecont );
-							$( includeField( "Data de conclusão", toDate( json.data_conclusao ) ) ).appendTo( tablecont );
-							$( includeField( "Estágio", json.estagio ) ).appendTo( tablecont );
-							$( includeField( "Referência", toDate( json.data_referencia ) ) ).appendTo( tablecont );
-							
-							infowindow.setContent(buildHTML.html());
-							infowindow.open(oThis.map);
-							infowindow.setPosition(event.latLng);
-							//infowindow.open(oThis.map, $mevent);
-								
-							oThis.loading.hide();
-						};
+				var ev = event,
+					$mevent = this;
 
-					_this.infowindow.setContent($mevent.html);
-					_this.infowindow.open(_this.google_map);
-					_this.infowindow.setPosition(event.latLng);
+				var _buildHTML					= $('<div>' + $mevent.html + '</div>'),
+					_nav						= $('.block__infobox--category nav', _buildHTML),
+					_cat_html					= $('<a href="#this" class="btn btn-default"></a>');
 
+				for (var b = $mevent.categories.length - 1; b >= 0; b--) {
+					_cat_html.text($mevent.categories[b].name).attr('href', $mevent.categories[b].permalink);
+					_cat_html.appendTo(_nav);
+				}
 
-					console.log('click click');
+				_this.infowindow.setContent(_buildHTML.html());
+				_this.infowindow.open(_this.google_map);
+				_this.infowindow.setPosition(event.latLng);
 
-					
-					//oThis.getMarkers( "hash=" + this.hash, base_url + "mapa/obra/", buildInfo, "json", "POST", false );
-					//oThis.noRefresh = true;
-				});
+				//oThis.getMarkers( "hash=" + this.hash, base_url + "mapa/obra/", buildInfo, "json", "POST", false );
+				//oThis.noRefresh = true;
+			});
 
 			this.markers.push(marker);
 		}
 
 
 
-		this.mc					= new MarkerClusterer(this.google_map, this.markers, this.mcOptions, 'verde');
+		this.mc					= new MarkerClusterer(this.google_map, this.markers, this.mcOptions, 'preto');
 	};
 	/**
 	* Adiciona os eventos necessários.
