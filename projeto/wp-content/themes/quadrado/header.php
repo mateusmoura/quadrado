@@ -93,7 +93,7 @@
 				<div class="row">
 					<div class="col-m-12 align-right">
 						<div class="header__search">
-							<a href="<?php bloginfo('home'); ?>" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
+							<a href="#this" class="btn btn-default btn-search"><i class="fa fa-search"></i></a>
 
 							<form name="search" class="form-search" action="<?php bloginfo('home'); ?>/" method="get">
 								<input type="search" name="s" id="s" class="form-style" placeholder="O que deseja buscar?" value="<?php echo wp_specialchars($s, 1); ?>">

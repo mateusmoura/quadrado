@@ -49,16 +49,27 @@ var site = {
 		for (var i = _collapse.length - 1; i >= 0; i--) {
 			MM.Collapsible(_collapse.eq(i), true);
 		};
-		
 
 		MM.ValidarFormularios($('form.validate'));
 
 		if($('main').hasClass('about')) {
 			this.about();
-			console.log('aki')
 		}
+
+		this.button_search();
 	},
 
+	button_search: function () {
+		$('.header__search .btn-search').on('click', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+
+			if($('.header__search .form-search input').val().length) {
+				window.location.href = $('.header__search .form-search').attr('action') + "?s=" + $('.header__search .form-search input').val();
+			}
+		});
+	},
+	/* Animation About page */
 	about: function () {
 		$('.block__slider').on('click', '.btn-default.btn-left', function(event) {
 			event.preventDefault();
