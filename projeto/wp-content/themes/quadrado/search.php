@@ -18,7 +18,7 @@
 						<div class="row">
 							<div class="col-m-12">
 								<div class="block__post--title">
-									<h1>encontramos <?php echo $search->found_posts; ?> posts com a palavra “<?php echo get_search_query() ?>”</h1>
+									<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> com a palavra “<?php echo get_search_query() ?>”</h1>
 
 									<div class="block__post--category align-right">
 										<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>" class="btn btn-default">ver todos os posts</a>
