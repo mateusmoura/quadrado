@@ -5,7 +5,7 @@
 	$page_index				= 0;
 	$posts_types			= array('lugares');
 
-	$places					= query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '2', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+	$places					= query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '1000', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
 
 	for ($i = 0; $i < count($places); ++$i) {
 		$lat_long										= get_field('localizacao', $places[$i]->ID);

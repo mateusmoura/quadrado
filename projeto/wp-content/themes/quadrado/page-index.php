@@ -30,7 +30,7 @@
 
 	$json_pages				= json_encode($places);
 
-	wp_reset_query();
+	//wp_reset_query();
 ?>
 
 		<script>
