@@ -10,12 +10,13 @@
 ________________________________________________________________ */
 
 .header {
-	margin-bottom: 240px;
+	margin-bottom: 210px;
+	padding-bottom: 30px;
 	position: relative;
 
 	.center {
 		position: relative;
-		z-index: 2;
+		z-index: 3;
 	}
 
 	&__image--post {
@@ -119,6 +120,17 @@ ________________________________________________________________ */
 			margin: 0 auto;
 			width: 542px;
 		}
+	}
+
+	&__overlay {
+		.opacity(0.7);
+		background-color: @body-bg;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 2;
 	}
 
 	.btn-link {

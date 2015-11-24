@@ -57,6 +57,21 @@ var site = {
 		}
 
 		this.button_search();
+		this.second_header();
+	},
+
+	second_header: function () {
+		console.log('second_header');
+		$(window).scroll(function(event) {
+			event.preventDefault();
+			/* Act on the event */
+
+			if(window.scrollY > 260) {
+				$('.header__menu--second').slideDown();
+			} else {
+				$('.header__menu--second').slideUp();
+			}
+		});
 	},
 
 	button_search: function () {
