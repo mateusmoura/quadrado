@@ -27,7 +27,7 @@ AJUSTES AMBIENTE DEV:
 
 
 TO-DO:
-  ☐ Adicionar menu ao fazer o scroll no site;
+  ✔ Adicionar menu ao fazer o scroll no site; @done (15-11-24 21:55)
   ☐ Desenvolver opções de compartilhamento;
   ☐ Desenvolver funcionalidade de banners;
   ☐ Desenvolver Lista de Posts de cada "post_type";
