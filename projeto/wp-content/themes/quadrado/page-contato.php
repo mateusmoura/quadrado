@@ -67,7 +67,11 @@
 						<div class="block__form--contact">
 							<h3>fala que eu te escuto</h3>
 
-							<div class="row padded-x2">
+							<?php 
+								echo do_shortcode('[contact-form-7 id="4540" title="Formulário de contato"]');
+							?>
+
+							<!-- <div class="row padded-x2">
 								<div class="col-m-5">
 									<div class="row">
 										<div class="col-m-12">
@@ -93,7 +97,7 @@
 										<button type="submit" class="btn btn-default">enviar</button>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
