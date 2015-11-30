@@ -10,28 +10,6 @@ msgstr ""
 "X-Generator: GlotPress/1.0-alpha-1100\n"
 "Project-Id-Version: Twenty Thirteen\n"
 
-#. Theme URI of the plugin/theme
-msgid "https://wordpress.org/themes/twentythirteen/"
-msgstr "https://wordpress.org/themes/twentythirteen/"
-
-#. #-#-#-#-#  twentythirteen.pot (Twenty Thirteen 1.6)  #-#-#-#-#
-#. Author URI of the plugin/theme
-#: footer.php:19
-msgid "https://wordpress.org/"
-msgstr "https://wordpress.org/"
-
-#. translators: %s: Name of current post
-#: content-aside.php:16 content-audio.php:27 content-chat.php:26
-#: content-gallery.php:27 content-image.php:26 content-link.php:27
-#: content-quote.php:16 content-status.php:16 content-video.php:26
-#: content.php:44 functions.php:478
-msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
-msgstr "Continue lendo %s <span class=\"meta-nav\">&rarr;</span>"
-
-#: 404.php:16
-msgid "Not Found"
-msgstr "Não encontrado"
-
 #. Description of the plugin/theme
 msgid "The 2013 theme for WordPress takes us back to the blog, featuring a full range of post formats, each displayed beautifully in their own unique way. Design details abound, starting with a vibrant color scheme and matching header images, beautiful typography and icons, and a flexible layout that looks great on any device, big or small."
 msgstr "O tema Twenty Thirteen nos leva de volta ao blog, destacando-se todos os formatos de posts, cada um exibido de forma elegante e única. São vários detalhes, começando com uma combinação de cores vibrantes e cabeçalho, bela tipografia e ícones, e um layout flexível que se adapta a qualquer dispositivo, pequeno ou grande. "
@@ -315,3 +293,25 @@ msgid "One thought on &ldquo;%2$s&rdquo;"
 msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] "Um comentário sobre &ldquo;%2$s&rdquo;"
 msgstr[1] "%1$s comentários sobre &ldquo;%2$s&rdquo;"
+
+#: 404.php:16
+msgid "Not Found"
+msgstr "Não encontrado"
+
+#. Theme URI of the plugin/theme
+msgid "https://wordpress.org/themes/twentythirteen/"
+msgstr "https://wordpress.org/themes/twentythirteen/"
+
+#. #-#-#-#-#  twentythirteen.pot (Twenty Thirteen 1.6)  #-#-#-#-#
+#. Author URI of the plugin/theme
+#: footer.php:19
+msgid "https://wordpress.org/"
+msgstr "https://wordpress.org/"
+
+#. translators: %s: Name of current post
+#: content-aside.php:16 content-audio.php:27 content-chat.php:26
+#: content-gallery.php:27 content-image.php:26 content-link.php:27
+#: content-quote.php:16 content-status.php:16 content-video.php:26
+#: content.php:44 functions.php:478
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Continue lendo %s <span class=\"meta-nav\">&rarr;</span>"

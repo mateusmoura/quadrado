@@ -27,12 +27,9 @@ AJUSTES AMBIENTE DEV:
 
 
 TO-DO:
-  ✔ Adicionar menu ao fazer o scroll no site; @done (15-11-24 21:55)
   ☐ Desenvolver opções de compartilhamento;
   ☐ Desenvolver funcionalidade de banners;
   ☐ Desenvolver Lista de Posts de cada "post_type";
-  ✔ Desenvolver página de CONTATO; @done (15-11-25 01:54)
-  ✔ Desenvolver animação na página "sobre a gente"; @done (15-11-25 01:54)
   ☐ Desenvolver o MENU no rodapá;
   ☐ Desenvolver o filtro do Mapa;
   ☐ Desenvolver a parte de EVENTOS;
@@ -51,6 +48,9 @@ CONFIGURAÇÕES PRODUÇÃO:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+ ✔ Desenvolver página de CONTATO; @done (15-11-25 01:54) @project(TO-DO)
+ ✔ Desenvolver animação na página "sobre a gente"; @done (15-11-25 01:54) @project(TO-DO)
+ ✔ Adicionar menu ao fazer o scroll no site; @done (15-11-24 21:55) @project(TO-DO)
  ✔ Fazer o CSS da Janela do Google Maps; @done (15-11-08 17:27) @project(TO-DO)
  ✔ Customizar os Markers e os Clusters; @done (15-11-08 17:27) @project(TO-DO)
  ✔ Desenvolver o MAPA; @done (15-11-05 02:32) @project(TO-DO)
