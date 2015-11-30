@@ -29,7 +29,7 @@ AJUSTES AMBIENTE DEV:
 TO-DO:
   ☐ Desenvolver opções de compartilhamento;
   ☐ Desenvolver funcionalidade de banners;
-  ☐ Desenvolver Lista de Posts de cada "post_type";
+  ✔ Desenvolver Lista de Posts de cada "post_type"; @done (15-11-30 16:39)
   ☐ Desenvolver o MENU no rodapá;
   ☐ Desenvolver o filtro do Mapa;
   ☐ Desenvolver a parte de EVENTOS;
@@ -42,7 +42,7 @@ CONFIGURAÇÕES PRODUÇÃO:
   ☐ Configurar formulário de contato;
   ☐ Configurar formulário de newletter;
   ☐ Configurar SMPT;
-  ☐ 
+  ☐ Configurar os Link permanentes;
 
 
 

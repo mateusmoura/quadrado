@@ -4,6 +4,12 @@
 		$viewID = get_the_ID();
 		$title = get_the_title($viewID);
 	 ?>
+
+	<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
+	<div class="header__image--post">
+		<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-1_old.png" alt="Quadrado Brasilia">
+	</div>
+
 	<main role="main" class="about">
 		<section class="block__post">
 			<div class="center">

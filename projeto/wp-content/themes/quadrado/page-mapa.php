@@ -47,11 +47,10 @@
 			});
 		</script>
 
-		<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-		<div class="header__image--post">
-			<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
-			<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
-		</div>
+			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
+			<div class="header__image--post">
+				<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-default2.jpg" alt="Quadrado Brasilia">
+			</div>
 
 			<main role="main" class="map">
 				<section class="block__post">
