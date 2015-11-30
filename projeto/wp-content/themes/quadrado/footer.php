@@ -6,17 +6,21 @@
 							<a href="#this">todos os posts <i class="fa fa-angle-down"></i></a>
 
 							<ul>
-								<li><a href="#">Link 1</a></li>
-								<li><a href="#">Link 2</a></li>
-								<li><a href="#">Link 3</a></li>
-								<li><a href="#">Link 4</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/artes">Artes</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/eu-acho">Eu acho</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/feiras">Feira</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/mesa">Mesa</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/passeio">Passeio</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/pessoas">Pessoas</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/pistas">Pista</a></li>
+								<li><a href="<?php bloginfo('url'); ?>/sacolas">Sacola</a></li>
 							</ul>
 						</div>
 
 						<a href="<?php echo get_permalink( get_page_by_path('mapa')); ?>">mapa do quadrado</a>
-						<a href="#this">agenda</a>
+						<a href="<?php echo get_permalink( get_page_by_path('agenda')); ?>">agenda</a>
 						<a href="<?php echo get_permalink( get_page_by_path('sobre-a-gente')); ?>" title="Sobre a gente">sobre a gente</a>
-						<a href="contato.php">contato</a>
+						<a href="<?php echo get_permalink( get_page_by_path('contato')); ?>">contato</a>
 					</nav>
 				</div>
 

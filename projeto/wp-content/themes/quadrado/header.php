@@ -137,10 +137,14 @@
 								<a href="#this">todos os posts <i class="fa fa-angle-down"></i></a>
 
 								<ul>
-									<li><a href="#">Link 1</a></li>
-									<li><a href="#">Link 2</a></li>
-									<li><a href="#">Link 3</a></li>
-									<li><a href="#">Link 4</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/artes">Artes</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/eu-acho">Eu acho</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/feiras">Feira</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/mesa">Mesa</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/passeio">Passeio</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/pessoas">Pessoas</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/pistas">Pista</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/sacolas">Sacola</a></li>
 								</ul>
 							</div>
 
