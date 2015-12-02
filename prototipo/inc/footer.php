@@ -44,6 +44,7 @@
 		<script src="js/Modulos/MM.ValidarFormularios.js"></script>
 		<script src="js/Modulos/MM.Collapsible.js"></script>
 		<script src="js/Modulos/MM.Feedback.js"></script>
+		<script src="js/Modulos/MM.Calendar.js"></script>
 
 
 		<!--[if lte IE 9]><script src="js/plugins/jQuery.placeholder.js"></script>

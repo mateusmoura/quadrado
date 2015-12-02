@@ -29,7 +29,7 @@ main {
 		}
 	}
 
-	&.internal, &.search, &.contact, &.about {
+	&.internal, &.search, &.contact, &.about, &.calendar {
 		.block__post {
 			margin-bottom: 0;
 		}
@@ -71,6 +71,17 @@ main {
 
 		.block__post--content {
 			.box-shadow(none);
+		}
+	}
+
+	&.calendar {
+		.bg-white {
+			margin-top: 304px;
+			padding-top: 0;
+		}
+
+		.block__fullcalendar {
+			margin-top: -240px;
 		}
 	}
 
