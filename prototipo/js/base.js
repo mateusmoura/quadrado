@@ -52,11 +52,13 @@ var site = {
 		var data = [
 			{
 				"title": "All Day Event",
-				"start": "2015-12-01"
+				"start": "2015-12-01",
+				'description': 'Hurrayyyyyyyyyy',
 			},
 			{
 				"title": "Long Event",
 				"start": "2015-12-07",
+				"image": "http://www.skiheavenly.com/~/media/heavenly/images/732x260%20header%20images/events-heavenly-header.ashx",
 				"end": "2015-12-10"
 			},
 			{
@@ -85,6 +87,7 @@ var site = {
 			},
 			{
 				"title": "Meeting",
+				"image": "http://www.skiheavenly.com/~/media/heavenly/images/732x260%20header%20images/events-heavenly-header.ashx",
 				"start": "2015-12-12T14:30:00-05:00"
 			},
 			{
@@ -103,11 +106,16 @@ var site = {
 				"title": "Click for Google",
 				"url": "http://google.com/",
 				"start": "2015-12-28"
+			},
+			{
+				"title": "Click for Google",
+				"url": "http://google.com/",
+				"start": "2016-01-02"
 			}
 		];
 
 
-		MM.Calendar($('#calendar'), data);
+		MM.Calendar($('.block__fullcalendar'), data);
 	}
 }
 

@@ -6,6 +6,8 @@
 Module('MM.Calendar', function (Calendar) {
 	Calendar.fn.initialize = function ($container, $json) {
 		this.$container			= $container;
+		this.$calendar			= $('#calendar, .calendar', this.$container);
+		this.$actions			= $('.block__fullcalendar--actions', this.$container);
 		this.$json				= $json;
 
 		this.loadScripts();
@@ -41,17 +43,57 @@ Module('MM.Calendar', function (Calendar) {
 	* Configuração do plugin para mostrar o calendário.
 	*/
 	Calendar.fn.config = function(){
-		this.$container.fullCalendar({
+		this.$calendar.fullCalendar({
 			defaultDate: '2015-12-12',
 			editable: false,
 			lang: 'pt-br',
 			eventLimit: true, // allow "more" link when too many events
+			contentHeight: 1080,
 			header : {
 				left: 'prev',
 				center: 'title',
 				right: 'next'
 			},
-			events: this.$json
+			dayNamesShort: ['domingo', 'segunda-feira', 'terça-feira', 'quarta-feira', 'quinta-feira', 'sexta-feira', 'sábado'],
+			timeFormat: 'H(:mm)[h]',
+			events: this.$json,
+			eventLimitText: '',
+			views: {
+				basic: {
+					columnFormat: 'ddd D/M'
+				}
+			},
+			eventRender: function(event, element) {
+				if(event.description) {
+					$('<p class="fc-description">' + event.description + '</p>').appendTo(element.find('.fc-content'));
+				}
+
+				if(event.image) {
+					$('<img src="' + event.image + '" alt="'+ event.title +'" class="fc-image">').prependTo(element.find('.fc-content'));
+				}
+			}
 		});
+
+		this.addEventListeners();
+	};
+	/**
+	* Adiciona os eventos necessários.
+	*/
+	Calendar.fn.addEventListeners = function () {
+		this.$actions
+			.on('click', '.btn-month', function (event) {
+				event.preventDefault();
+				/* Act on the event */
+				$('.btn-active', this.$actions).removeClass('btn-active').addClass('btn-disabled');
+				$(event.currentTarget).addClass('btn-active');
+				this.$calendar.fullCalendar('changeView', 'month');
+			}.bind(this))
+			.on('click', '.btn-week', function (event) {
+				event.preventDefault();
+				/* Act on the event */
+				$('.btn-active', this.$actions).removeClass('btn-active').addClass('btn-disabled');
+				$(event.currentTarget).addClass('btn-active');
+				this.$calendar.fullCalendar('changeView', 'basicWeek');
+			}.bind(this));
 	};
 });

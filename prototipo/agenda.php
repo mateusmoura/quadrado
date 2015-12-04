@@ -19,6 +19,11 @@
 					<div class="bg-white">
 						<div class="center">
 							<div class="block__fullcalendar">
+								<div class="block__fullcalendar--actions align-right">
+									<button type="button" class="btn btn-white-b btn-disabled btn-week">por semana</button>
+									<button type="button" class="btn btn-default btn-active btn-month">por mês</button>
+								</div>
+
 								<div id="calendar"></div>
 							</div>
 						</div>
