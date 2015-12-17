@@ -84,15 +84,15 @@ Module('MM.Calendar', function (Calendar) {
 			.on('click', '.btn-month', function (event) {
 				event.preventDefault();
 				/* Act on the event */
-				$('.btn-active', this.$actions).removeClass('btn-active').addClass('btn-disabled');
-				$(event.currentTarget).addClass('btn-active');
+				$('.btn-active', this.$actions).removeClass('btn-active btn-default').addClass('btn-disabled btn-white-b');
+				$(event.currentTarget).addClass('btn-active btn-default');
 				this.$calendar.fullCalendar('changeView', 'month');
 			}.bind(this))
 			.on('click', '.btn-week', function (event) {
 				event.preventDefault();
 				/* Act on the event */
-				$('.btn-active', this.$actions).removeClass('btn-active').addClass('btn-disabled');
-				$(event.currentTarget).addClass('btn-active');
+				$('.btn-active', this.$actions).removeClass('btn-active btn-default').addClass('btn-disabled btn-white-b');
+				$(event.currentTarget).addClass('btn-active btn-default');
 				this.$calendar.fullCalendar('changeView', 'basicWeek');
 			}.bind(this));
 	};

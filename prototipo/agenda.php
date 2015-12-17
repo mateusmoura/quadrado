@@ -8,7 +8,7 @@
 								<div class="block__post--title">
 									<h1>agenda do quadrado</h1>
 
-									<a href="#this" class="btn btn-default">sugerir um evento</a>
+									<a href="inc/modal-agenda.php" class="btn btn-default btn-modal btn-send-event">sugerir um evento</a>
 
 									<div class="block__post--time"></div>
 								</div>

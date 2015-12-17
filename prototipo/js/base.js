@@ -45,8 +45,8 @@ var site = {
 		for (var i = _collapse.length - 1; i >= 0; i--) {
 			MM.Collapsible(_collapse.eq(i), true);
 		};
-		
 
+		MM.Modal();
 		MM.ValidarFormularios($('form.validate'));
 
 		var data = [
@@ -116,6 +116,12 @@ var site = {
 
 
 		MM.Calendar($('.block__fullcalendar'), data);
+	},
+	/*
+	* Callback quando salva um evento na modal.
+	*/
+	registerEvent: function () {
+		console.log('Callback modal');
 	}
 }
 
