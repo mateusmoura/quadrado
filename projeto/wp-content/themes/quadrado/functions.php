@@ -167,13 +167,37 @@ add_action( 'wp_ajax_update_value','update_value' );
 
 
 // search filter
-function fb_search_filter($query) {
+function fb_search_filter ($query) {
 	if ( !$query->is_admin && $query->is_search) {
 		$query->set('post_type', array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas') ); // id of page or post
 	}
 	return $query;
 }
 add_filter( 'pre_get_posts', 'fb_search_filter' );
+
+// add_action('wp_ajax_ps_get_survey_form', 'ps_get_survey_form');
+// add_action('wp_ajax_nopriv_ps_get_survey_form', 'ps_get_survey_form');
+
+// function ps_get_survey_form () {
+// 	//do_shortcode( 'foo' );
+
+// 	echo do_shortcode( '[contact-form-7 id="4549" title="Formulário de eventos"]' );
+// 	die();
+// }
+
+add_action( 'init', create_function('',  'register_shortcode_ajax( "cl_contact_us", "cl_contact_us" ); '));
+
+function register_shortcode_ajax( $callable, $action ) {
+	if ( empty( $_POST['action'] ) || $_POST['action'] != $action )
+		return;
+	call_user_func( $callable );
+}
+
+function cl_contact_us() {
+	echo do_shortcode( '[contact-form-7 id="4549" title="Formulário de eventos"]' );
+	die(); 
+} 
+
 
 
 add_theme_support( "post-thumbnails" );

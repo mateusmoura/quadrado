@@ -4,43 +4,40 @@
 * @Version: 1.0
 */
 
-Module('CNA.Modal', function(Modal){
-	Modal.fn.initialize = function($callfn){
-		this.modal = $('#modal').length ? $('#modal') : $('<div id="modal"><a href="#this" class="btn-fechar"><i class="icon icon-fechar2"></i></a><div class="conteudo"></div></div>').appendTo($('body'));
+Module('MM.Modal', function (Modal) {
+	Modal.fn.initialize = function ($callfn) {
+		this.modal = $('#modal').length ? $('#modal') : $('<div id="modal" class="modal"><div class="modal__container"></div></div>').appendTo($('body'));
 		this.overlay = $('#overlay').length ? $('#overlay') : $('<div id="overlay"></div>').appendTo($('body'));
 		this.call = $callfn;
+		this.modalClass = '';
 
 		this.addEventListeners();
 	};
 	/**
 	* Efetua o AJAX do conteúdo da modal.
 	*/
-	Modal.fn.ajax = function($url, $evt){
+	Modal.fn.ajax = function ($url, $evt) {
 		var _this = this;
 
 		$.ajax({
 			url: $url,
+			method: $evt.currentTarget.dataset.modal ? 'POST' : 'GET',
+			data: $evt.currentTarget.dataset.modal !== undefined && $evt.currentTarget.dataset.modal,
 			cache: true,
-			beforeSend: function(){
+			beforeSend: function () {
 				//oTalk.loading.add(oTalk.overlay).fadeIn();
 				_this.overlay.fadeIn();
 			},
-			error: function(jqXHR, textStatus, errorThrown){
+			error: function (jqXHR, textStatus, errorThrown) {
 				//console.log( "ERROR: ", jqXHR, textStatus, errorThrown );
 				//oTalk.loading.add(oTalk.overlay).fadeOut();
 				_this.overlay.fadeOut();
 			},
-			success: function( response ){
+			success: function (response) {
 				//oTalk.loading.fadeOut();
-				$(response).appendTo(_this.modal.find('.conteudo').empty());
+				$(response).appendTo(_this.modal.find('.modal__container').empty());
 
 				_this.posicionarModal($evt);
-				//oTalk.util.radio();
-				//oTalk.util.checkbox();
-
-				// if($('body').hasClass('ie7') || $('body').hasClass('ie8')){
-				// 	$('input[placeholder], textarea[placeholder]', this.modal).placeholder();
-				// }
 
 				if( _this.call != undefined ){
 					_this.call();
@@ -52,16 +49,23 @@ Module('CNA.Modal', function(Modal){
 	/**
 	* Centraliza a MODAL na página
 	*/
-	Modal.fn.posicionarModal = function($evt, $m){
+	Modal.fn.posicionarModal = function ($evt, $m) {
+		if($evt.currentTarget.dataset.cached === "true") {
+			$('div.modal__container > div', this.modal).hide();
+			$('div.modal__container div.' + $evt.currentTarget.rel, this.modal).show();
+		}
+
 		var _modal = $m != undefined ? $m : this.modal,
 			_left =  $(window).width() - _modal.width(),
-			_top = $evt.pageY - _modal.height();
+			_top = Math.abs($evt.pageY - (_modal.height() + 50));
 
 		_left = _left/2;
 
+		this.modal.addClass(this.modalClass);
+
 		_modal.css({
 			left: _left,
-			top: _top + 35
+			top: isNaN(_top) ? 15 : _top + 35
 		}).fadeIn();
 
 		$("html, body").animate({
@@ -75,8 +79,8 @@ Module('CNA.Modal', function(Modal){
 		$('.btn-modal')
 			.on('click', this.onButtonClick.bind(this));
 
-		this.modal.find('.btn-fechar')
-			.on('click', this.onButtonClose.bind(this));
+		this.modal
+			.on('click', '.btn-close', this.onButtonClose.bind(this));
 
 		this.overlay
 			.on('click', this.onButtonClose.bind(this));
@@ -85,9 +89,11 @@ Module('CNA.Modal', function(Modal){
 	* Evento de CLICK do BOTÃO para mostrar a modal.
 	*/
 	Modal.fn.onButtonClick = function(event){
-		if(event.currentTarget.rel != "" && event.currentTarget.cached == true){
+		this.modalClass = event.currentTarget.rel;
+
+		if(event.currentTarget.rel != "" && event.currentTarget.dataset.cached == "true"){
 			this.overlay.fadeIn();
-			this.posicionarModal(event, $('div.modal.' + this.rel));
+			this.posicionarModal(event, this.modal);
 		}else{
 			this.ajax(event.currentTarget.href, event);
 		}
@@ -98,11 +104,11 @@ Module('CNA.Modal', function(Modal){
 	* Evento de CLICK do BOTÃO para fechar a modal.
 	*/
 	Modal.fn.onButtonClose = function(event){
-		var _this = this;
-
-		_this.modal.fadeOut(function(){
-			_this.overlay.fadeOut();
-		});
+		this.modal.fadeOut(function(){
+			this.overlay.fadeOut();
+			this.modal.removeClass(this.modalClass);
+			this.modal.removeClass('modal__introduction');
+		}.bind(this));
 
 		return false;
 	};

@@ -37,6 +37,7 @@
 	<script>
 		base_url = "<?php bloginfo('template_url'); ?>/";
 		base_url_project = "<?php bloginfo('url'); ?>";
+		ajaxurl = "<?php echo admin_url('admin-ajax.php'); ?>";
 	</script>
 
 	<script src="<?php bloginfo('template_url'); ?>/js/plugins/module.js"></script>
@@ -51,6 +52,8 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Feedback.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Random.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.GoogleMaps.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Modal.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Calendar.js"></script>
 
 	<!--[if lte IE 9]><script src="<?php bloginfo('template_url'); ?>/js/plugins/jQuery.placeholder.js"></script>
 	<script>

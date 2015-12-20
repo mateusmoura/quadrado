@@ -29,6 +29,7 @@
 
 		<link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/base.css?<?php echo $noCache; ?>" />
 		<link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie.css?<?php echo $noCache; ?>" />
+		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/jQuery.fullcalendar.css" media="screen" />
 		<!--[if IE]><link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie.css?<?php echo $noCache; ?>" media="screen" /><![endif]-->
 
 		<!--[if lt IE 9]>
