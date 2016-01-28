@@ -1,4 +1,41 @@
 <?php get_header(); ?>
+
+<?php 
+	$counter          = 0;
+	$page_index       = 0;
+	$posts_types      = array('agenda');
+
+	$events           = query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '300', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+
+	for ($i = 0; $i < count($events); ++$i) {
+		$event = $events[$i];
+
+		$title                      = get_the_title( $event->ID );
+		$link                       = get_field('link', $event->ID);
+		//$adicionado_por             = get_field('adicionado_por', $event->ID);
+		//$email                      = get_field('email', $event->ID);
+		//$evento_id                  = get_field('evento_id', $event->ID);
+		$data_inicio                = get_field('data_inicio', $event->ID);
+		$data_final                 = get_field('data_final', $event->ID);
+		//$local_do_evento            = get_field('local_do_evento', $event->ID);
+		$cidade_estado_pais         = get_field('cidade_estado_pais', $event->ID);
+		$cover                      = wp_get_attachment_url( get_post_thumbnail_id($event->ID) );
+
+		$event->title               = $title;
+		$event->description         = $cidade_estado_pais;
+		$event->image               = $cover;
+		$event->start               = $data_inicio;
+		$event->end                 = $data_final;
+		$event->url                 = $link;
+	}
+
+	$json_events                  = json_encode($events);
+?>
+
+	<script>
+			var events_data = <?php echo $json_events; ?>;
+	</script>
+
 	<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
 	<!-- <div class="header__image--post header__image--post-random">
 		<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
