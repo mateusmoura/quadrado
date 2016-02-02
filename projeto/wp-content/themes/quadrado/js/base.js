@@ -60,73 +60,8 @@ var site = {
 		this.button_search();
 		this.second_header();
 
-		var data = [
-			{
-				"title": "All Day Event",
-				"start": "2015-12-01",
-				'description': 'Hurrayyyyyyyyyy',
-			},
-			{
-				"title": "Long Event",
-				"start": "2015-12-07",
-				"image": "http://www.skiheavenly.com/~/media/heavenly/images/732x260%20header%20images/events-heavenly-header.ashx",
-				"end": "2015-12-10"
-			},
-			{
-				"id": "999",
-				"title": "Repeating Event",
-				"start": "2015-12-09T16:00:00-05:00"
-			},
-			{
-				"id": "999",
-				"title": "Repeating Event",
-				"start": "2015-12-16T16:00:00-05:00"
-			},
-			{
-				"title": "Conference",
-				"start": "2015-12-11",
-				"end": "2015-12-13"
-			},
-			{
-				"title": "Meeting",
-				"start": "2015-12-12T10:30:00-05:00",
-				"end": "2015-12-12T12:30:00-05:00"
-			},
-			{
-				"title": "Lunch",
-				"start": "2015-12-12T12:00:00-05:00"
-			},
-			{
-				"title": "Meeting",
-				"image": "http://www.skiheavenly.com/~/media/heavenly/images/732x260%20header%20images/events-heavenly-header.ashx",
-				"start": "2015-12-12T14:30:00-05:00"
-			},
-			{
-				"title": "Happy Hour",
-				"start": "2015-12-12T17:30:00-05:00"
-			},
-			{
-				"title": "Dinner",
-				"start": "2015-12-12T20:00:00"
-			},
-			{
-				"title": "Birthday Party",
-				"start": "2015-12-13T07:00:00-05:00"
-			},
-			{
-				"title": "Click for Google",
-				"url": "http://google.com/",
-				"start": "2015-12-28"
-			},
-			{
-				"title": "Click for Google",
-				"url": "http://google.com/",
-				"start": "2016-01-02"
-			}
-		];
 
-
-		MM.Calendar($('.block__fullcalendar'), data);
+		MM.Calendar($('.block__fullcalendar'), events_data);
 	},
 
 	second_header: function () {
