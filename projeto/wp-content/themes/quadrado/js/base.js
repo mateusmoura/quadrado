@@ -153,8 +153,8 @@ var site = {
 	/*
 	* Callback quando salva um evento na modal.
 	*/
-	registerEvent: function () {
-		console.log('Callback modal');
+	registerEvent: function ($form) {
+		console.log('Callback modal', $form);
 	}
 }
 

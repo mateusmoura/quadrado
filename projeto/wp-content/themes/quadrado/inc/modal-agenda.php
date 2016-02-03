@@ -11,7 +11,7 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="modal__content--form">
-							<form action="#url" method="POST" class="validate" data-ajax="true" data-callfn="registerEvent">
+							<form action="#url" method="POST" class="validate" data-onlyvalidate="true" data-callfn="site.registerEvent">
 								<div class="row">
 									<div class="col-12">
 										<label>Autenticar com o Facebook (obrigatório)</label>
@@ -57,6 +57,5 @@
 				callback			= _formValidate.data('callfn');
 
 			MM.ValidarFormularios(_formValidate, obj_temp, callback);
-			console.log($('div.modal__event'));
 			MM.OAuthFacebook($('div.modal__event'), window.FB);
 		</script>
