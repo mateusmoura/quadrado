@@ -52,6 +52,7 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Feedback.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Random.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.GoogleMaps.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.OAuthFacebook.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Modal.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Calendar.js"></script>
 

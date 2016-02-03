@@ -1,4 +1,4 @@
-		<div class="modal__default">
+		<div class="modal__default modal__event">
 			<div class="modal__head">
 				<div class="row">
 					<div class="col-12">
@@ -14,24 +14,32 @@
 							<form action="#url" method="POST" class="validate" data-ajax="true" data-callfn="registerEvent">
 								<div class="row">
 									<div class="col-12">
+										<label>Autenticar com o Facebook (obrigatório)</label>
+										<button type="button" class="btn btn-link btn-facebook">
+											<i class="fa fa-facebook-square"></i>
+										</button>
+									</div>
+								</div>
+								<div class="row fb__notLogged">
+									<div class="col-12">
 										<label>seu nome (obrigatório)</label>
 										<input type="text" name="user_name" class="form-style required">
 									</div>
 								</div>
-								<div class="row">
+								<div class="row fb__notLogged">
 									<div class="col-12">
 										<label>seu e-mail (obrigatório)</label>
 										<input type="text" name="user_email" class="form-style email required">
 									</div>
 								</div>
-								<div class="row">
+								<div class="row fb__notLogged">
 									<div class="col-12">
 										<label>URL do evento no Facebook (obrigatório)</label>
 										<input type="text" name="user_url_event" class="form-style url required">
 									</div>
 								</div>
 
-								<div class="row">
+								<div class="row fb__notLogged">
 									<div class="col-12">
 										<button type="submit" class="btn btn-default btn-full">sugerir evento</button>
 									</div>
@@ -49,4 +57,6 @@
 				callback			= _formValidate.data('callfn');
 
 			MM.ValidarFormularios(_formValidate, obj_temp, callback);
+			console.log($('div.modal__event'));
+			MM.OAuthFacebook($('div.modal__event'), window.FB);
 		</script>

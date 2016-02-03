@@ -32,6 +32,27 @@
 	$json_events                  = json_encode($events);
 ?>
 
+<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '893441747436681',
+				cookie     : true,
+				xfbml      : true,
+				version    : 'v2.5'
+			});
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
 	<script>
 			var events_data = <?php echo $json_events; ?>;
 	</script>
