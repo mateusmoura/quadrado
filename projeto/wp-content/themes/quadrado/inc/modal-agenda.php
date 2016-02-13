@@ -57,6 +57,5 @@
 				callback			= _formValidate.data('callfn');
 
 			MM.ValidarFormularios(_formValidate, obj_temp, callback);
-			console.log($('div.modal__event'));
 			MM.OAuthFacebook($('div.modal__event'), window.FB);
 		</script>

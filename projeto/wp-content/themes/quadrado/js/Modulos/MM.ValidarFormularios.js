@@ -6,9 +6,15 @@
 
 Module('MM.ValidarFormularios', function (ValidarFormularios) {
 	ValidarFormularios.fn.initialize = function ($form, $settings, $callfn) {
+<<<<<<< HEAD
 		this.formulario			= $form;
 		this.settings			= $settings;
 		this.call				= eval($callfn);
+=======
+		this.formulario       = $form;
+		this.settings         = $settings;
+		this.call             = eval($callfn);
+>>>>>>> b257c008197a4e77197f1927f08cc3ca99ea15a6
 
 		//this.config();
 		//this.setValidar();
@@ -189,7 +195,7 @@ Module('MM.ValidarFormularios', function (ValidarFormularios) {
 				required: "Este campo é obrigatório.",
 				// remote: "Please fix this field.",
 				email: "Digite um e-mail válido.",
-				// url: "Please enter a valid URL.",
+				url: "Informe uma URL válida.",
 				date: "Digite uma data válida.",
 				dateISO: "Digite uma data válida (ISO).",
 				number: "Digite uma quantidade válida.",
@@ -221,9 +227,8 @@ Module('MM.ValidarFormularios', function (ValidarFormularios) {
 			submitHandler: function (forms) {
 				$("div.checker", _this.formulario).removeClass("checker"); // Verificar se ainda está usando essa classe VERIFY
 
-				console.log('click >>>>', forms);
-
 				if(_this.formulario.data('ajax')){
+					console.log('ajax');
 					$(forms).ajaxSubmit({
 						dataType: 'json',
 						error: function(a, b, c){
