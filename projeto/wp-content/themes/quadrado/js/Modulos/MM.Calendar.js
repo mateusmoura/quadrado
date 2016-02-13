@@ -44,7 +44,7 @@ Module('MM.Calendar', function (Calendar) {
 	*/
 	Calendar.fn.config = function(){
 		this.$calendar.fullCalendar({
-			defaultDate: '2015-12-12',
+			defaultDate: moment().format('YYYY[-]MM[-]DD'),
 			editable: false,
 			lang: 'pt-br',
 			eventLimit: true, // allow "more" link when too many events

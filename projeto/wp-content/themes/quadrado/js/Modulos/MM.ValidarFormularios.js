@@ -8,7 +8,7 @@ Module('MM.ValidarFormularios', function (ValidarFormularios) {
 	ValidarFormularios.fn.initialize = function ($form, $settings, $callfn) {
 		this.formulario			= $form;
 		this.settings			= $settings;
-		this.call				= $callfn;
+		this.call				= eval($callfn);
 
 		//this.config();
 		//this.setValidar();
@@ -221,6 +221,8 @@ Module('MM.ValidarFormularios', function (ValidarFormularios) {
 			submitHandler: function (forms) {
 				$("div.checker", _this.formulario).removeClass("checker"); // Verificar se ainda está usando essa classe VERIFY
 
+				console.log('click >>>>', forms);
+
 				if(_this.formulario.data('ajax')){
 					$(forms).ajaxSubmit({
 						dataType: 'json',
@@ -229,7 +231,7 @@ Module('MM.ValidarFormularios', function (ValidarFormularios) {
 						},
 						success: function(resp){
 							//console.log( "RESPONSE: ", resp );
-							_this.call != undefined && _this.call(_this.formulario);
+							_this.call != undefined && _this.call(_this.formulario, resp);
 						}
 					});
 
@@ -238,7 +240,9 @@ Module('MM.ValidarFormularios', function (ValidarFormularios) {
 
 					// Função para mostrar conteúdo estatico
 					//_this.call != undefined && site[_this.call](_this.formulario, resposta);
-				}else{
+				} else if(_this.formulario.data('onlyvalidate')) {
+					_this.call != undefined && _this.call(_this.formulario, forms);
+				} else{
 					forms.submit();
 				}
 			},

@@ -153,8 +153,13 @@ var site = {
 	/*
 	* Callback quando salva um evento na modal.
 	*/
-	registerEvent: function () {
-		console.log('Callback modal');
+	registerEvent: function ($form, resp) {
+		var _name       = $('input[name=user_name]', $form).val(),
+			_email      = $('input[name=user_email]', $form).val(),
+			_url        = $('input[name=user_url_event]', $form).val(),
+			_eventID    = _url.replace(/([^0-9 @_-])/ig, '');
+
+		console.log(_name, _email, _url, _eventID);
 	}
 }
 
