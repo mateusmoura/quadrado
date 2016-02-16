@@ -6,15 +6,9 @@
 
 Module('MM.ValidarFormularios', function (ValidarFormularios) {
 	ValidarFormularios.fn.initialize = function ($form, $settings, $callfn) {
-<<<<<<< HEAD
-		this.formulario			= $form;
-		this.settings			= $settings;
-		this.call				= eval($callfn);
-=======
 		this.formulario       = $form;
 		this.settings         = $settings;
 		this.call             = eval($callfn);
->>>>>>> b257c008197a4e77197f1927f08cc3ca99ea15a6
 
 		//this.config();
 		//this.setValidar();
@@ -236,7 +230,7 @@ Module('MM.ValidarFormularios', function (ValidarFormularios) {
 						},
 						success: function(resp){
 							//console.log( "RESPONSE: ", resp );
-							_this.call != undefined && _this.call(_this.formulario, resp);
+							_this.call != undefined && _this.call(forms, resp);
 						}
 					});
 

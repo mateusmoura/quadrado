@@ -5,6 +5,8 @@
 	$page_index       = 0;
 	$posts_types      = array('agenda');
 
+	$page_content     = the_content();
+
 	$events           = query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '300', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
 
 	for ($i = 0; $i < count($events); ++$i) {
@@ -91,6 +93,10 @@
 						</div>
 
 						<div id="calendar"></div>
+
+						<div class="entries">
+							<?php echo $page_content; ?>
+						</div>
 					</div>
 				</div>
 			</div>

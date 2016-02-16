@@ -206,4 +206,60 @@ add_theme_support( "nav-menus" );
 add_action( "get_navigation", "get_navigation" );
 
 
+
+add_action( 'wp_ajax_admin_enqform', 'wp_create_event' );
+
+function wp_create_event() {
+
+	if(isset($_POST['submitted'])) {    //validations 
+
+		if(trim($_POST['adicionado_por']) === '' || trim($_POST['email']) === '' || trim($_POST['link']) === '' || trim($_POST['evento_id']) === '') {
+			$hasError = true;
+		} else {
+			$link                = trim($_POST['link']);
+			$adicionado_por      = trim($_POST['adicionado_por']);
+			$email               = trim($_POST['email']);
+			$evento_id           = trim($_POST['evento_id']);
+			$data_inicio         = trim($_POST['data_inicio']);
+			$data_final          = trim($_POST['data_final']);
+			$local_do_evento     = trim($_POST['local_do_evento']);
+			$cidade_estado_pais  = trim($_POST['cidade_estado_pais']);
+
+			$title               = trim($_POST['title']);
+		}
+
+		// maybe check some permissions here, depending on your app
+		global $wpdb;
+		$nonce = $_POST['nonce'];
+
+		if ( ! wp_verify_nonce( $nonce, 'form-nonce' ) ) {
+			die( 'Security check' ); 
+		} else {
+			$new_post = array(
+				'post_title'    => $firstname,
+				'post_status'   => 'publish',
+				'post_type' => 'post'
+			);
+			$pid = wp_insert_post($new_post);
+			if( $pid ) { 
+				add_post_meta( $pid, 'cpt_firstname', $firstname, true );
+			}
+
+			// send some information back to the javascipt handler
+			$response = array(
+				'status' => '200',
+				'message' => 'OK',
+				'new_post_ID' => $pid
+			);
+		}
+
+		// normally, the script expects a json respone
+		header( 'Content-Type: application/json; charset=utf-8' );
+		echo json_encode( $response );
+
+		exit; // important
+	}
+}
+
+
 ?>

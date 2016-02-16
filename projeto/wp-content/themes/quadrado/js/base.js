@@ -159,6 +159,16 @@ var site = {
 			_url        = $('input[name=user_url_event]', $form).val(),
 			_eventID    = _url.replace(/([^0-9 @_-])/ig, '');
 
+		FB.api(
+			'/' + _eventID,
+			'GET',
+			{},
+			function(response) {
+				// Insert your code here
+				console.log('Resposta', response);
+			}
+		);
+
 		console.log(_name, _email, _url, _eventID);
 	}
 }
