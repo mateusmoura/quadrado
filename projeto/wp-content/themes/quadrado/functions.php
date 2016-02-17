@@ -205,13 +205,13 @@ add_theme_support( "nav-menus" );
 
 add_action( "get_navigation", "get_navigation" );
 
-
-
-add_action( 'wp_ajax_admin_enqform', 'wp_create_event' );
-
 function wp_create_event() {
+	//echo json_encode( {'mateus': 'asdfasdf'});
 
-	if(isset($_POST['submitted'])) {    //validations 
+	// require_once  $_SERVER["DOCUMENT_ROOT"]."/wp-load.php";
+	// ini_set('display_errors', 1); 
+	// error_reporting('E_ALL');
+	//if(isset($_POST['serialize'])) {    //validations 
 
 		if(trim($_POST['adicionado_por']) === '' || trim($_POST['email']) === '' || trim($_POST['link']) === '' || trim($_POST['evento_id']) === '') {
 			$hasError = true;
@@ -224,42 +224,65 @@ function wp_create_event() {
 			$data_final          = trim($_POST['data_final']);
 			$local_do_evento     = trim($_POST['local_do_evento']);
 			$cidade_estado_pais  = trim($_POST['cidade_estado_pais']);
-
 			$title               = trim($_POST['title']);
+			$content             = trim($_POST['content']);
+			$cover               = trim($_POST['cover']);
 		}
+
+		$link                = trim($_POST['link']);
+		$adicionado_por      = trim($_POST['adicionado_por']);
+		$email               = trim($_POST['email']);
+		$evento_id           = trim($_POST['evento_id']);
+		$data_inicio         = trim($_POST['data_inicio']);
+		$data_final          = trim($_POST['data_final']);
+		$local_do_evento     = trim($_POST['local_do_evento']);
+		$cidade_estado_pais  = trim($_POST['cidade_estado_pais']);
+		$title               = trim($_POST['title']);
+		$content             = trim($_POST['content']);
+		$cover               = trim($_POST['cover']);
 
 		// maybe check some permissions here, depending on your app
 		global $wpdb;
-		$nonce = $_POST['nonce'];
+		//$nonce = $_POST['nonce'];
 
-		if ( ! wp_verify_nonce( $nonce, 'form-nonce' ) ) {
-			die( 'Security check' ); 
-		} else {
-			$new_post = array(
-				'post_title'    => $firstname,
-				'post_status'   => 'publish',
-				'post_type' => 'post'
-			);
-			$pid = wp_insert_post($new_post);
-			if( $pid ) { 
-				add_post_meta( $pid, 'cpt_firstname', $firstname, true );
-			}
+		$new_post = array(
+			'post_title'             => $title,
+			'post_status'            => 'draft',
+			'post_type'              => 'agenda',
+			'link'                   => $link,
+			'email'                  => $email,
+			'evento_id'              => $evento_id,
+			'data_inicio'            => $data_inicio,
+			'data_final'             => $data_final,
+			'local_do_evento'        => $local_do_evento,
+			'cidade_estado_pais'     => $cidade_estado_pais,
+			'post_author'            => '1',
+			'post_content'           => $content,
+			'cover'                  => $cover
+		);
+		$pid = wp_insert_post($new_post);
+		//wp_insert_attachment( $attachment, $filename, $parent_post_id );
+		// if( $pid ) { 
+		// 	add_post_meta( $pid, 'cpt_firstname', $firstname, true );
+		// }
 
-			// send some information back to the javascipt handler
-			$response = array(
-				'status' => '200',
-				'message' => 'OK',
-				'new_post_ID' => $pid
-			);
-		}
+		// send some information back to the javascipt handler
+		$response = array(
+			'status' => '200',
+			'message' => 'OK',
+			'new_post_ID' => $pid
+		);
 
 		// normally, the script expects a json respone
 		header( 'Content-Type: application/json; charset=utf-8' );
 		echo json_encode( $response );
-
-		exit; // important
-	}
+		wp_die();
+		//exit; // important
+	//}
 }
+
+add_action('wp_ajax_nopriv_wp_create_event', 'wp_create_event');
+add_action('wp_ajax_wp_create_event', 'wp_create_event');
 
 
 ?>

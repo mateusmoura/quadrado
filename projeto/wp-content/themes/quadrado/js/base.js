@@ -162,10 +162,39 @@ var site = {
 		FB.api(
 			'/' + _eventID,
 			'GET',
-			{},
+			{'fields':'cover,description,start_time,end_time,id,name,place'},
 			function(response) {
 				// Insert your code here
 				console.log('Resposta', response);
+				var params = {
+					'action'                : 'wp_create_event',
+					'link'                  : _url,
+					'adicionado_por'        : _name,
+					'email'                 : _email,
+					'evento_id'             : _eventID,
+					'data_inicio'           : response.start_time,
+					'data_final'            : response.end_time,
+					'local_do_evento'       : response.place.location.latitude + ', ' + response.place.location.longitude,
+					'cidade_estado_pais'    : response.place.name + ' - ' + response.place.city + ', ' + response.place.state,
+					'title'                 : response.name,
+					'content'               : response.description,
+					'cover'                 : response.cover
+				}
+
+				$.ajax({
+					//action: 'wp_ajax_my_action',
+					type: 'POST',
+					//dataType: 'json',
+					data: params,
+					url: ajaxurl, // templateDir is declared in the footer
+					success: function(result) {
+						console.log('data sent!');
+						console.log('sent to: ', result );
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						console.log(jqXHR + ' :: ' + textStatus + ' :: ' + errorThrown);
+					}
+				});
 			}
 		);
 
