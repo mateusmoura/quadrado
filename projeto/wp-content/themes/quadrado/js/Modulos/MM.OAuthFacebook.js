@@ -49,17 +49,17 @@ Module('MM.OAuthFacebook', function (OAuthFacebook) {
 	*/
 	OAuthFacebook.fn.getLoginStatus = function(){
 		this.FB.getLoginStatus( function (resp) {
-			console.log('getLoginStatus', resp);
-
 			if(resp.status === 'connected') {
 				$('.fb__notLogged', this.container).removeClass('fb__notLogged');
 
 				this.FB.api(
 					'/me',
 					'GET',
-					{"fields":"id,name,email"},
+					{"fields":"id,name,email,picture"},
 					this.setValues
 				);
+			} else {
+
 			}
 		}.bind(this));
 	};
@@ -69,6 +69,12 @@ Module('MM.OAuthFacebook', function (OAuthFacebook) {
 	OAuthFacebook.fn.setValues = function (resp) {
 		$('input[name=user_name]', this.container).val(resp.name);
 		$('input[name=user_email]', this.container).val(resp.email);
+		$('.modal__event--user img', this.container).attr({
+			src: resp.picture.data.url,
+			alt: resp.name
+		});
+		$('.modal__event--user h2', this.container).text(resp.name);
+		$('.modal__event--loading', this.container).fadeOut();
 	};
 	/**
 	* Adiciona os eventos necessários.
@@ -76,6 +82,12 @@ Module('MM.OAuthFacebook', function (OAuthFacebook) {
 	OAuthFacebook.fn.addEventListeners = function(){
 		$('.btn-facebook', this.container)
 			.on('click', this.authorizeAPP.bind(this));
+
+		$('.btn-logout', this.container)
+			.on('click', function(event) {
+				event.preventDefault();
+				/* Act on the event */
+			});
 	};
 	/**
 	* Função para autorizar o APP

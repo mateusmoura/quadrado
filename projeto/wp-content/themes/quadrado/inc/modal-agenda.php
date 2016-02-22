@@ -12,7 +12,23 @@
 					<div class="col-12">
 						<div class="modal__content--form">
 							<form action="wp_ajax_admin_enqform" method="POST" class="validate" data-onlyvalidate="true" data-callfn="site.registerEvent">
-								<div class="row">
+								<div class="row modal__event--loading">
+									<div class="col-12 align-center">
+										<i class="fa fa-circle-o-notch fa-spin"></i>
+									</div>
+								</div>
+								<div class="row  hidden">
+									<div class="col-12">
+										<label>você está sugerindo este link como</label>
+
+										<img src="#url" alt="">
+
+										<h2></h2>
+										<a href="#this" class="btn-logout">sair</a>
+									</div>
+								</div>
+
+								<div class="row hidden">
 									<div class="col-12">
 										<label>Autenticar com o Facebook (obrigatório)</label>
 										<button type="button" class="btn btn-link btn-facebook">
@@ -20,13 +36,13 @@
 										</button>
 									</div>
 								</div>
-								<div class="row fb__notLogged">
+								<div class="row fb__notLogged hidden">
 									<div class="col-12">
 										<label>seu nome (obrigatório)</label>
 										<input type="text" name="user_name" class="form-style required">
 									</div>
 								</div>
-								<div class="row fb__notLogged">
+								<div class="row fb__notLogged hidden">
 									<div class="col-12">
 										<label>seu e-mail (obrigatório)</label>
 										<input type="text" name="user_email" class="form-style email required">
