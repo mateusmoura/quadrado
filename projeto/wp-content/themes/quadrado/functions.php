@@ -258,9 +258,21 @@ function wp_create_event() {
 			'cidade_estado_pais'     => $cidade_estado_pais,
 			'post_author'            => '1',
 			'post_content'           => $content,
-			'cover'                  => $cover
+			'post_thumbnail'         => $cover
 		);
+
 		$pid = wp_insert_post($new_post);
+
+		// Add field value
+		update_field( "email", $email, $pid);
+		update_field( "link", $link, $pid);
+		update_field( "evento_id", $evento_id, $pid);
+		update_field( "data_inicio", $data_inicio, $pid);
+		update_field( "data_final", $data_final, $pid);
+		update_field( "local_do_evento", $local_do_evento, $pid);
+		update_field( "cidade_estado_pais", $cidade_estado_pais, $pid);
+		update_field( "adicionado_por", $adicionado_por, $pid);
+
 		//wp_insert_attachment( $attachment, $filename, $parent_post_id );
 		// if( $pid ) { 
 		// 	add_post_meta( $pid, 'cpt_firstname', $firstname, true );

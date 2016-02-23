@@ -50,7 +50,10 @@ Module('MM.OAuthFacebook', function (OAuthFacebook) {
 	OAuthFacebook.fn.getLoginStatus = function(){
 		this.FB.getLoginStatus( function (resp) {
 			if(resp.status === 'connected') {
-				$('.fb__notLogged', this.container).removeClass('fb__notLogged');
+				$('.modal__event--loading', this.$container).fadeOut(function() {
+					$('.modal__event--url, .modal__event--userData', this.container).fadeIn();
+					$('.fb__notLogged', this.container).removeClass('fb__notLogged');
+				}.bind(this));
 
 				this.FB.api(
 					'/me',
@@ -59,7 +62,10 @@ Module('MM.OAuthFacebook', function (OAuthFacebook) {
 					this.setValues
 				);
 			} else {
-
+				$('.modal__event--loading', this.$container).fadeOut(function() {
+					$('.modal__event--name, .modal__event--email, .modal__event--url, .modal__event--oauth', this.container).fadeIn();
+					$('.fb__notLogged', this.container).removeClass('fb__notLogged');
+				}.bind(this));
 			}
 		}.bind(this));
 	};
@@ -67,14 +73,16 @@ Module('MM.OAuthFacebook', function (OAuthFacebook) {
 	* Define o NOME e EMAIL do usuário.
 	*/
 	OAuthFacebook.fn.setValues = function (resp) {
-		$('input[name=user_name]', this.container).val(resp.name);
-		$('input[name=user_email]', this.container).val(resp.email);
-		$('.modal__event--user img', this.container).attr({
+		console.log(resp);
+		$('.modal__event--loading, .modal__event--oauth', this.container).fadeOut();
+		$('input[name=user_name]', this.container).val(resp.name).fadeOut();
+		$('input[name=user_email]', this.container).val(resp.email).fadeOut();
+		$('.modal__event--userData img', this.container).attr({
 			src: resp.picture.data.url,
 			alt: resp.name
 		});
-		$('.modal__event--user h2', this.container).text(resp.name);
-		$('.modal__event--loading', this.container).fadeOut();
+		$('.modal__event--userData h2', this.container).text(resp.name);
+		$('.modal__event--userData', this.container).fadeIn();
 	};
 	/**
 	* Adiciona os eventos necessários.
@@ -84,10 +92,7 @@ Module('MM.OAuthFacebook', function (OAuthFacebook) {
 			.on('click', this.authorizeAPP.bind(this));
 
 		$('.btn-logout', this.container)
-			.on('click', function(event) {
-				event.preventDefault();
-				/* Act on the event */
-			});
+			.on('click', this.logoutUser.bind(this));
 	};
 	/**
 	* Função para autorizar o APP
@@ -95,15 +100,38 @@ Module('MM.OAuthFacebook', function (OAuthFacebook) {
 	OAuthFacebook.fn.authorizeAPP = function () {
 		this.FB.login( function (resp) {
 			if(resp.status === 'connected') {
-				$('.fb__notLogged', this.container).removeClass('fb__notLogged');
+				$('.modal__event--loading', this.$container).fadeOut(function() {
+					$('.modal__event--url, .modal__event--userData', this.container).fadeIn();
+					$('.fb__notLogged', this.container).removeClass('fb__notLogged');
+				}.bind(this));
 
 				this.FB.api(
 					'/me',
 					'GET',
-					{"fields":"id,name,email"},
+					{"fields":"id,name,email,picture"},
 					this.setValues
 				);
+			} else {
+				$('.modal__event--loading', this.$container).fadeOut(function() {
+					$('.modal__event--name, .modal__event--email, .modal__event--url, .modal__event--oauth', this.container).fadeIn();
+					$('.fb__notLogged', this.container).removeClass('fb__notLogged');
+				}.bind(this));
 			}
 		}.bind(this), {scope: 'email,user_birthday'});
+	};
+	/**
+	* Função para deslogar o Usuário
+	*/
+	OAuthFacebook.fn.logoutUser = function () {
+		$('.modal__event--name, .modal__event--email', this.container).fadeOut(function () {
+			$('.modal__event--loading', this.$container).fadeIn();
+		}.bind(this));
+
+		this.FB.logout(function (resp) {
+			$('.modal__event--loading', this.$container).fadeOut(function() {
+				$('.modal__event--name, .modal__event--email, .modal__event--url, .modal__event--oauth', this.container).fadeIn();
+				$('.fb__notLogged', this.container).removeClass('fb__notLogged');
+			}.bind(this));
+		});
 	};
 });

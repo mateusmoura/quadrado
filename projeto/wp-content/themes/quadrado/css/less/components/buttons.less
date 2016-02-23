@@ -63,6 +63,10 @@ ________________________________________________________________ */
 		//VERIFICAR SHADOW
 	}
 
+	.fa-circle-o-notch {
+		display: none;
+	}
+
 	&-full {
 		width: 100%;
 	}
@@ -110,6 +114,31 @@ ________________________________________________________________ */
 // Botão voltar
 .btn-back {
 	.variacao-botoes(@btn-back-color, @btn-back-bg, @btn-back-border);
+}
+
+.btn-loading {
+	color: @btn-default-bg;
+	position: relative;
+
+	&:hover {
+		color: @btn-default-hover-bg;
+
+		.fa-circle-o-notch {
+			color: @btn-default-bg;
+		}
+	}
+
+	.fa-circle-o-notch {
+		color: #fff;
+		font-size: 16px;
+		position: absolute;
+		display: block;
+		top: 50%;
+		left: 50%;
+		margin: -8px 0 0 -8px;
+		height: 16px;
+		width: 16px;
+	}
 }
 
 /*

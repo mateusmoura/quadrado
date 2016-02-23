@@ -17,18 +17,18 @@
 										<i class="fa fa-circle-o-notch fa-spin"></i>
 									</div>
 								</div>
-								<div class="row  hidden">
+								<div class="row modal__event--userData">
 									<div class="col-12">
 										<label>você está sugerindo este link como</label>
 
 										<img src="#url" alt="">
 
 										<h2></h2>
-										<a href="#this" class="btn-logout">sair</a>
+										<a href="#this" class="btn-logout btn-link">sair</a>
 									</div>
 								</div>
 
-								<div class="row hidden">
+								<div class="row modal__event--oauth">
 									<div class="col-12">
 										<label>Autenticar com o Facebook (obrigatório)</label>
 										<button type="button" class="btn btn-link btn-facebook">
@@ -36,19 +36,19 @@
 										</button>
 									</div>
 								</div>
-								<div class="row fb__notLogged hidden">
+								<div class="row modal__event--name">
 									<div class="col-12">
 										<label>seu nome (obrigatório)</label>
 										<input type="text" name="user_name" class="form-style required">
 									</div>
 								</div>
-								<div class="row fb__notLogged hidden">
+								<div class="row modal__event--email">
 									<div class="col-12">
 										<label>seu e-mail (obrigatório)</label>
 										<input type="text" name="user_email" class="form-style email required">
 									</div>
 								</div>
-								<div class="row fb__notLogged">
+								<div class="row modal__event--url">
 									<div class="col-12">
 										<label>URL do evento no Facebook (obrigatório)</label>
 										<input type="text" name="user_url_event" class="form-style url required">
@@ -57,10 +57,17 @@
 
 								<div class="row fb__notLogged">
 									<div class="col-12">
-										<button type="submit" class="btn btn-default btn-full">sugerir evento</button>
+										<button type="submit" class="btn btn-default btn-full">sugerir evento <i class="fa fa-circle-o-notch fa-spin"></i></button>
 									</div>
 								</div>
 							</form>
+
+							<div class="modal__event--success">
+								<h3>Obrigada pela sugestão!</h3>
+								<p>Seu evento será analisado!</p>
+
+								<button type="button" class="btn btn-default btn-again">quero sugerir outro evento</button>
+							</div>
 						</div>
 					</div>
 				</div>

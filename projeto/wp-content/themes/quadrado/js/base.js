@@ -166,39 +166,55 @@ var site = {
 			function(response) {
 				// Insert your code here
 				console.log('Resposta', response);
-				var params = {
-					'action'                : 'wp_create_event',
-					'link'                  : _url,
-					'adicionado_por'        : _name,
-					'email'                 : _email,
-					'evento_id'             : _eventID,
-					'data_inicio'           : response.start_time,
-					'data_final'            : response.end_time,
-					'local_do_evento'       : response.place.location.latitude + ', ' + response.place.location.longitude,
-					'cidade_estado_pais'    : response.place.name + ' - ' + response.place.city + ', ' + response.place.state,
-					'title'                 : response.name,
-					'content'               : response.description,
-					'cover'                 : response.cover
-				}
-
-				$.ajax({
-					//action: 'wp_ajax_my_action',
-					type: 'POST',
-					//dataType: 'json',
-					data: params,
-					url: ajaxurl, // templateDir is declared in the footer
-					success: function(result) {
-						console.log('data sent!');
-						console.log('sent to: ', result );
-					},
-					error: function(jqXHR, textStatus, errorThrown) {
-						console.log(jqXHR + ' :: ' + textStatus + ' :: ' + errorThrown);
+				if(!response.error) {
+					var params = {
+						'action'                : 'wp_create_event',
+						'link'                  : _url,
+						'adicionado_por'        : _name,
+						'email'                 : _email,
+						'evento_id'             : _eventID,
+						'data_inicio'           : response.start_time,
+						'data_final'            : response.end_time,
+						'local_do_evento'       : response.place.location.latitude + ', ' + response.place.location.longitude,
+						'cidade_estado_pais'    : response.place.name + ' - ' + response.place.city + ', ' + response.place.state,
+						'title'                 : response.name,
+						'content'               : response.description
+						//'cover'                 : response.cover
 					}
-				});
+
+					$('.modal__event .btn-default.btn-full').addClass('btn-loading');
+
+					$.ajax({
+						type: 'POST',
+						data: params,
+						url: ajaxurl, // templateDir is declared in the footer
+						success: function(result) {
+							$('.modal__event .btn-default.btn-full').removeClass('btn-loading');
+
+							$('.modal__event form').fadeOut(function() {
+								$('.modal__event .modal__event--success').fadeIn();
+							});
+
+							$('.modal__event .modal__event--url input').val('');
+
+							$('.modal__event .btn-again')
+								.unbind()
+								.on('click', function(event) {
+									$('.modal__event .modal__event--success').fadeOut(function() {
+										$('.modal__event form').fadeIn();
+									});
+								});
+						},
+						error: function(jqXHR, textStatus, errorThrown) {
+							console.log(jqXHR + ' :: ' + textStatus + ' :: ' + errorThrown);
+							$('.modal__event .btn-default.btn-full').removeClass('btn-loading');
+						}
+					});
+				} else {
+					MM.Feedback('Ops! Ocorreu um problema na solicitação, por favor tente novamente mais tarde. :(')
+				}
 			}
 		);
-
-		console.log(_name, _email, _url, _eventID);
 	}
 }
 

@@ -28,10 +28,12 @@ Module('MM.Calendar', function (Calendar) {
 				$.getScript(base_url + "js/plugins/jQuery.fullcalendar.js"),
 				$.Deferred(function(deferred){
 					$.getScript(base_url + "js/plugins/pt-br.js");
-					$(deferred.resolve)
+					$(deferred.resolve);
 				})
 			).done(function(){
-				_this.config();
+				setTimeout(function () {
+					_this.config();
+				}, 1000);
 			}).fail(function(a, b, c) {
 				console.log('Erro getScript', a, b, c)
 			});
@@ -43,6 +45,8 @@ Module('MM.Calendar', function (Calendar) {
 	* Configuração do plugin para mostrar o calendário.
 	*/
 	Calendar.fn.config = function(){
+		console.log('Events data>>> ', this.$json);
+
 		this.$calendar.fullCalendar({
 			defaultDate: moment().format('YYYY[-]MM[-]DD'),
 			editable: false,

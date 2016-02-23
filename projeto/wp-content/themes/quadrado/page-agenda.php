@@ -23,12 +23,16 @@
 		$cidade_estado_pais         = get_field('cidade_estado_pais', $event->ID);
 		$cover                      = wp_get_attachment_url( get_post_thumbnail_id($event->ID) );
 
-		$event->title               = $title;
-		$event->description         = $cidade_estado_pais;
-		$event->image               = $cover;
-		$event->start               = $data_inicio;
-		$event->end                 = $data_final;
-		$event->url                 = $link;
+		if(count($data_inicio) >= 1) {
+			$event->title               = $title;
+			$event->description         = $cidade_estado_pais;
+			$event->image               = $cover;
+			$event->start               = $data_inicio;
+			$event->end                 = $data_final;
+			$event->url                 = $link;
+		} else {
+			unset($events[$i]);
+		}
 	}
 
 	$json_events                  = json_encode($events);
