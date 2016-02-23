@@ -60,12 +60,10 @@ var site = {
 		this.button_search();
 		this.second_header();
 
-
 		MM.Calendar($('.block__fullcalendar'), events_data);
 	},
 
 	second_header: function () {
-		console.log('second_header');
 		$(window).scroll(function(event) {
 			event.preventDefault();
 			/* Act on the event */

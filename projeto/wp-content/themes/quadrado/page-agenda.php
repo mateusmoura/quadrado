@@ -9,6 +9,8 @@
 
 	$events           = query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '300', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
 
+	$newEvetns        = array();
+
 	for ($i = 0; $i < count($events); ++$i) {
 		$event = $events[$i];
 
@@ -30,12 +32,12 @@
 			$event->start               = $data_inicio;
 			$event->end                 = $data_final;
 			$event->url                 = $link;
-		} else {
-			unset($events[$i]);
+
+			array_push($newEvetns, $event);
 		}
 	}
 
-	$json_events                  = json_encode($events);
+	$json_events                  = json_encode($newEvetns);
 ?>
 
 <!-- Load Facebook SDK for JavaScript -->
