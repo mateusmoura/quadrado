@@ -33,7 +33,6 @@ if (!Function.prototype.bind) {
 		return fBound;
 	};
 }
-
 var site = {
 	/*
 	* Funcionalidades GLOBAL onde e chamado em todas as páginas do projeto.
@@ -60,7 +59,9 @@ var site = {
 		this.button_search();
 		this.second_header();
 
-		MM.Calendar($('.block__fullcalendar'), events_data);
+		if(events_data) {
+			MM.Calendar($('.block__fullcalendar'), events_data);
+		}
 	},
 
 	second_header: function () {

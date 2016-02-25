@@ -61,7 +61,7 @@
 			</div>
 
 			<main role="main" class="home">
-				<section class="block__post">
+				<section class="block__post mateus">
 					<?php 
 						$args = array(
 						'numberposts'			=> 6,
@@ -72,8 +72,8 @@
 						'order'					=> 'DESC',
 						'include'				=> '',
 						'exclude'				=> '',
-						'meta_key'				=> 'destaque',
-						'meta_value'			=> 'sem_posicao',
+						//'meta_key'				=> 'destaque',
+						//'meta_value'			=> 'sem_posicao',
 						'post_type'				=> $posts_types,
 						'post_mime_type'		=> '',
 						'post_parent'			=> '',
@@ -82,6 +82,8 @@
 
 						$recent_posts			= get_posts($args);
 						$first_post				= array($recent_posts[$recent_posts_count]);
+
+						var_dump($recent_posts);
 
 						++$recent_posts_count;
 

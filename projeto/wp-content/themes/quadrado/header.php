@@ -40,42 +40,8 @@
 		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
 		<link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
 		<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>" />
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
 		<script>
-			function initialize() {
-				var mapCanvas = document.getElementById('map-canvas');
-				var mapOptions = {
-					center: new google.maps.LatLng(-15.7170862, -47.8849884),
-					zoom: 17,
-					mapTypeId: google.maps.MapTypeId.ROADMAP
-				}
-
-				var map = new google.maps.Map(mapCanvas, mapOptions);
-				var myLatlng = new google.maps.LatLng(-15.7170862, -47.8849884);
-				var image = "<?php bloginfo('template_url'); ?>/img/ico/google-maps-marker.png";
-
-				var contentString = '<div id="content">'+
-					'<p>CA 05, Lote F, Ed. San Raphael, Loja 09, Lago Norte - Brasília/DF <a href="https://www.google.com.br/maps/dir/-15.7171524,-47.8847454//@-15.7181907,-47.8825156,587m/data=!3m1!1e3" target="_blank">Traçar rota até aqui</a></p>' +
-				'</div>';
-
-				var infowindow = new google.maps.InfoWindow({
-				    content: contentString
-				});
-
-				var marker = new google.maps.Marker({
-					position: myLatlng,
-					map: map,
-					icon: image,
-					title: 'CA 05, Lote F, Ed. San Raphael, Loja 09, Lago Norte - Brasília/DF'
-				});
-
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(map,marker);
-				});
-
-				infowindow.open(map,marker);
-			}
-			google.maps.event.addDomListener(window, 'load', initialize);
+			var events_data = '';
 		</script>
 		<?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); wp_head(); ?>
 	</head>
