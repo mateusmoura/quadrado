@@ -141,10 +141,12 @@ ________________________________________________________________________________
 			right: 0;
 			bottom: 0;
 			top: 0;
+			overflow: hidden;
 
 			img {
 				width: 100%;
 				height: 600px;
+				//max-width: inherit;
 			}
 
 			&-auto {
@@ -153,10 +155,29 @@ ________________________________________________________________________________
 				right: 0;
 				bottom: 0;
 				top: 0;
+				overflow: hidden;
 
 				img{
-					height: auto;
-					width: 100%;
+					top: 0;
+					left: 0;
+					position: absolute;
+					max-width: inherit;
+				}
+
+				&.center-image {
+					text-align: center;
+
+					img {
+						left: -50%;
+					}
+				}
+
+				&.right-image {
+					text-align: right;
+
+					img {
+						right: 0;
+					}
 				}
 			}
 		}
