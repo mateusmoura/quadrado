@@ -61,7 +61,7 @@
 			</div>
 
 			<main role="main" class="home">
-				<section class="block__post mateus">
+				<section class="block__post block__post--home">
 					<?php 
 						$args = array(
 						'numberposts'			=> 6,
@@ -82,8 +82,6 @@
 
 						$recent_posts			= get_posts($args);
 						$first_post				= array($recent_posts[$recent_posts_count]);
-
-						var_dump($recent_posts);
 
 						++$recent_posts_count;
 

@@ -61,7 +61,7 @@
 			</div>
 
 			<main role="main" class="home">
-				<section class="block__post">
+				<section class="block__post block__home">
 					<?php 
 						$args = array(
 						'numberposts'			=> 6,
@@ -92,6 +92,10 @@
 					<div class="center">
 						<div class="row">
 							<div class="block__post--title">
+								<div class="block__post--category align-right">
+									<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+								</div>
+
 								<h1><?php the_title(); ?></h1>
 
 								<a href="<?php the_permalink(); ?>" class="btn btn-link btn-seemore">Ler post completo <i class="fa fa-arrow-right"></i></a>
@@ -102,10 +106,6 @@
 							</div>
 
 							<div class="block__post--content">
-								<div class="block__post--category">
-									<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
-								</div>
-
 								<div class="block__post--entries">
 									<?php the_excerpt(); ?>
 								</div>
@@ -154,10 +154,11 @@
 										foreach ( $highlights_post_2 as $post ) : setup_postdata( $post );
 												$postID 		= get_the_ID();
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+												$positionImage	= get_field('posicao_da_imagem', $postID);
 									?>
 
 									<div class="block__post--highlights">
-										<div class="block__post--image-auto">
+										<div class="block__post--image-auto <?php echo $positionImage; ?>">
 											<?php the_post_thumbnail(); ?>
 										</div>
 
@@ -205,10 +206,11 @@
 										foreach ( $highlights_post_1 as $post ) : setup_postdata( $post );
 												$postID 		= get_the_ID();
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+												$positionImage	= get_field('posicao_da_imagem', $postID);
 									?>
 
 									<div class="block__post--highlights">
-										<div class="block__post--image-auto">
+										<div class="block__post--image-auto <?php echo $positionImage; ?>">
 											<?php the_post_thumbnail(); ?>
 										</div>
 
@@ -258,10 +260,11 @@
 										foreach ( $highlights_post_3 as $post ) : setup_postdata( $post );
 												$postID 		= get_the_ID();
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+												$positionImage	= get_field('posicao_da_imagem', $postID);
 									?>
 
 									<div class="block__post--highlights">
-										<div class="block__post--image-auto">
+										<div class="block__post--image-auto <?php echo $positionImage; ?>">
 											<?php the_post_thumbnail(); ?>
 										</div>
 
@@ -397,10 +400,11 @@
 										foreach ( $highlights_post_4 as $post ) : setup_postdata( $post );
 												$postID 		= get_the_ID();
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+												$positionImage	= get_field('posicao_da_imagem', $postID);
 									?>
 
 									<div class="block__post--highlights">
-										<div class="block__post--image-auto">
+										<div class="block__post--image-auto <?php echo $positionImage; ?>">
 											<?php the_post_thumbnail(); ?>
 										</div>
 
