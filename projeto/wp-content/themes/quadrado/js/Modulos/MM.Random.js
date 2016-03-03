@@ -23,7 +23,7 @@ Module('MM.Random', function (Random) {
 			$(this).removeClass('header__image--post-preloading');
 		});
 
-		this.addEventListeners();
+		//this.addEventListeners();
 	};
 	/**
 	* Adiciona os eventos necessários.
