@@ -198,6 +198,17 @@ function cl_contact_us() {
 	die(); 
 } 
 
+function get_facebook_share_count($url) {
+	$fql  = "SELECT url, normalized_url, share_count, like_count, comment_count, ";
+	$fql .= "total_count, commentsbox_count, comments_fbid, click_count FROM ";
+	$fql .= "link_stat WHERE url = '".$url."'";
+
+	$apifql="https://api.facebook.com/method/fql.query?format=json&query=".urlencode($fql);
+	$json=file_get_contents($apifql);
+	$json=json_decode($json);
+	
+	return $json['0']->share_count;
+}
 
 
 add_theme_support( "post-thumbnails" );
