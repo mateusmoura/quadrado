@@ -113,7 +113,7 @@
 			<div class="header__menu--second">
 				<div class="center">
 					<div class="col-m-2">
-						<a href="index.php" class="header__menu--logo"><span>Quadrado Brasilia</span></a>
+						<a href="<?php bloginfo('url'); ?>" class="header__menu--logo"><span>Quadrado Brasilia</span></a>
 					</div>
 
 					<div class="col-m-7">

@@ -46,6 +46,36 @@ main {
 		}
 	}
 
+	&.internal {
+		.block__post {
+			position: relative;
+			z-index: 4;
+		}
+
+		.block__post--title {
+			background-color: @cor-branco;
+			padding: 0 30px;
+		}
+
+		.block__post--category {
+			position: relative;
+			right: -30px;
+			top: -20px;
+		}
+
+		.block__post--content {
+			border-top: 0;
+		}
+
+		.bg-white {
+			background-color: @cor-branco;
+			position: relative;
+			padding-top: 130px;
+			margin-top: -130px;
+			z-index: 3;
+		}
+	}
+
 	&.internal, &.search, &.contact, &.about, &.calendar {
 		.block__post {
 			margin-bottom: 0;
