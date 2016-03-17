@@ -55,8 +55,9 @@
 
 													<div class="block__post--content">
 														<div class="block__post--share">
-															<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
-															<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+															<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
+
+															<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
 														</div>
 
 														<div class="block__post--title">
@@ -86,7 +87,7 @@
 
 								<nav class="navigation pagination">
 									
-									<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('Pr&oacute;xima p&aacute;gina &raquo;')); ?>
+									<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('next')); ?>
 								</nav>
 
 								<?php else: ?>
