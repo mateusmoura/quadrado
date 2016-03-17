@@ -11,7 +11,7 @@
 			<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-default2.jpg" alt="Quadrado Brasilia">
 		</div>
 
-			<main role="main" class="search">
+			<main id="main" role="main" class="search">
 				<section class="block__post">
 					<div class="center">
 						<div class="row">
@@ -84,7 +84,10 @@
 									<?php //endif; ?>
 								<?php endwhile; ?>
 
-								<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('Pr&oacute;xima p&aacute;gina &raquo;')); ?>
+								<nav class="navigation pagination">
+									
+									<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('Pr&oacute;xima p&aacute;gina &raquo;')); ?>
+								</nav>
 
 								<?php else: ?>
 									<p>Não foi encontrado nenhum resultado para "<?php echo get_search_query(); ?>". <a href="<?php bloginfo('url'); ?>/cursos/">Ver todos os posts</a></p>
