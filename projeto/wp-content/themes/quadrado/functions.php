@@ -227,30 +227,32 @@ function wp_create_event() {
 		if(trim($_POST['adicionado_por']) === '' || trim($_POST['email']) === '' || trim($_POST['link']) === '' || trim($_POST['evento_id']) === '') {
 			$hasError = true;
 		} else {
-			$link                = trim($_POST['link']);
-			$adicionado_por      = trim($_POST['adicionado_por']);
-			$email               = trim($_POST['email']);
-			$evento_id           = trim($_POST['evento_id']);
-			$data_inicio         = trim($_POST['data_inicio']);
-			$data_final          = trim($_POST['data_final']);
-			$local_do_evento     = trim($_POST['local_do_evento']);
-			$cidade_estado_pais  = trim($_POST['cidade_estado_pais']);
-			$title               = trim($_POST['title']);
-			$content             = trim($_POST['content']);
-			$cover               = trim($_POST['cover']);
+			$link                   = trim($_POST['link']);
+			$adicionado_por         = trim($_POST['adicionado_por']);
+			$email                  = trim($_POST['email']);
+			$evento_id              = trim($_POST['evento_id']);
+			$data_inicio            = trim($_POST['data_inicio']);
+			$data_final             = trim($_POST['data_final']);
+			$local_do_evento_lat    = trim($_POST['local_do_evento_lat']);
+			$local_do_evento_long   = trim($_POST['local_do_evento_long']);
+			$cidade_estado_pais     = trim($_POST['cidade_estado_pais']);
+			$title                  = trim($_POST['title']);
+			$content                = trim($_POST['content']);
+			$cover                  = trim($_POST['cover']);
 		}
 
-		$link                = trim($_POST['link']);
-		$adicionado_por      = trim($_POST['adicionado_por']);
-		$email               = trim($_POST['email']);
-		$evento_id           = trim($_POST['evento_id']);
-		$data_inicio         = trim($_POST['data_inicio']);
-		$data_final          = trim($_POST['data_final']);
-		$local_do_evento     = trim($_POST['local_do_evento']);
-		$cidade_estado_pais  = trim($_POST['cidade_estado_pais']);
-		$title               = trim($_POST['title']);
-		$content             = trim($_POST['content']);
-		$cover               = trim($_POST['cover']);
+		$link                   = trim($_POST['link']);
+		$adicionado_por         = trim($_POST['adicionado_por']);
+		$email                  = trim($_POST['email']);
+		$evento_id              = trim($_POST['evento_id']);
+		$data_inicio            = trim($_POST['data_inicio']);
+		$data_final             = trim($_POST['data_final']);
+		$local_do_evento_lat    = trim($_POST['local_do_evento_lat']);
+		$local_do_evento_long   = trim($_POST['local_do_evento_long']);
+		$cidade_estado_pais     = trim($_POST['cidade_estado_pais']);
+		$title                  = trim($_POST['title']);
+		$content                = trim($_POST['content']);
+		$cover                  = trim($_POST['cover']);
 
 		// maybe check some permissions here, depending on your app
 		global $wpdb;
@@ -265,7 +267,8 @@ function wp_create_event() {
 			'evento_id'              => $evento_id,
 			'data_inicio'            => $data_inicio,
 			'data_final'             => $data_final,
-			'local_do_evento'        => $local_do_evento,
+			'local_do_evento_lat'    => $local_do_evento_lat,
+			'local_do_evento_long'   => $local_do_evento_long,
 			'cidade_estado_pais'     => $cidade_estado_pais,
 			'post_author'            => '1',
 			'post_content'           => $content,
@@ -280,7 +283,8 @@ function wp_create_event() {
 		update_field( "evento_id", $evento_id, $pid);
 		update_field( "data_inicio", $data_inicio, $pid);
 		update_field( "data_final", $data_final, $pid);
-		update_field( "local_do_evento", $local_do_evento, $pid);
+		update_post_meta($pid, 'local_do_evento', array("address" => $cidade_estado_pais, "lat" => $local_do_evento_lat, 'lng' => $local_do_evento_long));
+		//update_field( "local_do_evento", array("address" => $cidade_estado_pais, "lat" => $local_do_evento_lat, 'lng' => $local_do_evento_long), $pid);
 		update_field( "cidade_estado_pais", $cidade_estado_pais, $pid);
 		update_field( "adicionado_por", $adicionado_por, $pid);
 

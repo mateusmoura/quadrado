@@ -117,7 +117,7 @@ Module('MM.OAuthFacebook', function (OAuthFacebook) {
 					$('.fb__notLogged', this.container).removeClass('fb__notLogged');
 				}.bind(this));
 			}
-		}.bind(this), {scope: 'email,user_birthday'});
+		}.bind(this), {scope: 'email,user_birthday,user_events'});
 	};
 	/**
 	* Função para deslogar o Usuário
