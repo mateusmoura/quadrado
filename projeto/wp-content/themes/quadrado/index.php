@@ -373,11 +373,11 @@
 										<div class="block__actions">
 											<div class="row">
 												<div class="col-m-5">
-													<a href="#this" class="btn btn-full btn-white">sugerir evento</a>
+													<a href="<?php bloginfo('template_url'); ?>/inc/modal-agenda.php" class="btn btn-full btn-white btn-modal btn-send-event">sugerir evento</a>
 												</div>
 
 												<div class="col-m-7">
-													<a href="#this" class="btn btn-full btn-default">ver toda a agenda</a>
+													<a href="<?php echo get_permalink( get_page_by_path('agenda')); ?>" class="btn btn-full btn-default">ver toda a agenda</a>
 												</div>
 											</div>
 										</div>
