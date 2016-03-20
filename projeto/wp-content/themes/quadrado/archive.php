@@ -86,7 +86,6 @@
 								<?php endwhile; ?>
 
 								<nav class="navigation pagination">
-									
 									<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('next')); ?>
 								</nav>
 
