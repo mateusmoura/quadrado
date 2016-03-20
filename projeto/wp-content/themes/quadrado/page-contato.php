@@ -53,7 +53,7 @@
 										<label for="field-newsletter">digite seu e-mail e seja avisado sobre novos posts</label>
 										<!-- <input type="text" name="field-newsletter" id="field-newsletter" class="form-style"> -->
 										<?php 
-											echo do_shortcode('[simplenewsletter]');
+											echo do_shortcode('[wysija_form id="1"]');
 										?>
 
 										<!-- <div class="align-right">
