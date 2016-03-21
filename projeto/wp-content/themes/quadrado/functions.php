@@ -210,6 +210,17 @@ function get_facebook_share_count($url) {
 	return $json['0']->share_count;
 }
 
+function change_post_type_name($postType) {
+	if($postType == 'pistas') { $postType = 'pista'; }
+	else if($postType == 'eu-acho') { $postType = 'euacho'; }
+	else if($postType == 'artes') { $postType = 'arte'; }
+	else if($postType == 'pessoas') { $postType = 'pessoa'; }
+	else if($postType == 'sacolas') { $postType = 'sacola'; }
+	else if($postType == 'feiras') { $postType = 'feira'; }
+
+	return $postType;
+}
+
 
 add_theme_support( "post-thumbnails" );
 add_theme_support( "nav-menus" );

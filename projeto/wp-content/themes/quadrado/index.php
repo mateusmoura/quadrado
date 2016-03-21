@@ -88,12 +88,13 @@
 						foreach ( $first_post as $post ) : setup_postdata( $post );
 							$postID 		= get_the_ID();
 							$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+							$postType       = get_post_type($postID);
 					?>
 					<div class="center">
 						<div class="row">
 							<div class="block__post--title">
 								<div class="block__post--category align-right">
-									<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+									<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
 								</div>
 
 								<h1><?php the_title(); ?></h1>
@@ -156,6 +157,7 @@
 												$postID 		= get_the_ID();
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
 												$positionImage	= get_field('posicao_da_imagem', $postID);
+												$postType       = get_post_type($postID);
 									?>
 
 									<div class="block__post--highlights">
@@ -164,7 +166,7 @@
 										</div>
 
 										<div class="block__post--category">
-											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+											<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
 										</div>
 
 										<div class="block__post--content">
@@ -208,6 +210,7 @@
 												$postID 		= get_the_ID();
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
 												$positionImage	= get_field('posicao_da_imagem', $postID);
+												$postType       = get_post_type($postID);
 									?>
 
 									<div class="block__post--highlights">
@@ -216,7 +219,7 @@
 										</div>
 
 										<div class="block__post--category">
-											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+											<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
 										</div>
 
 										<div class="block__post--content">
@@ -262,6 +265,7 @@
 												$postID 		= get_the_ID();
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
 												$positionImage	= get_field('posicao_da_imagem', $postID);
+												$postType       = get_post_type($postID);
 									?>
 
 									<div class="block__post--highlights">
@@ -270,7 +274,7 @@
 										</div>
 
 										<div class="block__post--category">
-											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+											<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
 										</div>
 
 										<div class="block__post--content">
@@ -402,6 +406,7 @@
 												$postID 		= get_the_ID();
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
 												$positionImage	= get_field('posicao_da_imagem', $postID);
+												$postType       = get_post_type($postID);
 									?>
 
 									<div class="block__post--highlights">
@@ -410,7 +415,7 @@
 										</div>
 
 										<div class="block__post--category">
-											<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+											<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
 										</div>
 
 										<div class="block__post--content">

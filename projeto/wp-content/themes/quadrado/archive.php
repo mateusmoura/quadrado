@@ -50,7 +50,7 @@
 													</div>
 
 													<div class="block__post--category">
-														<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo $postType; ?></a>
+														<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
 													</div>
 
 													<div class="block__post--content">
