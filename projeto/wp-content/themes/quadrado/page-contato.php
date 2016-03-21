@@ -32,7 +32,7 @@
 								</div>
 
 								<div class="col-m-6 align-left">
-								<a href="mailTo:aloquadrado@quadradobrasilia.com.br" target="_blank" class="btn btn-link btn-email-2">
+									<a href="mailTo:aloquadrado@quadradobrasilia.com.br" target="_blank" class="btn btn-link btn-email-2">
 										<i class="fa fa-envelope-o"></i>
 										aloquadrado@quadradobrasilia.com.br
 									</a>
