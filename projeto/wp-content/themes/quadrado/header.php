@@ -86,7 +86,7 @@
 						</div>
 
 						<div class="header__social">
-							<a href="#this" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.facebook.com/QuadradoBrasilia/" target="_blank" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
 						</div>
 					</div>
 				</div>
