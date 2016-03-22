@@ -177,8 +177,8 @@ var site = {
 							//'local_do_evento'       : response.place.location.latitude + ', ' + response.place.location.longitude,
 							'cidade_estado_pais'    : '',//response.place.name + ' - ' + response.place.city + ', ' + response.place.state,
 							'title'                 : response.name,
-							'content'               : response.description
-							//'cover'                 : response.cover
+							'content'               : response.description,
+							'cover'                 : response.cover ? response.cover.source : ''
 						}
 
 					if(response.place.location) {

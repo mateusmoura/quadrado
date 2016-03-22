@@ -299,6 +299,39 @@ function wp_create_event() {
 		update_field( "cidade_estado_pais", $cidade_estado_pais, $pid);
 		update_field( "adicionado_por", $adicionado_por, $pid);
 
+		if( !class_exists( 'WP_Http' ) )
+			include_once( ABSPATH . WPINC. '/class-http.php' );
+
+		$photo = new WP_Http();
+		$photo = $photo->request($cover);
+
+		$attachmentimage = wp_upload_bits( 'cover_'.$evento_id.'.jpg', null, $photo['body'], date("Y-m", strtotime( $photo['headers']['last-modified'] ) ) );
+
+		// Check the type of file. We'll use this as the 'post_mime_type'.
+		$filetype = wp_check_filetype( basename( $attachmentimage['file'] ), null );
+		$wp_upload_dir = wp_upload_dir();
+
+		$attachment = array(
+			'guid'           => $wp_upload_dir['url'] . '/' . basename( $attachmentimage['file'] ), 
+			'post_mime_type' => $filetype['type'],
+			'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $attachmentimage['file'] ) ),
+			'post_content'   => '',
+			'post_status'    => 'inherit'
+		);
+
+		// Insert the attachment.
+		$filename = $attachmentimage['file'];
+		$attach_id = wp_insert_attachment( $attachment, $filename, $pid );
+
+		// Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.
+		if( !function_exists( 'wp_generate_attachment_data' ) )
+			require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+		// Generate the metadata for the attachment, and update the database record.
+		$attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+		wp_update_attachment_metadata( $attach_id, $attach_data );
+
+		set_post_thumbnail( $pid, $attach_id );
+
 		//wp_insert_attachment( $attachment, $filename, $parent_post_id );
 		// if( $pid ) { 
 		// 	add_post_meta( $pid, 'cpt_firstname', $firstname, true );
@@ -306,9 +339,11 @@ function wp_create_event() {
 
 		// send some information back to the javascipt handler
 		$response = array(
-			'status' => '200',
-			'message' => 'OK',
-			'new_post_ID' => $pid
+			'status'        => '200',
+			'message'       => 'OK',
+			//'cover'         => $filename,
+			//'attachment'    => $attachmentimage,
+			'new_post_ID'   => $pid
 		);
 
 		// normally, the script expects a json respone
