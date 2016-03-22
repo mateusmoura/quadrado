@@ -11,7 +11,7 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="modal__content--form">
-							<form action="wp_ajax_admin_enqform" method="POST" class="validate" data-onlyvalidate="true" data-callfn="site.registerEvent2">
+							<form action="wp_ajax_admin_enqform" method="POST" class="validate" data-onlyvalidate="true" data-callfn="site.registerEvent">
 								<div class="row modal__event--loading">
 									<div class="col-12 align-center">
 										<i class="fa fa-circle-o-notch fa-spin"></i>
@@ -36,7 +36,7 @@
 										</button>
 									</div>
 								</div>
-								<!-- <div class="row modal__event--name">
+								<div class="row modal__event--name">
 									<div class="col-12">
 										<label>seu nome (obrigatório)</label>
 										<input type="text" name="user_name" class="form-style required">
@@ -47,23 +47,17 @@
 										<label>seu e-mail (obrigatório)</label>
 										<input type="text" name="user_email" class="form-style email required">
 									</div>
-								</div> -->
-								<!-- <div class="row modal__event--url">
+								</div>
+								<div class="row modal__event--url">
 									<div class="col-12">
 										<label>URL do evento no Facebook (obrigatório)</label>
 										<input type="text" name="user_url_event" class="form-style url required">
 									</div>
-								</div> -->
-
-								<!-- <div class="row fb__notLogged">
-									<div class="col-12">
-										<button type="submit" class="btn btn-default btn-full">sugerir evento <i class="fa fa-circle-o-notch fa-spin"></i></button>
-									</div>
-								</div> -->
+								</div>
 
 								<div class="row fb__notLogged">
 									<div class="col-12">
-										<button type="submit" class="btn btn-default btn-full">OK <i class="fa fa-circle-o-notch fa-spin"></i></button>
+										<button type="submit" class="btn btn-default btn-full">sugerir evento <i class="fa fa-circle-o-notch fa-spin"></i></button>
 									</div>
 								</div>
 							</form>

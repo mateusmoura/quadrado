@@ -167,18 +167,58 @@ var site = {
 				console.log('Resposta', response);
 				if(!response.error) {
 					var params = {
-						'action'                : 'wp_create_event',
-						'link'                  : _url,
-						'adicionado_por'        : _name,
-						'email'                 : _email,
-						'evento_id'             : _eventID,
-						'data_inicio'           : response.start_time,
-						'data_final'            : response.end_time,
-						'local_do_evento'       : response.place.location.latitude + ', ' + response.place.location.longitude,
-						'cidade_estado_pais'    : response.place.name + ' - ' + response.place.city + ', ' + response.place.state,
-						'title'                 : response.name,
-						'content'               : response.description
-						//'cover'                 : response.cover
+							'action'                : 'wp_create_event',
+							'link'                  : 'https://www.facebook.com/events/' + response.id,
+							'adicionado_por'        : _name,
+							'email'                 : _email,
+							'evento_id'             : response.id,
+							'data_inicio'           : response.start_time,
+							'data_final'            : response.end_time,
+							//'local_do_evento'       : response.place.location.latitude + ', ' + response.place.location.longitude,
+							'cidade_estado_pais'    : '',//response.place.name + ' - ' + response.place.city + ', ' + response.place.state,
+							'title'                 : response.name,
+							'content'               : response.description
+							//'cover'                 : response.cover
+						}
+
+					if(response.place.location) {
+						//params.local_do_evento = String(response.place.location.latitude) + ',' + String(response.place.location.longitude);
+						if(response.place.location.latitude && response.place.location.longitude) {
+							params.local_do_evento_lat = response.place.location.latitude;
+							params.local_do_evento_long = response.place.location.longitude;
+						}
+
+						if(response.place.location.name) {
+							params.cidade_estado_pais += response.place.location.name;
+
+							if(response.place.location.city) {
+								params.cidade_estado_pais += ' - ' + response.place.location.city;
+
+								if(response.place.location.state) {
+									params.cidade_estado_pais += ', ' + response.place.location.state;
+								}
+							}
+						} else if (response.place.location.city) {
+							params.cidade_estado_pais += response.place.location.city;
+
+							if(response.place.location.state) {
+								params.cidade_estado_pais += ', ' + response.place.location.state;
+							}
+						} else if (response.place.location.state) {
+							params.cidade_estado_pais += response.place.location.state;
+						}
+
+						if(response.place.location.city) {
+							params.cidade_estado_pais += ' - ' + response.place.location.city;
+
+							if(response.place.location.state) {
+								params.cidade_estado_pais += ', ' + response.place.location.state;
+							}
+						} else if (response.place.location.state) {
+							params.cidade_estado_pais += ' - ' + response.place.location.state;
+						}
+					} else {
+						params.local_do_evento = null;
 					}
 
 					$('.modal__event .btn-default.btn-full').addClass('btn-loading');
