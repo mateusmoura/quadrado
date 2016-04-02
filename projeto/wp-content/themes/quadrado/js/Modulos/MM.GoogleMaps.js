@@ -71,6 +71,7 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 	GoogleMaps.fn.config = function(){
 		this.google_map = new google.maps.Map(this.container, {
 			zoom: 12,
+			scrollwheel: false,
 			center: new google.maps.LatLng(-15.793914, -47.882801),
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		});
