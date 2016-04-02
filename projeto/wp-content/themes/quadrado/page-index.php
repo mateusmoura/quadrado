@@ -107,7 +107,7 @@
 								</div>
 
 								<div class="block__post--entries">
-									<?php the_excerpt(); ?>
+									<?php custom_excerpt_length(12); the_excerpt(); ?>
 								</div>
 
 								<div class="block__post--share">

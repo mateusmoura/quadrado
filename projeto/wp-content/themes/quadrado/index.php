@@ -55,10 +55,10 @@
 ?>
 
 			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-			<div class="header__image--post header__image--post-random">
+			<!-- <div class="header__image--post header__image--post-random">
 				<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
 				<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
-			</div>
+			</div> -->
 
 			<main role="main" class="home">
 				<section class="block__post block__home">
@@ -93,10 +93,6 @@
 					<div class="center">
 						<div class="row">
 							<div class="block__post--title">
-								<div class="block__post--category align-right">
-									<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
-								</div>
-
 								<h1><?php the_title(); ?></h1>
 
 								<a href="<?php the_permalink(); ?>" class="btn btn-link btn-seemore">Ler post completo <i class="fa fa-arrow-right"></i></a>
@@ -107,8 +103,15 @@
 							</div>
 
 							<div class="block__post--content">
+								<div class="block__post--category align-right">
+									<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
+								</div>
+
 								<div class="block__post--entries">
-									<?php the_excerpt(); ?>
+									<div class="align-center" style="margin-bottom: 30px;">
+										<?php the_post_thumbnail(); ?>
+									</div>
+									<?php echo excerpt(150); ?>
 								</div>
 
 								<div class="block__post--share">
@@ -184,7 +187,7 @@
 											</div>
 
 											<div class="block__post--entries">
-												<?php the_excerpt(); ?>
+												<?php echo excerpt(15); ?>
 											</div>
 										</div>
 									</div>
@@ -237,7 +240,7 @@
 											</div>
 
 											<div class="block__post--entries">
-												<?php the_excerpt(); ?>
+												<?php echo excerpt(40); ?>
 											</div>
 										</div>
 									</div>
@@ -292,7 +295,7 @@
 											</div>
 
 											<div class="block__post--entries">
-												<?php the_excerpt(); ?>
+												<?php echo excerpt(15); ?>
 											</div>
 										</div>
 									</div>
@@ -433,7 +436,7 @@
 											</div>
 
 											<div class="block__post--entries">
-												<?php the_excerpt(); ?>
+												<?php echo excerpt(15); ?>
 											</div>
 										</div>
 									</div>

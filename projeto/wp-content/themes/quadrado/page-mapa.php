@@ -48,9 +48,9 @@
 		</script>
 
 			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-			<div class="header__image--post">
+			<!-- <div class="header__image--post">
 				<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-default2.jpg" alt="Quadrado Brasilia">
-			</div>
+			</div> -->
 
 			<main role="main" class="map">
 				<section class="block__post">
