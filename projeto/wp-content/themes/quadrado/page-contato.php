@@ -68,7 +68,7 @@
 							<h3>fala que eu te escuto</h3>
 
 							<?php 
-								echo do_shortcode('[contact-form-7 id="4540" title="Formulário de contato"]');
+								echo do_shortcode('[contact-form-7 id="6143" title="Formulário Contato 2"]');
 							?>
 
 							<!-- <div class="row padded-x2">
