@@ -1,153 +1,118 @@
 <?php get_header(); ?>
-	<?php 
-		$counter = 0;
-		$page_index = 0;
 
-		$page_curso = get_page( 6 );
-	 ?>
+<?php 
+	$counter				= 0;
+	$page_index				= 0;
+	$posts_types			= array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas'); 
+?>
 
-	 <main role="main" class="home">
-		<div class="block__title">
-			<div class="center">
-				<div class="row">
-					<div class="col-m-12 block__title--breadcrumb">
-						<?php wp_custom_breadcrumbs(); ?>
-					</div>
-
-					<div class="col-m-12">
-						<h1>Nossos <strong>cursos</strong></h1>
-						<p><?php echo $page_curso->post_content; ?></p>
-					</div>
-				</div>
-			</div>
+		<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
+		<div class="header__image--post">
+			<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-default2.jpg" alt="Quadrado Brasilia">
 		</div>
 
-		<div class="wrap">
-			<div class="bg"></div>
-			<div class="content">
-				<section class="block__page">
-					<div class="block__courses--list">
-						<?php $args = array(
-							'posts_per_page'   => 5,
-							'offset'           => 0,
-							'category'         => get_category(get_query_var('cat'), false)->cat_ID,
-							'category_name'    => '',
-							'orderby'          => 'post_date',
-							'order'            => 'DESC',
-							'include'          => '',
-							'exclude'          => '',
-							'meta_key'         => '',
-							'meta_value'       => '',
-							'post_type'        => 'cursos',
-							'post_mime_type'   => '',
-							'post_parent'      => '',
-							'post_status'      => 'publish',
-							'suppress_filters' => true 
-						);
-						$posts_category = get_posts( $args );
+			<main id="main" role="main" class="search">
+				<section class="block__post">
+					<div class="center">
+						<div class="row">
+							<div class="col-m-12">
+								<div class="block__post--title">
+									<?php if(is_author()) : ?>
+										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> escritos por “<?php the_author(); ?>”</h1>
+									<?php elseif (is_month()): ?>
+										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> no mês <?php echo get_the_time('F'); ?> de <?php echo get_the_time('Y'); ?></h1>
+									<?php elseif (is_year()): ?>
+										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> no ano de <?php echo get_the_time('Y'); ?></h1>
+									<?php else: ?>
+										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> dentro da categoria “<?php post_type_archive_title(); ?>”</h1>
+									<?php endif; ?>
 
-						foreach ( $posts_category as $post ) : setup_postdata( $post ); 
-							$courseID = get_the_ID();
-							$c_title = get_the_title($courseID);
-							$categories = get_the_category($courseID);
-							$professor = get_field('professores', $courseID);
-							$data = get_field('inicio_do_curso', $courseID);
-							$valor = get_field('valor_do_curso', $courseID);
-							$parcelas = get_field('parcelas', $courseID);
-						?>
-
-						<?php if( $counter % 3 == 0 ) { ?>
-							
-							<div class="row">
-						<?php } ?>
-								<div class="col-m-4">
-									<div class="course">
-										<span class="tag bgcolor-<?php echo $categories[0]->cat_ID; ?>"><?php echo $categories[0]->name; ?></span>
-
-										<h3><a href="<?php echo the_permalink(); ?>"><?php echo str_replace('/', '', $c_title); ?></a></h3>
-										
-										<div class="information">
-											<p><span>com</span> <?php echo $professor[0]["nome"] ?></p>
-											<p><span>início:</span> <?php echo $data ?></p>
-											<p><span>Investimento de</span> <?php echo $parcelas; ?>x R$ <?php echo $valor; ?></p>
-										</div>
-
-										<a href="<?php echo the_permalink(); ?>" class="btn btn-error">Saiba mais</a>
+									<div class="block__post--category align-right">
+										<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>" class="btn btn-default">ver todos os posts</a>
 									</div>
-								</div>
-						<?php if( $page_index > 1 ) { ?>
-							</div>
-						<?php $page_index = 0; } else {
-							++$page_index;
-						} 
 
-						++$counter;
-
-						?>
-
-						<?php endforeach; wp_reset_postdata();?>
-					</div>
-				</section>
-
-				<aside>
-					<div class="aside__searchCourses">
-						<form id="searchform" action="<?php bloginfo('home'); ?>/" method="get">
-							<div class="row">
-								<div class="col-m-12 button-inset">
-									<input id="s" type="text" class="form-style" placeholder="Encontre um curso" name="s" value="<?php echo wp_specialchars($s, 1); ?>" />
-									<input type="hidden" name="post_type" value="cursos" />
-									<button type="submit" id="searchsubmit" class="btn btn-error">OK</button>
+									<div class="block__post--time"></div>
 								</div>
 							</div>
-						</form>
-					</div>
-
-					<div class="aside__categories">
-						<h2>categorias</h2>
-
-						<div class="tags">
-						<?php 
-							$args = array(
-								'type'                     => 'post',
-								'child_of'                 => 0,
-								'parent'                   => '',
-								'orderby'                  => 'name',
-								'order'                    => 'ASC',
-								'hide_empty'               => 1,
-								'hierarchical'             => 1,
-								'exclude'                  => '1',
-								'post_type'                => 'cursos',
-								'include'                  => '',
-								'number'                   => '',
-								'taxonomy'                 => 'category',
-								'pad_counts'               => false 
-							);
-
-
-
-							$categories = get_categories( $args );
-
-							foreach ( $categories as $category ) :
-
-							$cat_url = get_site_url().'/category/'.$category->category_nicename;
-						?>
-
-
-							<a href="<?php echo $cat_url; ?>" class="tag bgcolor-<?php echo $category->cat_ID; ?>"><?php echo $category->cat_name; ?></a>
-
-						<?php endforeach; wp_reset_postdata();?>
-
-							<!-- <a href="#this" class="tag bgcolor-1">arte</a>
-							<a href="#this" class="tag bgcolor-2">educação</a>
-							<a href="#this" class="tag bgcolor-3">filosofia</a>
-							<a href="#this" class="tag bgcolor-8">cinema</a>
-							<a href="#this" class="tag bgcolor-4">gestão e negócios</a>
-							<a href="#this" class="tag bgcolor-5">história</a>
-							<a href="#this" class="tag bgcolor-6">música</a>
-							<a href="#this" class="tag bgcolor-7">gastronomia</a> -->
 						</div>
 					</div>
-				</aside>
-			</div>
-		</div>
-	<?php get_footer(); ?>
+
+					<div class="bg-white">
+						<div class="center">
+							<div class="block__highlights">
+								<?php if (have_posts()) : while (have_posts()) : setup_postdata( the_post() );
+									$postID			= get_the_ID();
+									$date			= get_the_date('d \d\e F \d\e Y', $postID);
+									$postType		= get_post_type($postID);
+									$post           = get_post($postID);
+
+									setup_postdata($post);
+
+									//if ( $postType != 'page' && $postType != 'lugares' ):
+								?>
+
+										<?php if( $counter % 3 == 0 ) { ?>
+										<div class="row">
+										<?php } ?>
+											<div class="col-m-4">
+												<div class="block__post--highlights">
+													<div class="block__post--image-auto">
+														<?php the_post_thumbnail(); ?>
+													</div>
+
+													<div class="block__post--category">
+														<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
+													</div>
+
+													<div class="block__post--content">
+														<div class="block__post--share">
+															<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
+
+															<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+														</div>
+
+														<div class="block__post--title">
+															<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+														</div>
+
+														<div class="block__post--time">
+															<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+														</div>
+
+														<div class="block__post--entries">
+															<?php echo excerpt(15); ?>
+														</div>
+													</div>
+												</div>
+											</div>
+										<?php if( $page_index > 1 ) { ?>
+										</div>
+										<?php $page_index = 0; } else {
+											++$page_index;
+										}
+
+										++$counter;
+										?>
+									<?php //endif; ?>
+								<?php endwhile; ?>
+
+								<nav class="navigation pagination">
+									<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('next')); ?>
+								</nav>
+
+								<?php else: ?>
+									<p>Não foi encontrado nenhum resultado para "<?php echo get_search_query(); ?>". <a href="<?php bloginfo('url'); ?>/cursos/">Ver todos os posts</a></p>
+								<?php endif; ?>
+							</div>
+
+							<!-- <div class="block__loading">
+								<div class="loading"></div>
+								<p>rapidão, estamos carregando mais resultados da sua busca</p>
+							</div> -->
+						</div>
+					</div>
+				</section>
+			</main>
+
+<?php get_footer(); ?>
+

@@ -29,7 +29,7 @@ ________________________________________________________________ */
 legend{ display: none; }
 a{text-decoration: none;}
 a:hover{ text-decoration: underline; }
-table{ border-spacing: 0; border-collapse: collapse; }
+//table{ border-spacing: 0; border-collapse: collapse; }
 img, fieldset{border: none;}
 .clear{ clear: both; }
 header, nav, section, article, aside, footer, main{ display: block; }
@@ -38,7 +38,7 @@ html {
 	font-family: sans-serif; // 1
 	-ms-text-size-adjust: 100%; // 2
 	-webkit-text-size-adjust: 100%; // 2
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	//-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 html,
@@ -54,14 +54,17 @@ body{
 }
 
 body{
-	.background-size;
-	background-color: @body-bg;
+	//.background-size;
+	//background-color: @body-bg;
+	background: url('@{bkg}/general-bg.png') @body-bg;
 	color: @text-color;
 	font-family: @font-family-base;
 	font-size: @font-size-base;
 	line-height: @line-height-base;
-	-webkit-font-smoothing: antialiased;
-	-webkit-text-stroke: 0.3px;
+	//-ms-font-smoothing: antialiased;
+	//-webkit-font-smoothing: antialiased;
+	//-moz-osx-font-smoothing: antialiased;
+	//-webkit-text-stroke: 0.3px;
 }
 
 // Reseta as fontes para elemento relevantes
@@ -171,7 +174,7 @@ img {
 ________________________________________________________________ */
 
 #overlay{
-	background: url('@{bkg}/overlay.png');
+	background: url('@{bkg}/overlay_white.png');
 	display: none;
 	height: 100%;
 	left: 0;

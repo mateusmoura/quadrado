@@ -81,7 +81,7 @@
 							</ul>
 						</div> -->
 
-						<div class="block__adsence--post">
+						<!-- <div class="block__adsence--post">
 							<div class="row unicelular align-center center">
 								<div class="col-m-4">
 									<img src="img/fke/adsence-post.png">
@@ -93,7 +93,7 @@
 									<img src="img/fke/adsence-post.png">
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>

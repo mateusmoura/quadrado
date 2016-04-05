@@ -23,7 +23,7 @@ ________________________________________________________________________________
 	width: 380px;
 
 	&--body {
-		img {
+		img, &-overlay {
 			bottom: 0;
 			height: 100%;
 			left: 0;
@@ -34,15 +34,25 @@ ________________________________________________________________________________
 			z-index: 1;
 		}
 
+		&-overlay {
+			.opacity(0.5);
+			background-color: #000;
+			z-index: 2;
+		}
+
 		h3, p, span {
 			.textShadow;
 			color: @cor-branco;
 			font-family: @font-family-sans-serif-2;
 			font-size: 20px;
 			font-weight: 400;
-			margin: 0 0 0 0;
+			margin: 0 0 10px 0;
 			position: relative;
-			z-index: 2;
+			z-index: 3;
+		}
+
+		p, span {
+			font-size: 16px;
 		}
 	}
 
@@ -83,7 +93,7 @@ ________________________________________________________________________________
 		a {
 			color: @cor-branco;
 			font-family: @font-family-sans-serif-2;
-			font-size: 18px;
+			font-size: 16px;
 			font-weight: 400;
 
 			&:hover {

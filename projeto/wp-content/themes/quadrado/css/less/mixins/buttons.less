@@ -10,7 +10,7 @@
 	Para as cores dos BOTÔES e do :hover, :active, :focus
 ________________________________________________________________ */
 
-.variacao-botoes( @cor, @background, @borda, @cor-hover: none, @text-color: none ){
+.variacao-botoes( @cor, @background, @borda, @cor-hover: none, @text-color: none, @borda-hover: none ){
 	background-color: @background;
 
 	& when not( @borda = none ){
@@ -34,6 +34,9 @@ ________________________________________________________________ */
 			border-color: darken(@borda, 12%);
 		}
 		
+		& when not( @borda-hover = none ){
+			border-color: @borda-hover;
+		}
 	}
 
 	&:active, &.active{

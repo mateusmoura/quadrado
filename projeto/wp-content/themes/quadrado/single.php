@@ -6,19 +6,20 @@
 		$imagem_de_fundo		= get_field('imagem_de_fundo');
 		$bora					= get_field('bora');
 		$imagem_do_post			= get_field('imagens_do_postd');
-		$image_count			= floor(10 / count($imagem_do_post));
+		//$image_count			= floor(10 / count($imagem_do_post));
+		$postType               = get_post_type($postID);
 
 	?>
 
 	<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-	<?php if(count($imagem_de_fundo) > 1) : ?>
+	<!-- <?php if(count($imagem_de_fundo) > 1) : ?>
 	<div class="header__image--post">
 	<?php else: ?>
 	<div class="header__image--post header__image--post-random">
 		<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
 	<?php endif ?>
 		<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
-	</div>
+	</div> -->
 
 	<?php if(count($imagem_do_post) > 0) : ?>
 	<main role="main" class="internal">
@@ -30,18 +31,19 @@
 				<div class="row">
 					<div class="col-m-12">
 						<div class="block__post--title">
-							<h1><?php the_title(); ?></h1>
-
 							<div class="block__post--category align-right">
-								<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+								<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
 							</div>
+						
+							<h1><?php the_title(); ?></h1>
 
 							<div class="block__post--time">
 								<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
 
 								<div class="block__post--share">
-									<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> 23</a>
-									<a href="#this" class="btn btn-link"><i class="fa fa-share"></i> 1k</a>
+									<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
+
+									<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
 								</div>
 							</div>
 						</div>
@@ -76,7 +78,7 @@
 						</div>
 						<?php } ?>
 
-						<div class="block__adsence--post">
+						<!-- <div class="block__adsence--post">
 							<div class="row unicelular align-center center">
 								<div class="col-m-4">
 									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
@@ -88,7 +90,7 @@
 									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="block__comments">
 							<div class="row unicelular align-center center">

@@ -29,6 +29,7 @@
 
 		<link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/base.css?<?php echo $noCache; ?>" />
 		<link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie.css?<?php echo $noCache; ?>" />
+		<link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/jQuery.fullcalendar.css" media="screen" />
 		<!--[if IE]><link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie.css?<?php echo $noCache; ?>" media="screen" /><![endif]-->
 
 		<!--[if lt IE 9]>
@@ -39,42 +40,8 @@
 		<link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="<?php bloginfo('rss2_url'); ?>" />
 		<link rel="alternate" type="text/xml" title="RSS .92" href="<?php bloginfo('rss_url'); ?>" />
 		<link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="<?php bloginfo('atom_url'); ?>" />
-		<script src="https://maps.googleapis.com/maps/api/js"></script>
 		<script>
-			function initialize() {
-				var mapCanvas = document.getElementById('map-canvas');
-				var mapOptions = {
-					center: new google.maps.LatLng(-15.7170862, -47.8849884),
-					zoom: 17,
-					mapTypeId: google.maps.MapTypeId.ROADMAP
-				}
-
-				var map = new google.maps.Map(mapCanvas, mapOptions);
-				var myLatlng = new google.maps.LatLng(-15.7170862, -47.8849884);
-				var image = "<?php bloginfo('template_url'); ?>/img/ico/google-maps-marker.png";
-
-				var contentString = '<div id="content">'+
-					'<p>CA 05, Lote F, Ed. San Raphael, Loja 09, Lago Norte - Brasília/DF <a href="https://www.google.com.br/maps/dir/-15.7171524,-47.8847454//@-15.7181907,-47.8825156,587m/data=!3m1!1e3" target="_blank">Traçar rota até aqui</a></p>' +
-				'</div>';
-
-				var infowindow = new google.maps.InfoWindow({
-				    content: contentString
-				});
-
-				var marker = new google.maps.Marker({
-					position: myLatlng,
-					map: map,
-					icon: image,
-					title: 'CA 05, Lote F, Ed. San Raphael, Loja 09, Lago Norte - Brasília/DF'
-				});
-
-				google.maps.event.addListener(marker, 'click', function() {
-					infowindow.open(map,marker);
-				});
-
-				infowindow.open(map,marker);
-			}
-			google.maps.event.addDomListener(window, 'load', initialize);
+			var events_data = '';
 		</script>
 		<?php if ( is_singular() && get_option( 'thread_comments' ) ) wp_enqueue_script( 'comment-reply' ); wp_head(); ?>
 	</head>
@@ -87,6 +54,24 @@
 <!--[if IE 10]>
 	<body class="ie10">
 <![endif]-->
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId      : '893441747436681',
+				xfbml      : true,
+				version    : 'v2.5'
+			});
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/pt_BR/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
 	<div id="global">
 		<header class="header">
 			<div class="center">
@@ -101,7 +86,7 @@
 						</div>
 
 						<div class="header__social">
-							<a href="#this" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
+							<a href="https://www.facebook.com/QuadradoBrasilia/" target="_blank" class="btn btn-default btn-facebook"><i class="fa fa-facebook"></i></a>
 						</div>
 					</div>
 				</div>
@@ -119,7 +104,7 @@
 
 					<div class="col-m-3 align-right">
 						<nav>
-							<a href="contato.php" class="btn btn-link">contato</a>
+							<a href="<?php echo get_permalink( get_page_by_path('contato')); ?>" class="btn btn-link">contato</a>
 						</nav>
 					</div>
 				</div>
@@ -128,26 +113,30 @@
 			<div class="header__menu--second">
 				<div class="center">
 					<div class="col-m-2">
-						<a href="index.php" class="header__menu--logo"><span>Quadrado Brasilia</span></a>
+						<a href="<?php bloginfo('url'); ?>" class="header__menu--logo"><span>Quadrado Brasilia</span></a>
 					</div>
 
 					<div class="col-m-7">
 						<nav class="header__menu--links">
 							<div class="dropdown">
-								<a href="#this">todos os posts <i class="fa fa-angle-down"></i></a>
+								<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>">todos os posts <i class="fa fa-angle-down"></i></a>
 
 								<ul>
-									<li><a href="#">Link 1</a></li>
-									<li><a href="#">Link 2</a></li>
-									<li><a href="#">Link 3</a></li>
-									<li><a href="#">Link 4</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/artes">Artes</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/eu-acho">Eu acho</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/feiras">Feira</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/mesa">Mesa</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/passeio">Passeio</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/pessoas">Pessoas</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/pistas">Pista</a></li>
+									<li><a href="<?php bloginfo('url'); ?>/sacolas">Sacola</a></li>
 								</ul>
 							</div>
 
-							<a href="#this">mapa do quadrado</a>
-							<a href="#this">agenda</a>
-							<a href="quem-somos.php">sobre a gente</a>
-							<a href="contato.php">contato</a>
+							<a href="<?php echo get_permalink( get_page_by_path('mapa')); ?>">mapa do quadrado</a>
+							<a href="<?php echo get_permalink( get_page_by_path('agenda')); ?>">agenda</a>
+							<a href="<?php echo get_permalink( get_page_by_path('sobre-a-gente')); ?>">sobre a gente</a>
+							<a href="<?php echo get_permalink( get_page_by_path('contato')); ?>">contato</a>
 						</nav>
 					</div>
 
@@ -166,4 +155,6 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="header__overlay"></div>
 		</header>

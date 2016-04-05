@@ -12,8 +12,6 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 		this.data_json			= $json;
 		this.google_map			= [];
 
-		console.log(this.data_json);
-
 		this.markerClusterer	= {};
 		this.loading			= $( "#loading" );
 		this.no_click_filter	= $( "#no_click_filter" );
@@ -50,12 +48,12 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 		});
 
 		$.when(
-			$.getScript('http://www.google.com/jsapi'),
+			//$.getScript(base_url + "js/plugins/google.jsapi.js"),
 			$.getScript(base_url + "js/mapa/markerclusterer.js"),
-			//$.getScript(base_url + "js/mapa/jquery.simplemodal.1.4.1.min.js"),
+			////$.getScript(base_url + "js/mapa/jquery.simplemodal.1.4.1.min.js"),
 			$.getScript(base_url + "js/mapa/customLabel.js"),
 			$.getScript(base_url + "js/mapa/geoxml3.js"),
-			//$.getScript(base_url + "js/mapa/libs/jquery-ui-1.8.14.custom.min.js"),
+			////$.getScript(base_url + "js/mapa/libs/jquery-ui-1.8.14.custom.min.js"),
 			$.getScript(base_url + "js/mapa/libs/infobox.js"),
 			$.getScript(base_url + "js/mapa/coloroverlay.js"),
 			$.Deferred(function(deferred){
@@ -73,11 +71,12 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 	GoogleMaps.fn.config = function(){
 		this.google_map = new google.maps.Map(this.container, {
 			zoom: 12,
+			scrollwheel: false,
 			center: new google.maps.LatLng(-15.793914, -47.882801),
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 		});
 
-		google__map = this.google_map
+		google__map = this.google_map;
 
 		var overlay = new Coloroverlay({ map: this.google_map });
 
@@ -132,6 +131,7 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 					//imagem				: this.data_json[i].imagem,
 					html: '<div class="block__infobox">'+
 								'<div class="block__infobox--body">'+
+									'<div class="block__infobox--body-overlay"></div>' +
 									'<img src="' + this.data_json[i].imagem + '" />' +
 									'<h3>' + this.data_json[i].post_title + '</h3>' +
 									'<p>' + this.data_json[i].localizacao.address + '</p>' +
@@ -174,8 +174,6 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 			this.markers.push(marker);
 		}
 
-
-
 		this.mc					= new MarkerClusterer(this.google_map, this.markers, this.mcOptions, 'preto');
 	};
 	/**
@@ -204,6 +202,4 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 			}
 		});
 	};
-
-
 });

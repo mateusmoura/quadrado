@@ -1,0 +1,139 @@
+/**
+* Arquivo responsavel pelo estilo do Bloco do Full Calendário
+*
+* @version:  1.0
+*
+* Copyright(c) Todos os direitos reservados 
+*/
+
+/* Bloco do Full Calendário
+____________________________________________________________________________________ */
+
+.block__fullcalendar {
+	font-family: @font-family-sans-serif-2;
+
+	&--actions {
+		margin-bottom: 30px;
+		.btn {
+			margin-left: 8px;
+		}
+	}
+
+	.fc {
+		th, td {
+			border-color: transparent;
+		}
+
+		table {
+			border-collapse: separate;
+			border-spacing: 2px;
+		}
+
+		th {
+			border-color: transparent;
+		}
+
+
+	}
+
+	.fc-toolbar {
+		background-color: fade(#fff, 90%);
+		padding: 5px;
+
+		h2 {
+			color: #000;
+			font-size: 40px;
+			font-weight: 400;
+			margin-top: 9px;
+			text-transform: uppercase;
+		}
+	}
+
+	.fc-prev-button, .fc-next-button {
+		.btn;
+		.btn-default;
+		padding: 0;
+		height: 58px;
+		width: 60px;
+	}
+
+	.fc-state-default.fc-corner-right {
+		.border-radius(0);
+	}
+
+	.fc-widget-header {
+		th {
+			background-color: #b7b7b8;
+			color: #fff;
+			font-family: @font-family-sans-serif-2;
+			font-size: 20px;
+			font-weight: 400;
+		}
+	}
+
+	.fc-widget-content {
+		td {
+			background-color: #fff;
+			border-color: #b7b7b8;
+		}
+
+		.fc-day-grid-container {
+			position: relative;
+			top: -8px;
+		}
+
+		.fc-day-grid-event {
+			border-color: #b7b7b8;
+			background-color: #fff;
+			color: #333;
+			font-size: 12px;
+			font-weight: 400;
+			margin: 8px 3px 0;
+			padding: 2px 2px;
+
+			.fc-time {
+				font-weight: 400;
+			}
+
+			.fc-description {
+				color: #989898;
+				margin: 0;
+			}
+
+			.fc-image {
+				display: none;
+			}
+		}
+
+		.fc-more-cell {
+			vertical-align: bottom;
+			text-align: right;
+			padding-top: 10px;
+		}
+
+		.fc-more {
+			.btn;
+			.btn-default;
+			font-size: 15px;
+			line-height: 15px;
+			padding: 6px;
+		}
+	}
+
+	.fc-basicWeek-view {
+		.fc-widget-content {
+			.fc-day-grid-event {
+				.border-radius(0);
+				border: 0;
+				border-bottom: 1px solid #d7d7d7;
+				padding-bottom: 15px;
+				padding-top: 12px;
+
+				.fc-image {
+					display: block;
+					margin-bottom: 15px;
+				}
+			}
+		}
+	}
+}

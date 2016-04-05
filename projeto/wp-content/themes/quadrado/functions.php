@@ -25,12 +25,38 @@ function new_excerpt_more( $more ) {
 add_filter( 'excerpt_more', 'new_excerpt_more' );
 
 function custom_excerpt_length( $length ) {
-	return 12;
+	return 150;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 
 add_action( 'init', 'register_my_menus' );
+
+function excerpt($limit) {
+	$excerpt = explode(' ', get_the_excerpt(), $limit);
+	if (count($excerpt)>=$limit) {
+		array_pop($excerpt);
+		$excerpt = implode(" ",$excerpt).' <a class="btn btn-link" href="<?php the_permalink(); ?>"><i class="fa fa-arrow-right"></i></a>';
+	} else {
+		$excerpt = implode(" ",$excerpt);
+	}
+	$excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+	return $excerpt;
+}
+ 
+function content($limit) {
+	$content = explode(' ', get_the_content(), $limit);
+	if (count($content)>=$limit) {
+		array_pop($content);
+		$content = implode(" ",$content).'...';
+	} else {
+		$content = implode(" ",$content);
+	}
+	$content = preg_replace('/\[.+\]/','', $content);
+	$content = apply_filters('the_content', $content); 
+	$content = str_replace(']]>', ']]&gt;', $content);
+	return $content;
+}
 
 function register_my_menus() {
 	register_nav_menus(
@@ -167,7 +193,7 @@ add_action( 'wp_ajax_update_value','update_value' );
 
 
 // search filter
-function fb_search_filter($query) {
+function fb_search_filter ($query) {
 	if ( !$query->is_admin && $query->is_search) {
 		$query->set('post_type', array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas') ); // id of page or post
 	}
@@ -175,11 +201,187 @@ function fb_search_filter($query) {
 }
 add_filter( 'pre_get_posts', 'fb_search_filter' );
 
+// add_action('wp_ajax_ps_get_survey_form', 'ps_get_survey_form');
+// add_action('wp_ajax_nopriv_ps_get_survey_form', 'ps_get_survey_form');
+
+// function ps_get_survey_form () {
+// 	//do_shortcode( 'foo' );
+
+// 	echo do_shortcode( '[contact-form-7 id="4549" title="Formulário de eventos"]' );
+// 	die();
+// }
+
+add_action( 'init', create_function('',  'register_shortcode_ajax( "cl_contact_us", "cl_contact_us" ); '));
+
+function register_shortcode_ajax( $callable, $action ) {
+	if ( empty( $_POST['action'] ) || $_POST['action'] != $action )
+		return;
+	call_user_func( $callable );
+}
+
+function cl_contact_us() {
+	echo do_shortcode( '[contact-form-7 id="4549" title="Formulário de eventos"]' );
+	die(); 
+} 
+
+function get_facebook_share_count($url) {
+	$fql  = "SELECT url, normalized_url, share_count, like_count, comment_count, ";
+	$fql .= "total_count, commentsbox_count, comments_fbid, click_count FROM ";
+	$fql .= "link_stat WHERE url = '".$url."'";
+
+	$apifql="https://api.facebook.com/method/fql.query?format=json&query=".urlencode($fql);
+	$json=file_get_contents($apifql);
+	$json=json_decode($json);
+	
+	return $json['0']->share_count;
+}
+
+function change_post_type_name($postType) {
+	if($postType == 'pistas') { $postType = 'pista'; }
+	else if($postType == 'eu-acho') { $postType = 'eu acho'; }
+	else if($postType == 'artes') { $postType = 'arte'; }
+	else if($postType == 'pessoas') { $postType = 'pessoa'; }
+	else if($postType == 'sacolas') { $postType = 'sacola'; }
+	else if($postType == 'feiras') { $postType = 'feira'; }
+
+	return $postType;
+}
+
 
 add_theme_support( "post-thumbnails" );
 add_theme_support( "nav-menus" );
 
 add_action( "get_navigation", "get_navigation" );
+
+function wp_create_event() {
+	//echo json_encode( {'mateus': 'asdfasdf'});
+
+	// require_once  $_SERVER["DOCUMENT_ROOT"]."/wp-load.php";
+	// ini_set('display_errors', 1); 
+	// error_reporting('E_ALL');
+	//if(isset($_POST['serialize'])) {    //validations 
+
+		if(trim($_POST['adicionado_por']) === '' || trim($_POST['email']) === '' || trim($_POST['link']) === '' || trim($_POST['evento_id']) === '') {
+			$hasError = true;
+		} else {
+			$link                   = trim($_POST['link']);
+			$adicionado_por         = trim($_POST['adicionado_por']);
+			$email                  = trim($_POST['email']);
+			$evento_id              = trim($_POST['evento_id']);
+			$data_inicio            = trim($_POST['data_inicio']);
+			$data_final             = trim($_POST['data_final']);
+			$local_do_evento_lat    = trim($_POST['local_do_evento_lat']);
+			$local_do_evento_long   = trim($_POST['local_do_evento_long']);
+			$cidade_estado_pais     = trim($_POST['cidade_estado_pais']);
+			$title                  = trim($_POST['title']);
+			$content                = trim($_POST['content']);
+			$cover                  = trim($_POST['cover']);
+		}
+
+		$link                   = trim($_POST['link']);
+		$adicionado_por         = trim($_POST['adicionado_por']);
+		$email                  = trim($_POST['email']);
+		$evento_id              = trim($_POST['evento_id']);
+		$data_inicio            = trim($_POST['data_inicio']);
+		$data_final             = trim($_POST['data_final']);
+		$local_do_evento_lat    = trim($_POST['local_do_evento_lat']);
+		$local_do_evento_long   = trim($_POST['local_do_evento_long']);
+		$cidade_estado_pais     = trim($_POST['cidade_estado_pais']);
+		$title                  = trim($_POST['title']);
+		$content                = trim($_POST['content']);
+		$cover                  = trim($_POST['cover']);
+
+		// maybe check some permissions here, depending on your app
+		global $wpdb;
+		//$nonce = $_POST['nonce'];
+
+		$new_post = array(
+			'post_title'             => $title,
+			'post_status'            => 'draft',
+			'post_type'              => 'agenda',
+			'link'                   => $link,
+			'email'                  => $email,
+			'evento_id'              => $evento_id,
+			'data_inicio'            => $data_inicio,
+			'data_final'             => $data_final,
+			'local_do_evento_lat'    => $local_do_evento_lat,
+			'local_do_evento_long'   => $local_do_evento_long,
+			'cidade_estado_pais'     => $cidade_estado_pais,
+			'post_author'            => '1',
+			'post_content'           => $content,
+			'post_thumbnail'         => $cover
+		);
+
+		$pid = wp_insert_post($new_post);
+
+		// Add field value
+		update_field( "email", $email, $pid);
+		update_field( "link", $link, $pid);
+		update_field( "evento_id", $evento_id, $pid);
+		update_field( "data_inicio", $data_inicio, $pid);
+		update_field( "data_final", $data_final, $pid);
+		update_post_meta($pid, 'local_do_evento', array("address" => $cidade_estado_pais, "lat" => $local_do_evento_lat, 'lng' => $local_do_evento_long));
+		//update_field( "local_do_evento", array("address" => $cidade_estado_pais, "lat" => $local_do_evento_lat, 'lng' => $local_do_evento_long), $pid);
+		update_field( "cidade_estado_pais", $cidade_estado_pais, $pid);
+		update_field( "adicionado_por", $adicionado_por, $pid);
+
+		if( !class_exists( 'WP_Http' ) )
+			include_once( ABSPATH . WPINC. '/class-http.php' );
+
+		$photo = new WP_Http();
+		$photo = $photo->request($cover);
+
+		$attachmentimage = wp_upload_bits( 'cover_'.$evento_id.'.jpg', null, $photo['body'], date("Y-m", strtotime( $photo['headers']['last-modified'] ) ) );
+
+		// Check the type of file. We'll use this as the 'post_mime_type'.
+		$filetype = wp_check_filetype( basename( $attachmentimage['file'] ), null );
+		$wp_upload_dir = wp_upload_dir();
+
+		$attachment = array(
+			'guid'           => $wp_upload_dir['url'] . '/' . basename( $attachmentimage['file'] ), 
+			'post_mime_type' => $filetype['type'],
+			'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $attachmentimage['file'] ) ),
+			'post_content'   => '',
+			'post_status'    => 'inherit'
+		);
+
+		// Insert the attachment.
+		$filename = $attachmentimage['file'];
+		$attach_id = wp_insert_attachment( $attachment, $filename, $pid );
+
+		// Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.
+		if( !function_exists( 'wp_generate_attachment_data' ) )
+			require_once(ABSPATH . "wp-admin" . '/includes/image.php');
+		// Generate the metadata for the attachment, and update the database record.
+		$attach_data = wp_generate_attachment_metadata( $attach_id, $filename );
+		wp_update_attachment_metadata( $attach_id, $attach_data );
+
+		set_post_thumbnail( $pid, $attach_id );
+
+		//wp_insert_attachment( $attachment, $filename, $parent_post_id );
+		// if( $pid ) { 
+		// 	add_post_meta( $pid, 'cpt_firstname', $firstname, true );
+		// }
+
+		// send some information back to the javascipt handler
+		$response = array(
+			'status'        => '200',
+			'message'       => 'OK',
+			//'cover'         => $filename,
+			//'attachment'    => $attachmentimage,
+			'new_post_ID'   => $pid
+		);
+
+		// normally, the script expects a json respone
+		header( 'Content-Type: application/json; charset=utf-8' );
+		echo json_encode( $response );
+		wp_die();
+		//exit; // important
+	//}
+}
+
+add_action('wp_ajax_nopriv_wp_create_event', 'wp_create_event');
+add_action('wp_ajax_wp_create_event', 'wp_create_event');
 
 
 ?>

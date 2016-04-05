@@ -21,6 +21,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
 
 		<link rel="stylesheet" href="css/base.css" media="screen" />
+		<link rel="stylesheet" href="css/jQuery.fullcalendar.css" media="screen" />
 		<!--[if IE]><link rel="stylesheet" href="css/ie.css" media="screen" /><![endif]-->
 
 		<!--[if lt IE 9]>
