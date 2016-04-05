@@ -131,6 +131,7 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 					//imagem				: this.data_json[i].imagem,
 					html: '<div class="block__infobox">'+
 								'<div class="block__infobox--body">'+
+									'<div class="block__infobox--body-overlay"></div>' +
 									'<img src="' + this.data_json[i].imagem + '" />' +
 									'<h3>' + this.data_json[i].post_title + '</h3>' +
 									'<p>' + this.data_json[i].localizacao.address + '</p>' +

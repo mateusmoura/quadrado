@@ -5,7 +5,7 @@
 	$page_index				= 0;
 	$posts_types			= array('lugares');
 
-	$places					= query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '150', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+	$places					= query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '150' ) );
 
 	for ($i = 0; $i < count($places); ++$i) {
 		$lat_long										= get_field('localizacao', $places[$i]->ID);
@@ -98,7 +98,7 @@
 								<a href="<?php the_permalink(); ?>" class="btn btn-link btn-seemore">Ler post completo <i class="fa fa-arrow-right"></i></a>
 
 								<div class="block__post--time">
-									<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+									<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
 								</div>
 							</div>
 
@@ -183,7 +183,7 @@
 											</div>
 
 											<div class="block__post--time">
-												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+												<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
 											</div>
 
 											<div class="block__post--entries">
@@ -236,7 +236,7 @@
 											</div>
 
 											<div class="block__post--time">
-												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+												<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
 											</div>
 
 											<div class="block__post--entries">
@@ -291,7 +291,7 @@
 											</div>
 
 											<div class="block__post--time">
-												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+												<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
 											</div>
 
 											<div class="block__post--entries">
@@ -432,7 +432,7 @@
 											</div>
 
 											<div class="block__post--time">
-												<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+												<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
 											</div>
 
 											<div class="block__post--entries">

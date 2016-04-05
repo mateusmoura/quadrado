@@ -119,7 +119,7 @@
 					<div class="col-m-7">
 						<nav class="header__menu--links">
 							<div class="dropdown">
-								<a href="#this">todos os posts <i class="fa fa-angle-down"></i></a>
+								<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>">todos os posts <i class="fa fa-angle-down"></i></a>
 
 								<ul>
 									<li><a href="<?php bloginfo('url'); ?>/artes">Artes</a></li>

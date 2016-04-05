@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
 <?php 
-	$counter				= 0;
-	$page_index				= 0;
-	$posts_types			= array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas');
+	$counter                = 0;
+	$page_index             = 0;
+	$posts_types            = array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas');
 
-	query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '9', 'orderby' => 'menu_order', 'order' => 'ASC' ) );
+	$all_posts              = query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '9' ) );
 ?>
 
 			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
@@ -38,6 +38,9 @@
 									$postID			= get_the_ID();
 									$date			= get_the_date('d \d\e F \d\e Y', $postID);
 									$postType		= get_post_type($postID);
+									$post           = get_post($postID);
+
+									setup_postdata($post);
 
 									//if ( $postType != 'page' && $postType != 'lugares' ):
 								?>
@@ -52,7 +55,7 @@
 													</div>
 
 													<div class="block__post--category">
-														<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
+														<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo $postType; ?></a>
 													</div>
 
 													<div class="block__post--content">
@@ -67,11 +70,11 @@
 														</div>
 
 														<div class="block__post--time">
-															<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+															<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
 														</div>
 
 														<div class="block__post--entries">
-															<?php the_excerpt(); ?>
+															<?php echo excerpt(15); ?>
 														</div>
 													</div>
 												</div>
@@ -90,6 +93,10 @@
 								<nav class="navigation pagination">
 									<?php posts_nav_link(' &#8212; ', __('&laquo; P&aacute;gina anterior'), __('next')); ?>
 								</nav>
+
+								<?php else: ?>
+									<p>Não foi encontrado nenhum resultado para "<?php echo get_search_query(); ?>". <a href="<?php bloginfo('url'); ?>/cursos/">Ver todos os posts</a></p>
+								<?php endif; ?>
 							</div>
 
 							<!-- <div class="block__loading">

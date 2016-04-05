@@ -1,100 +1,107 @@
 <?php get_header(); ?>
 	
 	<?php if (have_posts()) : while (have_posts()) : the_post(); 
-		$pageID = get_the_ID();
-		$title = get_the_title($pageID);
-		$categories = get_the_category($pageID);
+		$postID					= get_the_ID();
+		$date					= get_the_date('d \d\e F \d\e Y', $postID);
+		$imagem_de_fundo		= get_field('imagem_de_fundo');
+		$bora					= get_field('bora');
+		$imagem_do_post			= get_field('imagens_do_postd');
+		$image_count			= floor(10 / count($imagem_do_post));
+
 	?>
-	<main role="main" >
-		<div class="block__title">
+
+	<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
+	<!-- <?php if(count($imagem_de_fundo) > 1) : ?>
+	<div class="header__image--post">
+	<?php else: ?>
+	<div class="header__image--post header__image--post-random">
+		<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
+	<?php endif ?>
+		<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
+	</div> -->
+
+	<?php if(count($imagem_do_post) > 0) : ?>
+	<main role="main" class="internal">
+	<?php else: ?>
+	<main role="main" class="internal no-gallery">
+	<?php endif ?>
+		<section class="block__post">
 			<div class="center">
 				<div class="row">
-					<div class="col-m-12 block__title--breadcrumb">
-						<?php wp_custom_breadcrumbs(); ?>
-					</div>
-
 					<div class="col-m-12">
-						<h1>Nosso <strong>Blog</strong></h1>
-						<!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum hasbeen the industry's standard dummy text ever since the 1500s, when anunknown.</p> -->
+						<div class="block__post--title">
+							<div class="block__post--category align-right">
+								<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+							</div>
+						
+							<h1><?php the_title(); ?></h1>
+
+							<div class="block__post--time">
+								<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+
+								<div class="block__post--share">
+									<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
+
+									<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+								</div>
+							</div>
+						</div>
+
+						<div class="block__gallery">
+							<div class="row unicelular align-center">
+							<?php 
+								foreach ( $imagem_do_post as $image ) :
+							?>
+								<div class="col-m-<?php echo $image_count ?>">
+									<img src="<?php echo $image['imagem'] ?>" alt="">
+								</div>
+							<?php endforeach;?>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="wrap">
-			<div class="bg"></div>
-			<div class="content">
-				<section class="block__page">
-					<div class="entries">
-						<h3><?php the_title(); ?></h3>
-
-						<div class="entries__info">
-							<p class="data"><?php the_date('d/m/Y'); ?> - <?php echo $categories[0]->category_nicename; ?></p>
-							<p class="autor">Por <?php the_author(); ?></p>
+			<div class="bg-white">
+				<div class="center">
+					<div class="block__post--content">
+						<div class="block__post--entries">
+							<?php the_content(); ?>
 						</div>
 
-						<?php the_content(); ?>
-
-						<div class="pagination">
-							<div class="nav-previous alignleft"><?php echo get_next_posts_link( 'Older posts' ); ?></div>
-							<div class="nav-next alignright"><?php echo previous_posts_link( 'Newer posts' ); ?></div>
+						<?php if ($bora) { ?>
+						<div class="block__post--go">
+							<h4>Bora?</h4>
+							
+							<?php echo $bora; ?>
 						</div>
-					</div>
-				</section>
+						<?php } ?>
 
-				<aside>
-					<div class="aside__searchCourses">
-						<form id="searchform" action="<?php bloginfo('home'); ?>/" method="get">
-							<div class="row">
-								<div class="col-m-12 button-inset">
-									<input id="s" type="text" class="form-style" placeholder="Encontre um artigo" name="s" value="<?php echo wp_specialchars($s, 1); ?>" />
-									<input type="hidden" name="post_type" value="post" />
-									<button type="submit" id="searchsubmit" class="btn btn-error">OK</button>
+						<div class="block__adsence--post">
+							<div class="row unicelular align-center center">
+								<div class="col-m-4">
+									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
+								</div>
+								<div class="col-m-4">
+									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
+								</div>
+								<div class="col-m-4">
+									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
 								</div>
 							</div>
-						</form>
-					</div>
+						</div>
 
-					<div class="aside__assuntos">
-						<h2>Assuntos</h2>
-
-						<div class="tags">
-						<?php 
-							$args = array(
-								'type'                     => 'cursos',
-								'child_of'                 => 0,
-								'parent'                   => '23',
-								'orderby'                  => 'name',
-								'order'                    => 'ASC',
-								'hide_empty'               => 1,
-								'hierarchical'             => 1,
-								'exclude'                  => '1',
-								'post_type'                => 'cursos',
-								'include'                  => '',
-								'number'                   => '',
-								'taxonomy'                 => 'category',
-								'pad_counts'               => false 
-							);
-
-							$categories = get_categories( $args ); ?>
-						<ul>
-						<?php 
-							foreach ( $categories as $category ) :
-
-							$cat_url = get_site_url().'/category/'.$category->category_nicename;
-						?>
-
-							<li>
-								<a href="<?php echo $cat_url; ?>" class=""><?php echo $category->cat_name; ?></a>
-							</li>
-
-						<?php endforeach; wp_reset_postdata();?>
-						</ul>
+						<div class="block__comments">
+							<div class="row unicelular align-center center">
+								<div class="col-m-11">
+									<?php comments_template(); ?>
+								</div>
+							</div>
 						</div>
 					</div>
-				</aside>
+				</div>
 			</div>
-		</div>
+		</section>
 		<!-- <div class="wrap index">
 			<h4>Single.php</h4>
 			<div class="list_posts">

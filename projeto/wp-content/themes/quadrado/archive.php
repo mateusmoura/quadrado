@@ -17,7 +17,11 @@
 						<div class="row">
 							<div class="col-m-12">
 								<div class="block__post--title">
-									<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> dentro da categoria “<?php post_type_archive_title(); ?>”</h1>
+									<?php if(is_author()) : ?>
+										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> escritos por “<?php the_author(); ?>”</h1>
+									<?php else: ?>
+										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> dentro da categoria “<?php post_type_archive_title(); ?>”</h1>
+									<?php endif; ?>
 
 									<div class="block__post--category align-right">
 										<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>" class="btn btn-default">ver todos os posts</a>
@@ -36,6 +40,11 @@
 									$postID			= get_the_ID();
 									$date			= get_the_date('d \d\e F \d\e Y', $postID);
 									$postType		= get_post_type($postID);
+									$post           = get_post($postID);
+
+									setup_postdata($post);
+
+									var_dump($postType);
 
 									//if ( $postType != 'page' && $postType != 'lugares' ):
 								?>
@@ -65,11 +74,11 @@
 														</div>
 
 														<div class="block__post--time">
-															<p>Em <?php echo $date; ?> por <a href="#this" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+															<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
 														</div>
 
 														<div class="block__post--entries">
-															<?php the_excerpt(); ?>
+															<?php echo excerpt(15); ?>
 														</div>
 													</div>
 												</div>
