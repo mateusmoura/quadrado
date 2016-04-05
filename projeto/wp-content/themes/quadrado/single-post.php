@@ -7,6 +7,7 @@
 		$bora					= get_field('bora');
 		$imagem_do_post			= get_field('imagens_do_postd');
 		$image_count			= floor(10 / count($imagem_do_post));
+		$postType               = get_post_type($postID);
 
 	?>
 
@@ -31,9 +32,9 @@
 					<div class="col-m-12">
 						<div class="block__post--title">
 							<div class="block__post--category align-right">
-								<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo get_post_type($postID); ?></a>
+								<a href="<?php bloginfo('url'); ?>/<?php echo get_post_type($postID); ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
 							</div>
-						
+
 							<h1><?php the_title(); ?></h1>
 
 							<div class="block__post--time">
@@ -77,7 +78,7 @@
 						</div>
 						<?php } ?>
 
-						<div class="block__adsence--post">
+						<!-- <div class="block__adsence--post">
 							<div class="row unicelular align-center center">
 								<div class="col-m-4">
 									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
@@ -89,7 +90,7 @@
 									<img src="<?php bloginfo('template_url'); ?>/img/fke/adsence-post.png">
 								</div>
 							</div>
-						</div>
+						</div> -->
 
 						<div class="block__comments">
 							<div class="row unicelular align-center center">

@@ -364,6 +364,12 @@ var site = {
 				}
 			}
 		);
+	},
+	/*
+	* Callback quando filtrar posts na página de Todos os Posts.
+	*/
+	registerEvent: function ($form, resp) {
+		console.log($form, resp);
 	}
 }
 

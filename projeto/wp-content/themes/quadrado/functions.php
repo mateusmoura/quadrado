@@ -238,7 +238,7 @@ function get_facebook_share_count($url) {
 
 function change_post_type_name($postType) {
 	if($postType == 'pistas') { $postType = 'pista'; }
-	else if($postType == 'eu-acho') { $postType = 'euacho'; }
+	else if($postType == 'eu-acho') { $postType = 'eu acho'; }
 	else if($postType == 'artes') { $postType = 'arte'; }
 	else if($postType == 'pessoas') { $postType = 'pessoa'; }
 	else if($postType == 'sacolas') { $postType = 'sacola'; }

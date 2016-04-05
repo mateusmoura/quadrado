@@ -22,7 +22,7 @@
 									<h1>todos os posts</h1>
 
 									<div class="block__post--category align-right">
-										<a href="#this" class="btn btn-default">pesquisar posts no arquivo</a>
+										<a href="<?php bloginfo('template_url'); ?>/inc/modal-filter.php" class="btn btn-default btn-modal btn-filter">pesquisar posts no arquivo</a>
 									</div>
 
 									<div class="block__post--time"></div>
@@ -55,7 +55,7 @@
 													</div>
 
 													<div class="block__post--category">
-														<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo $postType; ?></a>
+														<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
 													</div>
 
 													<div class="block__post--content">

@@ -19,6 +19,10 @@
 								<div class="block__post--title">
 									<?php if(is_author()) : ?>
 										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> escritos por “<?php the_author(); ?>”</h1>
+									<?php elseif (is_month()): ?>
+										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> no mês <?php echo get_the_time('F'); ?> de <?php echo get_the_time('Y'); ?></h1>
+									<?php elseif (is_year()): ?>
+										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> no ano de <?php echo get_the_time('Y'); ?></h1>
 									<?php else: ?>
 										<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> dentro da categoria “<?php post_type_archive_title(); ?>”</h1>
 									<?php endif; ?>
@@ -43,8 +47,6 @@
 									$post           = get_post($postID);
 
 									setup_postdata($post);
-
-									var_dump($postType);
 
 									//if ( $postType != 'page' && $postType != 'lugares' ):
 								?>
