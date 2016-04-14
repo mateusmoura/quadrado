@@ -310,21 +310,59 @@
 										</div>
 
 										<div class="row block__post--highlights-calendar">
+											<?php 
+												$date = date('Ymd');
+												$diasemana = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado');
+												$meses = array('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
+
+												$args = array(
+												'numberposts'			=> 3,
+												'order'					=> 'ASC',
+												'meta_query'	=> array(
+													'relation'		=> 'AND',
+													array(
+														'key'		=> 'evento_filtro',
+														'compare'	=> '>=',
+														'value'		=> $date,
+													)
+												),
+												'post_type'				=> array('agenda'),
+												'post_status'			=> 'publish'
+												);
+
+												$events					= get_posts($args);
+
+												foreach ( $events as $post ) : setup_postdata( $post );
+													$postID 		= get_the_ID();
+													$event_place	= get_field('cidade_estado_pais', $postID);
+													$date           = get_field('evento_filtro', $postID);
+													$link           = get_field('link', $event->ID);
+													$title_str      = get_the_title($postID);
+
+													$date_format = date_create($date);
+													$date_format = date_format($date_format, 'Y-m-d');
+													$diasemana_numero = date('w', strtotime($date_format));
+
+													$timestamp = strtotime($date);
+
+													//var_dump($event_place)
+											?>
+
 											<div class="col-m-12">
 												<div class="block__calendar">
 													<div class="block__calendar--image">
-														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-1.png" alt="Feira livre">
+														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-<?php echo rand (1,9); ?>.jpg" alt="<?php the_title(); ?>">
 													</div>
 
 													<div class="block__calendar--title">
-														<a href="#this">Feira livre</a>
-														<a href="#this"><span>@ Eixão norte, 15h</span></a>
+														<a href="<?php echo $link; ?>"><?php echo title_limit($title_str, 4); ?></a>
+														<a href="<?php echo $link; ?>"><span>@ <?php echo $event_place; ?>, 15h</span></a>
 													</div>
 
 													<div class="block__calendar--date">
 														<a href="#this">
-															<span>domingo</span>
-															<p>24 <br /> <strong>maio</strong></p>
+															<span><?php echo $diasemana[$diasemana_numero]; ?></span>
+															<p><?php echo date('d', $timestamp); ?> <br /> <strong><?php echo date_i18n("F", $timestamp); ?></strong></p>
 														</a>
 													</div>
 
@@ -332,7 +370,9 @@
 												</div>
 											</div>
 
-											<div class="col-m-12">
+											<?php endforeach; wp_reset_postdata(); ?>
+
+											<!-- <div class="col-m-12">
 												<div class="block__calendar">
 													<div class="block__calendar--image">
 														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-2.png" alt="Picnik">
@@ -374,7 +414,7 @@
 
 													<div class="block__calendar--overlay"></div>
 												</div>
-											</div>
+											</div> -->
 										</div>
 
 										<div class="block__actions">

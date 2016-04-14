@@ -43,6 +43,18 @@ function excerpt($limit) {
 	$excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
 	return $excerpt;
 }
+
+function title_limit($title, $limit) {
+	$title_new = explode(' ', $title, $limit);
+	if (count($title_new)>=$limit) {
+		array_pop($title_new);
+		$title_new = implode(" ",$title_new).'...';
+	} else {
+		$title_new = implode(" ",$title_new);
+	}
+	$title_new = preg_replace('`\[[^\]]*\]`','',$title_new);
+	return $title_new;
+}
  
 function content($limit) {
 	$content = explode(' ', get_the_content(), $limit);
@@ -320,6 +332,12 @@ function wp_create_event() {
 		update_field( "evento_id", $evento_id, $pid);
 		update_field( "data_inicio", $data_inicio, $pid);
 		update_field( "data_final", $data_final, $pid);
+
+		$date_format = date_create($data_inicio);
+		$date_format = date_format($date_format, 'Ymd');
+
+		update_field( "evento_filtro", $date_format, $pid);
+
 		update_post_meta($pid, 'local_do_evento', array("address" => $cidade_estado_pais, "lat" => $local_do_evento_lat, 'lng' => $local_do_evento_long));
 		//update_field( "local_do_evento", array("address" => $cidade_estado_pais, "lat" => $local_do_evento_lat, 'lng' => $local_do_evento_long), $pid);
 		update_field( "cidade_estado_pais", $cidade_estado_pais, $pid);
