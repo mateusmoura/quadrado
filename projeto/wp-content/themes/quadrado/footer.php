@@ -25,7 +25,7 @@
 				</div>
 
 				<div class="col-m-4 align-center ">
-					<h2 class="footer__logo central"><a href="index.php">Quadrado Brasília</a></h2>
+					<h2 class="footer__logo central"><a href="<?php bloginfo('url'); ?>">Quadrado Brasília</a></h2>
 					<p>todos os direitos reservados</p>
 				</div>
 			</div>
