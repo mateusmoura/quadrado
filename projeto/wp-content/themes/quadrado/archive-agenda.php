@@ -70,9 +70,9 @@
 		<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
 		<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
 	</div> -->
-	<div class="header__image--post">
+	<!-- <div class="header__image--post">
 		<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-1_old.png" alt="Quadrado Brasilia">
-	</div>
+	</div> -->
 
 	<main role="main" class="calendar">
 		<section class="block__post">
