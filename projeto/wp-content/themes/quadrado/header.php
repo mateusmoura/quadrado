@@ -25,7 +25,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
 
-		<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/img/ico/favicon.png">
+		<link rel="shortcut icon" href="<?php bloginfo('template_url'); ?>/img/favicon_pq.png">
 
 		<link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/base.css?<?php echo $noCache; ?>" />
 		<link type="text/css" rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/ie.css?<?php echo $noCache; ?>" />
