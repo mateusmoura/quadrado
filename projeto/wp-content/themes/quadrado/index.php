@@ -92,32 +92,36 @@
 					?>
 					<div class="center">
 						<div class="row">
-							<div class="block__post--title">
-								<h1><?php the_title(); ?></h1>
+							<div class="block__post--category">
+								<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
+							</div>
+							<div class="col-m-4">
+								<div class="block__post--title">
+									<h1><?php the_title(); ?></h1>
 
-								<a href="<?php the_permalink(); ?>" class="btn btn-link btn-seemore">Ler post completo <i class="fa fa-arrow-right"></i></a>
+									<!-- <a href="<?php the_permalink(); ?>" class="btn btn-link btn-seemore">Ler post completo <i class="fa fa-arrow-right"></i></a> -->
 
-								<div class="block__post--time">
-									<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+									<div class="block__post--time">
+										<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+									</div>
+
 								</div>
 							</div>
 
-							<div class="block__post--content">
-								<div class="block__post--category align-right">
-									<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
-								</div>
-
-								<div class="block__post--entries">
-									<div class="align-center" style="margin-bottom: 30px;">
-										<?php the_post_thumbnail(); ?>
+							<div class="col-m-8">
+								<div class="block__post--content">
+									<div class="block__post--entries">
+										<!-- <div class="align-center" style="margin-bottom: 30px;">
+											<?php the_post_thumbnail(); ?>
+										</div> -->
+										<?php the_excerpt(); ?>
 									</div>
-									<?php echo excerpt(150); ?>
-								</div>
 
-								<div class="block__post--share">
-									<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
+									<!-- <div class="block__post--share">
+										<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
 
-									<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+										<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+									</div> -->
 								</div>
 							</div>
 						</div>

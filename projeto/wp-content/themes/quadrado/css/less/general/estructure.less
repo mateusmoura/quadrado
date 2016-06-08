@@ -26,6 +26,52 @@ ________________________________________________________________ */
 	box-sizing: border-box;
 }
 
+// @font-face {
+// 	font-family: 'FontAwesome';
+// 	src: url('@{fa-font-path}/fontawesome-webfont.eot?v=@{fa-version}');
+// 	src: url('@{fa-font-path}/fontawesome-webfont.eot?#iefix&v=@{fa-version}') format('embedded-opentype'),
+// 		url('@{fa-font-path}/fontawesome-webfont.woff?v=@{fa-version}') format('woff'),
+// 		url('@{fa-font-path}/fontawesome-webfont.ttf?v=@{fa-version}') format('truetype'),
+// 		url('@{fa-font-path}/fontawesome-webfont.svg?v=@{fa-version}#fontawesomeregular') format('svg');
+// //  src: url('@{fa-font-path}/FontAwesome.otf') format('opentype'); // used when developing fonts
+// 	font-weight: normal;
+// 	font-style: normal;
+// }
+
+@font-face {
+	font-family: 'Populaire';
+	src: url('@{fonts}pintassilgoprintspopulaire.eot');
+	src: url('@{fonts}pintassilgoprintspopulaire.eot?#iefix') format('embedded-opentype'),
+		url('@{fonts}pintassilgoprintspopulaire.svg#pintassilgoprintspopulaire') format('svg'),
+		url('@{fonts}pintassilgoprintspopulaire.ttf') format('truetype'),
+		url('@{fonts}pintassilgoprintspopulaire.woff') format('woff'),
+		url('@{fonts}pintassilgoprintspopulaire.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'DIN-BoldAlternate';
+	src: url('@{fonts}dinboldalternate.eot');
+	src: url('@{fonts}dinboldalternate.eot?#iefix') format('embedded-opentype'),
+		url('@{fonts}dinboldalternate.svg#dinboldalternate') format('svg'),
+		url('@{fonts}dinboldalternate.ttf') format('truetype'),
+		url('@{fonts}dinboldalternate.woff') format('woff'),
+		url('@{fonts}dinboldalternate.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'DINCond-Bold';
+	src: url('@{fonts}dincondbold.eot');
+	src: url('@{fonts}dincondbold.eot?#iefix') format('embedded-opentype'),
+		url('@{fonts}dincondbold.svg#dincondbold') format('svg'),
+		url('@{fonts}dincondbold.ttf') format('truetype'),
+		url('@{fonts}dincondbold.woff') format('woff'),
+		url('@{fonts}dincondbold.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+
 legend{ display: none; }
 a{text-decoration: none;}
 a:hover{ text-decoration: underline; }
@@ -55,8 +101,8 @@ body{
 
 body{
 	//.background-size;
-	//background-color: @body-bg;
-	background: url('@{bkg}/general-bg.png') @body-bg;
+	background-color: @body-bg;
+	//background: url('@{bkg}/general-bg.png') @body-bg;
 	color: @text-color;
 	font-family: @font-family-base;
 	font-size: @font-size-base;

@@ -21,19 +21,52 @@ main {
 		}
 
 		.block__home {
+			.center {
+				border: solid 2px #000;
+				padding-bottom: 30px;
+			}
+
 			.block__post--title {
-				//background-color: @cor-branco;
-				//padding: 0 30px;
+				background-color: @cor-branco;
+				padding: 0 30px;
+				text-align: center;
+
+				h1 {
+					font-family: 'Populaire';
+					font-size: 65px;
+					font-weight: 400;
+					float: none;
+					width: 100%;
+				}
 			}
 
 			.block__post--category {
+				height: 102px;
+				margin: -51px auto 40px;
 				position: relative;
-				right: -30px;
-				top: -20px;
+				width: 102px;
+
+				.btn-default {
+					height: 102px;
+					line-height: 90px;
+					font-size: 30px;
+					width: 102px;
+				}
+			}
+
+			.block__post--time {
+				border-top: 0;
+
+				p {
+					font-size: 12px;
+				}
 			}
 
 			.block__post--content {
 				border-top: 0;
+				border: 0;
+				box-shadow: none;
+				padding-top: 0;
 			}
 		}
 

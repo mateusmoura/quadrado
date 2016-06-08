@@ -73,6 +73,14 @@
 	</script>
 
 	<div id="global">
+		<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
+		<!-- <div class="header__image--post header__image--post-random">
+			<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
+			<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
+		</div> -->
+		<div class="header__image--post">
+			<img src="<?php bloginfo('template_url'); ?>/img/header-image-01.png" alt="Quadrado Brasilia">
+		</div>
 		<header class="header">
 			<div class="center">
 				<div class="row">
@@ -97,7 +105,7 @@
 
 				<div class="row">
 					<div class="col-m-3 align-center">
-						<h1 class="header__logo"><a href="<?php bloginfo('url'); ?>"><span>Quadrado Brasilia</span> a cidade é do tamanho que a gente quer</a></h1>
+						<h1 class="header__logo"><a href="<?php bloginfo('url'); ?>">Quadrado Brasilia a cidade é do tamanho que a gente quer</a></h1>
 					</div>
 				</div>
 			</div>
@@ -148,5 +156,5 @@
 				</div>
 			</div>
 
-			<div class="header__overlay"></div>
+			<!-- <div class="header__overlay"></div> -->
 		</header>
