@@ -10,9 +10,10 @@
 ________________________________________________________________ */
 
 .footer {
-	background-color: @cor-beje;
+	// background-color: @cor-beje;
+	background-color: #333;
 	bottom: 0;
-	height: 410px;
+	height: 125px;
 	left: 0;
 	padding-top: 30px;
 	position: absolute;
@@ -20,20 +21,37 @@ ________________________________________________________________ */
 	z-index: 2;
 
 	&__menu {
+		margin-top: 23px;
+
 		a {
 			color: @cor-branco;
-			font-family: @font-family-sans-serif-2;
+			font-family: 'DINCond-Bold';
 			font-size: 18px;
 			font-weight: 400;
 			padding: 0 4%;
 
-			&:hover {
-				color: @text-color;
+			&:hover, &:active, &:focus {
+				//color: @text-color;
+				text-decoration: underline;
 			}
 		}
 
 		.dropdown {
 			width: 150px;
+
+			&:hover > a {
+				color: @cor-branco;
+				text-decoration: underline;
+			}
+
+			ul {
+				background-color: #333;
+
+				li {
+					border-bottom: solid 1px #797879;
+					margin: 0 8px;
+				}
+			}
 		}
 	}
 

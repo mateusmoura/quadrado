@@ -5,7 +5,7 @@
 						<div class="dropdown">
 							<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>">todos os posts <i class="fa fa-angle-down"></i></a>
 
-							<ul>
+							<ul class="align-top">
 								<li><a href="<?php bloginfo('url'); ?>/artes">Artes</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/eu-acho">Eu acho</a></li>
 								<li><a href="<?php bloginfo('url'); ?>/feiras">Feira</a></li>
