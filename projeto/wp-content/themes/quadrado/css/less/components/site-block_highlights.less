@@ -22,28 +22,47 @@ ________________________________________________________________________________
 
 	.col-m-4, .col-m-8 {
 		height: 600px;
-		padding: 0 10px;
+		padding: 0;
+	}
+
+	.col-m-4 {
+		padding-right: 28px;
+
+		&+.col-m-4 {
+			padding: 0 28px;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+
+	.col-m-8 {
+		padding-left: 28px;
 	}
 
 	.col-m-8, .col-m-4 {
 		.block__post--highlights {
 			height: 600px;
+			//overflow: hidden;
 		}
 
 		.block__post--content {
 			.transform(translateX(-50%));
-			bottom: 3%;
+			bottom: -1px;
 			padding-top: 0;
 			padding-bottom: 10px;
 			position: absolute;
+			box-shadow: none;
+			border: none;
 			left: 50%;
-			width: 96%;
+			width: 101%;
 		}
 	}
 
 	.col-m-4 {
 		.block__post--content {
-			bottom: 1.5%;
+			bottom: -1px;
 		}
 
 		.block__post--title {
@@ -52,18 +71,20 @@ ________________________________________________________________________________
 	}
 
 	.block__post--share {
-		margin-right: 15px;
-		margin-top: 15px;
+		margin-right: 0;
+		margin-top: 0;
+		top: -26px;
 	}
 
 	.block__post--title {
 		padding: 0 15px;
 
 		h2 {
+			font-family: 'DIN-BoldAlternate';
 			float: none;
-			font-size: 40px;
-			font-weight: 400;
-			margin: 15px 0;
+			font-size: 26px;
+			font-weight: 700;
+			margin: 15px 0 10px;
 			width: auto;
 		}
 	}
