@@ -1,15 +1,7 @@
 @font-face {
-	src: font-family: 'Populaire';,src: url('pintassilgoprintspopulaire.eot');,url('pintassilgoprintspopulaire.eot?#iefix') format('embedded-opentype'),url('pintassilgoprintspopulaire.svg#pintassilgoprintspopulaire') format('svg'),url('pintassilgoprintspopulaire.ttf') format('truetype'),url('pintassilgoprintspopulaire.woff') format('woff'),url('pintassilgoprintspopulaire.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	src: font-family: 'DIN-BoldAlternate';,src: url('dinboldalternate.eot');,url('dinboldalternate.eot?#iefix') format('embedded-opentype'),url('dinboldalternate.svg#dinboldalternate') format('svg'),url('dinboldalternate.ttf') format('truetype'),url('dinboldalternate.woff') format('woff'),url('dinboldalternate.woff2') format('woff2');
-	font-weight: 400;
-	font-style: normal;
-}
-@font-face {
-	src: font-family: 'DINCond-Bold';,src: url('dincondbold.eot');,url('dincondbold.eot?#iefix') format('embedded-opentype'),url('dincondbold.svg#dincondbold') format('svg'),url('dincondbold.ttf') format('truetype'),url('dincondbold.woff') format('woff'),url('dincondbold.woff2') format('woff2');
+	font-family: 'DIN-Regular';
+	src: url('dinregular.eot');
+	src: url('dinregular.eot?#iefix') format('embedded-opentype'),url('dinregular.svg#dinregular') format('svg'),url('dinregular.ttf') format('truetype'),url('dinregular.woff') format('woff'),url('dinregular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 }
