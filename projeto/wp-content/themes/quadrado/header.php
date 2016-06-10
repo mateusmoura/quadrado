@@ -78,8 +78,14 @@
 			<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
 			<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
 		</div> -->
+		<?php 
+			$post_gallery = get_post_gallery(5889, false);
+
+			//var_dump($post_gallery['src'][0]);
+		?>
+
 		<div class="header__image--post">
-			<img src="<?php bloginfo('template_url'); ?>/img/header-image-01.png" alt="Quadrado Brasilia">
+			<img src="<?php echo $post_gallery['src'][0]; ?>" alt="Quadrado Brasilia">
 		</div>
 		<header class="header">
 			<div class="center">
