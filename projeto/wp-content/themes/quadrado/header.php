@@ -79,7 +79,7 @@
 			<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
 		</div> -->
 		<?php 
-			$post_gallery = get_post_gallery(5889, false);
+			$post_gallery = get_post_gallery(6185, false);
 
 			//var_dump($post_gallery['src'][0]);
 		?>
