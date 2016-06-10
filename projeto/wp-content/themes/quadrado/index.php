@@ -366,7 +366,7 @@
 													<div class="block__calendar--date">
 														<a href="#this">
 															<span><?php echo $diasemana[$diasemana_numero]; ?></span>
-															<p><?php echo date('d', $timestamp); ?> <br /> <strong><?php echo date_i18n("F", $timestamp); ?></strong></p>
+															<p><?php echo date('d', $timestamp); ?> <br /> <strong><?php echo date_i18n("M", $timestamp); ?></strong></p>
 														</a>
 													</div>
 
