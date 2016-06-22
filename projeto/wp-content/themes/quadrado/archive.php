@@ -6,11 +6,6 @@
 	$posts_types			= array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas'); 
 ?>
 
-		<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-		<div class="header__image--post">
-			<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-default2.jpg" alt="Quadrado Brasilia">
-		</div>
-
 			<main id="main" role="main" class="search">
 				<section class="block__post">
 					<div class="center">
@@ -28,7 +23,7 @@
 									<?php endif; ?>
 
 									<div class="block__post--category align-right">
-										<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>" class="btn btn-default">ver todos os posts</a>
+										<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>" class="btn btn-default2">ver todos os posts</a>
 									</div>
 
 									<div class="block__post--time"></div>
@@ -60,9 +55,9 @@
 														<?php the_post_thumbnail(); ?>
 													</div>
 
-													<div class="block__post--category">
+													<!-- <div class="block__post--category">
 														<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
-													</div>
+													</div> -->
 
 													<div class="block__post--content">
 														<div class="block__post--share">

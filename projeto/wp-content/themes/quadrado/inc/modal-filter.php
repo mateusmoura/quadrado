@@ -11,7 +11,7 @@
 				<div class="row">
 					<div class="col-12">
 						<div class="modal__content--form">
-							<form action="http://webface.com/quadrado/projeto/" method="GET" class="validate" data-callfn="site.filterPost">
+							<form action="http://webface.com/quadrado/projeto/" method="POST" class="validate" data-callfn="site.filterPost">
 								<div class="row">
 									<div class="col-12">
 										<label>selecione o mês da postagem</label>

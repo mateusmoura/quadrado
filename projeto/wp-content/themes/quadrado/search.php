@@ -6,12 +6,6 @@
 	$posts_types			= array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas'); 
 ?>
 
-		<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-		<!-- <div class="header__image--post header__image--post-random">
-			<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
-			<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
-		</div> -->
-
 			<main role="main" class="search" id="main">
 				<section class="block__post">
 					<div class="center">
@@ -21,7 +15,7 @@
 									<h1>encontramos <?php echo $wp_query->found_posts >= 1 ? $wp_query->found_posts : 'nenhum'; ?> <?php echo $wp_query->found_posts > 1 ? 'posts' : 'post'; ?> com a palavra “<?php echo get_search_query() ?>”</h1>
 
 									<div class="block__post--category align-right">
-										<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>" class="btn btn-default">ver todos os posts</a>
+										<a href="<?php echo get_permalink( get_page_by_path('todos-posts')); ?>" class="btn btn-default2">ver todos os posts</a>
 									</div>
 
 									<div class="block__post--time"></div>

@@ -54,12 +54,6 @@
 	$recent_posts_count = 0;
 ?>
 
-			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-			<!-- <div class="header__image--post header__image--post-random">
-				<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
-				<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
-			</div> -->
-
 			<main role="main" class="home">
 				<section class="block__post block__home">
 					<?php 

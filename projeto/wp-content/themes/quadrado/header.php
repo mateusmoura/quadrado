@@ -87,6 +87,8 @@
 		<div class="header__image--post">
 			<img src="<?php echo $post_gallery['src'][0]; ?>" alt="Quadrado Brasilia">
 		</div>
+
+
 		<header class="header">
 			<div class="center">
 				<div class="row">

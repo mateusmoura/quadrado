@@ -47,11 +47,6 @@
 			});
 		</script>
 
-			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-			<!-- <div class="header__image--post">
-				<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-default2.jpg" alt="Quadrado Brasilia">
-			</div> -->
-
 			<main role="main" class="map">
 				<section class="block__post">
 					<div class="center">
@@ -61,7 +56,7 @@
 									<h1>mapa do quadrado</h1>
 
 									<div class="block__post--category align-right">
-										<a href="#this" class="btn btn-default">filtro do mapa</a>
+										<!-- <a href="#this" class="btn btn-default2">filtro do mapa</a> -->
 									</div>
 
 									<div class="block__post--time"></div>

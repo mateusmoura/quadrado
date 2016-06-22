@@ -11,16 +11,6 @@
 
 	?>
 
-	<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-	<!-- <?php if(count($imagem_de_fundo) > 1) : ?>
-	<div class="header__image--post">
-	<?php else: ?>
-	<div class="header__image--post header__image--post-random">
-		<img src="<?php echo $imagem_de_fundo['url'] ?>" class="header__image--post-preloading" alt="<?php echo $imagem_de_fundo['title'] ?>">
-	<?php endif ?>
-		<img src="<?php echo $imagem_de_fundo['url'] ?>" alt="<?php echo $imagem_de_fundo['title'] ?>">
-	</div> -->
-
 	<?php if(count($imagem_do_post) > 0) : ?>
 	<main role="main" class="internal">
 	<?php else: ?>

@@ -8,11 +8,6 @@
 	$all_posts              = query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '9' ) );
 ?>
 
-			<!-- IMAGEM DE BACKGROUND EM DESTAQUE -->
-			<div class="header__image--post">
-				<img src="<?php bloginfo('template_url'); ?>/img/fke/post-header-image-default2.jpg" alt="Quadrado Brasilia">
-			</div>
-
 			<main id="main" role="main" class="search">
 				<section class="block__post">
 					<div class="center">
@@ -22,7 +17,7 @@
 									<h1>todos os posts</h1>
 
 									<div class="block__post--category align-right">
-										<a href="<?php bloginfo('template_url'); ?>/inc/modal-filter.php" class="btn btn-default btn-modal btn-filter">pesquisar posts no arquivo</a>
+										<a href="<?php bloginfo('template_url'); ?>/inc/modal-filter.php" class="btn btn-default2 btn-modal btn-filter">pesquisar posts no arquivo</a>
 									</div>
 
 									<div class="block__post--time"></div>
