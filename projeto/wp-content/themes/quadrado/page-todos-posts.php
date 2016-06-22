@@ -5,7 +5,7 @@
 	$page_index             = 0;
 	$posts_types            = array('artes', 'eu-acho', 'feiras', 'mesa', 'passeio', 'pessoas', 'pistas', 'sacolas');
 
-	$all_posts              = query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '9' ) );
+	$all_posts              = query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '9', 'paged' => get_query_var('paged') ) );
 ?>
 
 			<main id="main" role="main" class="search">
