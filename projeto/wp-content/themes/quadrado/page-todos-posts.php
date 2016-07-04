@@ -8,7 +8,7 @@
 	$all_posts              = query_posts( array( 'post_type' => $posts_types, 'posts_per_page' => '9', 'paged' => get_query_var('paged') ) );
 ?>
 
-			<main id="main" role="main" class="search">
+			<main id="main" role="main" class="search all-posts">
 				<section class="block__post">
 					<div class="center">
 						<div class="row">

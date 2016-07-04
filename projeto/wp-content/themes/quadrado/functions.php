@@ -402,4 +402,10 @@ add_action('wp_ajax_nopriv_wp_create_event', 'wp_create_event');
 add_action('wp_ajax_wp_create_event', 'wp_create_event');
 
 
+function randomGen($min, $max, $quantity) {
+	$numbers = range($min, $max);
+	shuffle($numbers);
+	return array_slice($numbers, 0, $quantity);
+}
+
 ?>
