@@ -175,32 +175,93 @@ ________________________________________________________________________________
 				overflow: hidden;
 
 				img{
-					top: 0;
 					position: absolute;
 					max-width: inherit;
 				}
 
-				&.left-image {
+				&.left-top-image {
 					text-align: left;
 
 					img {
 						left: 0;
+						top: 0;
 					}
 				}
 
-				&.center-image {
+				&.center-top-image {
 					text-align: center;
 
 					img {
-						left: -50%;
+						.transform(translateX(-50%));
+						left: 50%;
+						top: 0;
 					}
 				}
 
-				&.right-image {
+				&.right-top-image {
 					text-align: right;
 
 					img {
 						right: 0;
+						top: 0;
+					}
+				}
+
+				&.left-bottom-image {
+					text-align: left;
+
+					img {
+						bottom: 0;
+						left: 0;
+					}
+				}
+
+				&.center-bottom-image {
+					text-align: center;
+
+					img {
+						.transform(translateX(-50%));
+						bottom: 0;
+						left: 50%;
+					}
+				}
+
+				&.right-bottom-image {
+					text-align: right;
+
+					img {
+						bottom: 0;
+						right: 0;
+					}
+				}
+
+				&.left-center-image {
+					text-align: left;
+
+					img {
+						.transform(translateY(-50%));
+						left: 0;
+						top: 50%;
+					}
+				}
+
+				&.center-center-image {
+					text-align: center;
+
+					img {
+						.transform(translate(-50%, -50%));
+						left: 50%;
+						top: 50%;
+					}
+				}
+
+				&.right-center-image {
+					text-align: right;
+
+					img {
+						.transform(translateY(-50%));
+						right: 0;
+						top: 50%;
 					}
 				}
 			}

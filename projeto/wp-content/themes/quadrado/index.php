@@ -329,6 +329,8 @@
 												);
 
 												$events					= get_posts($args);
+												$testeb         = randomGen(1,9,9);
+												$indexb         = 0;
 
 												foreach ( $events as $post ) : setup_postdata( $post );
 													$postID 		= get_the_ID();
@@ -349,7 +351,7 @@
 											<div class="col-m-12">
 												<div class="block__calendar">
 													<div class="block__calendar--image">
-														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-<?php echo randomGen(1,9,9)[0]; ?>.jpg" alt="<?php the_title(); ?>">
+														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-<?php echo $testeb[$indexb]; ?>.jpg" alt="<?php the_title(); ?>">
 													</div>
 
 													<div class="block__calendar--title">
@@ -368,7 +370,7 @@
 												</div>
 											</div>
 
-											<?php endforeach; wp_reset_postdata(); ?>
+											<?php $indexb++; endforeach; wp_reset_postdata(); ?>
 
 											<!-- <div class="col-m-12">
 												<div class="block__calendar">
