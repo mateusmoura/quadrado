@@ -55,23 +55,24 @@
 ?>
 
 			<main role="main" class="home">
-				<section class="block__post block__home">
+				<section class="block__post block__home mateus">
 					<?php 
 						$args = array(
-						'numberposts'			=> 6,
-						'offset'				=> 0,
-						'category'				=> '',
+						'numberposts'			  => 6,
+						'offset'				    => 0,
+						'category'				  => '',
 						'category_name'			=> '',
-						'orderby'				=> 'post_date',
-						'order'					=> 'DESC',
-						'include'				=> '',
-						'exclude'				=> '',
+						'orderby'	          => 'post_date',
+						'order'		          => 'DESC',
+						'include'	          => '',
+						'exclude'	          => '',
 						//'meta_key'				=> '',
 						//'meta_value'			=> '',
-						'post_type'				=> $posts_types,
+						'post_type'				  => $posts_types,
 						'post_mime_type'		=> '',
-						'post_parent'			=> '',
-						'post_status'			=> 'publish',
+						'post_parent'			  => '',
+						'post_status'			  => 'publish',
+						'meta_value'	      => 'sem_posicao',
 						'suppress_filters'		=> true );
 
 						$recent_posts			= get_posts($args);
