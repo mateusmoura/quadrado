@@ -33,6 +33,15 @@
 									</a>
 								</div>
 							</div>
+
+							<div class="row">
+								<div class="col-m-6 central align-center">
+									<a href="https://www.instagram.com/quadradobrasilia" target="_blank" class="btn btn-link btn-instagram">
+										<i class="fa fa-instagram" aria-hidden="true"></i>
+										@quadradobrasilia
+									</a>
+								</div>
+							</div>
 						</div>
 
 						<div class="block__newsletter">

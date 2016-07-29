@@ -30,13 +30,18 @@ ________________________________________________________________________________
 		&-entries {
 			padding: 50px;
 			width: 720px;
+
+			.aligncenter {
+				margin: 0 auto;
+				text-align: center;
+			}
 		}
 
 		&.active {
 			.transition(width 0.1s ease-in-out 0s);
 			margin: 0 2%;
 			width: 56%;
-			z-index: 7;
+			z-index: 9;
 
 			.block__slider--shadow {
 				display: none;
@@ -47,6 +52,10 @@ ________________________________________________________________________________
 			.block__slider--item-entries {
 				.transform(translateX(-61%));
 			}
+		}
+
+		&.hidden {
+			display: none;
 		}
 
 		h2 {

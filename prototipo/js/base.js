@@ -114,8 +114,76 @@ var site = {
 			}
 		];
 
+		if($('main').hasClass('about')) {
+			this.about();
+		}
 
 		MM.Calendar($('.block__fullcalendar'), data);
+	},
+	/* Animation About page */
+	about: function () {
+		$('.block__slider').on('click', '.btn-default.btn-left', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+
+			$('.block__slider--item.active .block__slider--shadow').fadeIn();
+
+			$('.block__slider--item.active').animate({
+				left: '-59%'
+			}, 500, function() {
+				/* stuff to do after animation is complete */
+				$(this).removeClass('active').addClass('left').css('left', 'auto');
+				//$('.block__slider--item.hidden:first').removeClass('hidden').addClass('right');
+			});
+
+			$('.block__slider--item.left').animate({
+				left: '-59%',
+			}, 500, function() {
+				/* stuff to do after animation is complete */
+				$('.block__slider--item.hidden:first').removeClass('hidden').addClass('right').css('left', 'auto').appendTo($('.block__slider'));
+				$(this).removeClass('left').addClass('hidden').css('left', 'auto');
+			});
+
+			$('.block__slider--item.right .block__slider--shadow').fadeOut();
+
+			$('.block__slider--item.right').animate({
+				left: '-59%',
+			}, 500, function() {
+				/* stuff to do after animation is complete */
+				$(this).removeClass('right').addClass('active').css('left', 'auto');
+				$('.block__slider--item.active .block__slider--shadow').fadeOut();
+			});
+		}).on('click', '.btn-default.btn-right', function(event) {
+			event.preventDefault();
+			/* Act on the event */
+
+			$('.block__slider--item.active .block__slider--shadow').fadeIn();
+
+			$('.block__slider--item.active').animate({
+				right: '-59%'
+			}, 500, function() {
+				/* stuff to do after animation is complete */
+				$(this).removeClass('active').addClass('right').css('right', 'auto');
+			});
+
+			$('.block__slider--item.right').animate({
+				right: '-59%',
+			}, 500, function() {
+				/* stuff to do after animation is complete */
+				$('.block__slider--item.hidden:first').removeClass('hidden').addClass('left').css('right', 'auto').insertBefore($('.block__slider--item.left:first'));
+				$(this).removeClass('right').addClass('hidden').css('right', 'auto');
+			});
+
+			$('.block__slider--item.left .block__slider--shadow').fadeOut();
+
+			$('.block__slider--item.left').animate({
+				right: '-59%',
+			}, 500, function() {
+				/* stuff to do after animation is complete */
+				$(this).removeClass('left').addClass('active').css('right', 'auto');
+				$('.block__slider--item.active .block__slider--shadow').fadeOut();
+			});
+		});;
 	},
 	/*
 	* Callback quando salva um evento na modal.

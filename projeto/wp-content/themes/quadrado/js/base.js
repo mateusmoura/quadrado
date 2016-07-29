@@ -100,13 +100,15 @@ var site = {
 			}, 500, function() {
 				/* stuff to do after animation is complete */
 				$(this).removeClass('active').addClass('left').css('left', 'auto');
+				//$('.block__slider--item.hidden:first').removeClass('hidden').addClass('right');
 			});
 
 			$('.block__slider--item.left').animate({
 				left: '-59%',
 			}, 500, function() {
 				/* stuff to do after animation is complete */
-				$(this).removeClass('left').addClass('right').css('left', 'auto').appendTo($('.block__slider'));
+				$('.block__slider--item.hidden:first').removeClass('hidden').addClass('right').css('left', 'auto').appendTo($('.block__slider'));
+				$(this).removeClass('left').addClass('hidden').css('left', 'auto');
 			});
 
 			$('.block__slider--item.right .block__slider--shadow').fadeOut();
@@ -135,7 +137,8 @@ var site = {
 				right: '-59%',
 			}, 500, function() {
 				/* stuff to do after animation is complete */
-				$(this).removeClass('right').addClass('left').css('right', 'auto').insertBefore($('.block__slider--item.left:first'));
+				$('.block__slider--item.hidden:first').removeClass('hidden').addClass('left').css('right', 'auto').insertBefore($('.block__slider--item.left:first'));
+				$(this).removeClass('right').addClass('hidden').css('right', 'auto');
 			});
 
 			$('.block__slider--item.left .block__slider--shadow').fadeOut();
