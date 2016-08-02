@@ -20,7 +20,7 @@
 							<div class="block__slider--item-entries center">
 								<h2>Dani Cronemberger</h2>
 
-								<img class="alignnone size-medium wp-image-6402" src="http://quadradobrasilia.com.br/wp-content/uploads/2015/10/post-image-61-205x300.png" alt="post-image-6" width="205" height="300" />
+								<img class="alignnone size-medium wp-image-6402" src="http://quadradobrasilia.com.br/wp-content/uploads/2015/10/post-image-61-205x300.png" alt="post-image-6" />
 
 								<p>Daniela Cronemberger é jornalista e a doida dos gatos e publica agora seu primeiro livro. Viveu a experiência transformadora de morar cinco anos em Paris, onde estudou literatura e se tornou mãe dos gêmeos João e Pedro – o que mudou radicalmente seus padrões de normalidade. Entregou-se ao desenho e descobriu na escrita de ficção uma janela para um mundo muito mais real.</p>
 
