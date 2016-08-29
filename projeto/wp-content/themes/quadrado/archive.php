@@ -40,6 +40,7 @@
 									$date			= get_the_date('d \d\e F \d\e Y', $postID);
 									$postType		= get_post_type($postID);
 									$post           = get_post($postID);
+									$editLink		= get_edit_post_link($postID);
 
 									setup_postdata($post);
 
@@ -64,6 +65,9 @@
 															<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
 
 															<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+															<?php if (count($editLink)) { ?>
+															<a href="<?php echo $editLink; ?>" target="_blank" class="btn btn-link"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
+															<?php } ?>
 														</div>
 
 														<div class="block__post--title">
