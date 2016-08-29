@@ -89,9 +89,21 @@ var site = {
 	},
 	/* Animation About page */
 	about: function () {
+		var blockClick = false;
+
+		$('.block__slider--item .block__slider--shadow').fadeOut(10);
+		$('.block__slider--item .block__slider--shadow').fadeIn(10);
+		$('.block__slider--item.active .block__slider--shadow').fadeOut(10);
+
 		$('.block__slider').on('click', '.btn-default.btn-left', function(event) {
 			event.preventDefault();
 			/* Act on the event */
+
+			if(blockClick) {
+				return false;
+			}
+
+			blockClick = true;
 
 			$('.block__slider--item.active .block__slider--shadow').fadeIn();
 
@@ -111,18 +123,25 @@ var site = {
 				$(this).removeClass('left').addClass('hidden').css('left', 'auto');
 			});
 
-			$('.block__slider--item.right .block__slider--shadow').fadeOut();
-
 			$('.block__slider--item.right').animate({
 				left: '-59%',
 			}, 500, function() {
 				/* stuff to do after animation is complete */
+				$(this).find('.block__slider--shadow').fadeOut();
 				$(this).removeClass('right').addClass('active').css('left', 'auto');
 				$('.block__slider--item.active .block__slider--shadow').fadeOut();
+
+				blockClick = false;
 			});
 		}).on('click', '.btn-default.btn-right', function(event) {
 			event.preventDefault();
 			/* Act on the event */
+
+			if(blockClick) {
+				return false;
+			}
+
+			blockClick = true;
 
 			$('.block__slider--item.active .block__slider--shadow').fadeIn();
 
@@ -141,14 +160,14 @@ var site = {
 				$(this).removeClass('right').addClass('hidden').css('right', 'auto');
 			});
 
-			$('.block__slider--item.left .block__slider--shadow').fadeOut();
-
 			$('.block__slider--item.left').animate({
 				right: '-59%',
 			}, 500, function() {
 				/* stuff to do after animation is complete */
+				$(this).find('.block__slider--shadow').fadeOut();
 				$(this).removeClass('left').addClass('active').css('right', 'auto');
 				$('.block__slider--item.active .block__slider--shadow').fadeOut();
+				blockClick = false;
 			});
 		});;
 	},
