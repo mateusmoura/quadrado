@@ -472,7 +472,7 @@
 						</div>
 
 						<div id="google__map" class="block__map--google">
-							<img src="<?php bloginfo('template_url'); ?>/img/fke/mapa.png" alt="Google Maps - ONDE">
+							<!-- <img src="<?php bloginfo('template_url'); ?>/img/fke/mapa.png" alt="Google Maps - ONDE"> -->
 						</div>
 					</div>
 				</div>
