@@ -33,10 +33,11 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 add_action( 'init', 'register_my_menus' );
 
 function excerpt($limit) {
+	$permalink = get_the_permalink();
 	$excerpt = explode(' ', get_the_excerpt(), $limit);
 	if (count($excerpt)>=$limit) {
 		array_pop($excerpt);
-		$excerpt = implode(" ",$excerpt).' <a class="btn btn-link" href="<?php the_permalink(); ?>"><i class="fa fa-arrow-right"></i></a>';
+		$excerpt = implode(" ",$excerpt).' <a class="btn btn-link" href="'.$permalink.'"><i class="fa fa-arrow-right"></i></a>';
 	} else {
 		$excerpt = implode(" ",$excerpt);
 	}
@@ -241,12 +242,38 @@ function get_facebook_share_count($url) {
 	// $fql .= "total_count, commentsbox_count, comments_fbid, click_count FROM ";
 	// $fql .= "link_stat WHERE url = '".$url."'";
 
-	// $apifql="https://api.facebook.com/method/fql.query?format=json&query=".urlencode($fql);
+	//$apifql="https://api.facebook.com/method/fql.query?format=json&query=".urlencode($fql);
 	$apifql="http://graph.facebook.com/?id=" . $url;
-	$json=file_get_contents($apifql);
-	$json=json_decode($json);
+	// $json=file_get_contents_curl($apifql);
+	// $json=json_decode($json);
+
+	$max_redirs = (ini_get('open_basedir') == '' && ini_get('safe_mode' == 'Off')) ? 2 : 0;
+
+	$ch = curl_init();
+
+	$opt_arr = array(
+		CURLOPT_URL => $apifql,
+		CURLOPT_USERAGENT => $_SERVER['HTTP_USER_AGENT'],
+		CURLOPT_FAILONERROR => 1,
+		CURLOPT_FOLLOWLOCATION => $max_redirs > 0,
+		CURLOPT_RETURNTRANSFER => 1,
+		CURLOPT_TIMEOUT => 10,
+	);
+
+	curl_setopt_array( $ch, $opt_arr );
+
+	$cont = curl_exec( $ch );
+
+	// if (FALSE === $cont)
+	// 	return new Exception(curl_error($ch), curl_errno($ch));
+	if(FALSE === $cont) 
+		return 0;
+
+	$json=json_decode($cont);
 
 	return $json->share->share_count;
+
+	curl_close();
 }
 
 function change_post_type_name($postType) {
