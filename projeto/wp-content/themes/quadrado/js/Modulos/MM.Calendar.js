@@ -26,9 +26,14 @@ Module('MM.Calendar', function (Calendar) {
 			$.when(
 				$.getScript(base_url + "js/plugins/moment.min.js"),
 				$.getScript(base_url + "js/plugins/jQuery.fullcalendar.js"),
-				$.Deferred(function(deferred){
-					$.getScript(base_url + "js/plugins/pt-br.js");
-					$(deferred.resolve);
+				$.Deferred(function(deferred1){
+					$.when(
+						$.getScript(base_url + "js/plugins/pt-br.js"),
+						$.Deferred(function(deferred2){
+							$(deferred2.resolve);
+							$(deferred1.resolve);
+						})
+					)
 				})
 			).done(function(){
 				setTimeout(function () {

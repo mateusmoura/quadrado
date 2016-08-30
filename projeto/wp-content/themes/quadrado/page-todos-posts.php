@@ -73,7 +73,7 @@
 														</div>
 
 														<div class="block__post--entries">
-															<?php echo excerpt(15); ?>
+															<!-- <?php echo excerpt(15); ?> -->
 														</div>
 													</div>
 												</div>
