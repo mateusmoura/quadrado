@@ -159,7 +159,7 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 					_cat_html					= $('<a href="#this" class="btn btn-default"></a>');
 
 				for (var b = $mevent.categories.length - 1; b >= 0; b--) {
-					_cat_html.text($mevent.categories[b].name).attr('href', $mevent.categories[b].permalink);
+					_cat_html.text($mevent.categories[b].name).attr('href', base_url_project + '/' + $mevent.categories[b].slug);
 					_cat_html.appendTo(_nav);
 				}
 
