@@ -143,7 +143,7 @@ Module('MM.GoogleMaps', function (GoogleMaps){
 
 									'<div class="block__infobox--content"><span class="loading"></span></div>'+
 									'<div class="block__infobox--foot">'+
-										'<a class="fechar" href="' + this.data_json[i].link_do_post + '">Ler post sobre este lugar <i class="icon icon-arrow"></i></a>'+
+										'<a class="btn-post" target="_blank" href="' + this.data_json[i].link_do_post + '">Ler post sobre este lugar <i class="icon icon-arrow"></i></a>'+
 									'</div>'+
 								'</div>'+
 								'<div class="block__infobox--footer"></div>'+
