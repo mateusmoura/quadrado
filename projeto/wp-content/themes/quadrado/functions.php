@@ -6,7 +6,7 @@ if ( function_exists('register_sidebar') )
 		'before_title' => '<h3>',
 		'after_title' => '</h3>',
 	));
-	
+
 function get_navigation()
 {
 	return include("navigation.php");
@@ -14,7 +14,7 @@ function get_navigation()
 function the_slug() {
 	$post_data = get_post($post->ID, ARRAY_A);
 	$slug = $post_data['post_name'];
-	return $slug; 
+	return $slug;
 }
 
 function new_excerpt_more( $more ) {
@@ -56,7 +56,7 @@ function title_limit($title, $limit) {
 	$title_new = preg_replace('`\[[^\]]*\]`','',$title_new);
 	return $title_new;
 }
- 
+
 function content($limit) {
 	$content = explode(' ', get_the_content(), $limit);
 	if (count($content)>=$limit) {
@@ -66,7 +66,7 @@ function content($limit) {
 		$content = implode(" ",$content);
 	}
 	$content = preg_replace('/\[.+\]/','', $content);
-	$content = apply_filters('the_content', $content); 
+	$content = apply_filters('the_content', $content);
 	$content = str_replace(']]>', ']]&gt;', $content);
 	return $content;
 }
@@ -81,7 +81,7 @@ function register_my_menus() {
 }
 
 function wp_custom_breadcrumbs() {
- 
+
 	$showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
 	$delimiter = '/'; // delimiter between crumbs
 	$home = 'Página inicial'; // text for the 'Home' link
@@ -234,8 +234,8 @@ function register_shortcode_ajax( $callable, $action ) {
 
 function cl_contact_us() {
 	echo do_shortcode( '[contact-form-7 id="4549" title="Formulário de eventos"]' );
-	die(); 
-} 
+	die();
+}
 
 function get_facebook_share_count($url) {
 	// $fql  = "SELECT url, normalized_url, share_count, like_count, comment_count, ";
@@ -266,7 +266,7 @@ function get_facebook_share_count($url) {
 
 	// if (FALSE === $cont)
 	// 	return new Exception(curl_error($ch), curl_errno($ch));
-	if(FALSE === $cont) 
+	if(FALSE === $cont)
 		return 0;
 
 	$json=json_decode($cont);
@@ -297,9 +297,9 @@ function wp_create_event() {
 	//echo json_encode( {'mateus': 'asdfasdf'});
 
 	// require_once  $_SERVER["DOCUMENT_ROOT"]."/wp-load.php";
-	// ini_set('display_errors', 1); 
+	// ini_set('display_errors', 1);
 	// error_reporting('E_ALL');
-	//if(isset($_POST['serialize'])) {    //validations 
+	//if(isset($_POST['serialize'])) {    //validations
 
 		if(trim($_POST['adicionado_por']) === '' || trim($_POST['email']) === '' || trim($_POST['link']) === '' || trim($_POST['evento_id']) === '') {
 			$hasError = true;
@@ -384,7 +384,7 @@ function wp_create_event() {
 		$wp_upload_dir = wp_upload_dir();
 
 		$attachment = array(
-			'guid'           => $wp_upload_dir['url'] . '/' . basename( $attachmentimage['file'] ), 
+			'guid'           => $wp_upload_dir['url'] . '/' . basename( $attachmentimage['file'] ),
 			'post_mime_type' => $filetype['type'],
 			'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $attachmentimage['file'] ) ),
 			'post_content'   => '',
@@ -405,7 +405,7 @@ function wp_create_event() {
 		set_post_thumbnail( $pid, $attach_id );
 
 		//wp_insert_attachment( $attachment, $filename, $parent_post_id );
-		// if( $pid ) { 
+		// if( $pid ) {
 		// 	add_post_meta( $pid, 'cpt_firstname', $firstname, true );
 		// }
 
@@ -435,5 +435,19 @@ function randomGen($min, $max, $quantity) {
 	shuffle($numbers);
 	return array_slice($numbers, 0, $quantity);
 }
+
+function fields_in_feed($content) {
+    if(is_feed()) {
+        $post_id = get_the_ID();
+        $output = '<div><h3>Find me on</h3>';
+        $output .= '<p><strong>Facebook:</strong> ' . get_post_meta($post_id, "facebook_url", true) . '</p>';
+        $output .= '<p><strong>Google:</strong> ' . get_post_meta($post_id, "google_url", true) . '</p>';
+        $output .= '<p><strong>Twitter:</strong> ' . get_post_meta($post_id, "twitter_url", true) . '</p>';  
+        $output .= '</div>';
+        $content = $content.$output;
+    }
+    return $content;
+}
+add_filter('the_content','fields_in_feed');
 
 ?>
