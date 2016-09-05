@@ -436,18 +436,25 @@ function randomGen($min, $max, $quantity) {
 	return array_slice($numbers, 0, $quantity);
 }
 
-function fields_in_feed($content) {
-    if(is_feed()) {
-        $post_id = get_the_ID();
-        $output = '<div><h3>Find me on</h3>';
-        $output .= '<p><strong>Facebook:</strong> ' . get_post_meta($post_id, "facebook_url", true) . '</p>';
-        $output .= '<p><strong>Google:</strong> ' . get_post_meta($post_id, "google_url", true) . '</p>';
-        $output .= '<p><strong>Twitter:</strong> ' . get_post_meta($post_id, "twitter_url", true) . '</p>';  
-        $output .= '</div>';
-        $content = $content.$output;
-    }
-    return $content;
+// function fields_in_feed($content) {
+//     if(is_feed()) {
+//         $post_id = get_the_ID();
+//         $output = '<div><h3>Find me on</h3>';
+//         $output .= '<p><strong>Facebook:</strong> ' . get_post_meta($post_id, "facebook_url", true) . '</p>';
+//         $output .= '<p><strong>Google:</strong> ' . get_post_meta($post_id, "google_url", true) . '</p>';
+//         $output .= '<p><strong>Twitter:</strong> ' . get_post_meta($post_id, "twitter_url", true) . '</p>';  
+//         $output .= '</div>';
+//         $content = $content.$output;
+//     }
+//     return $content;
+// }
+// add_filter('the_content','fields_in_feed');
+
+function myfeed_request($qv) {
+	if (isset($qv['feed']))
+		$qv['post_type'] = get_post_types();
+	return $qv;
 }
-add_filter('the_content','fields_in_feed');
+add_filter('request', 'myfeed_request');
 
 ?>
