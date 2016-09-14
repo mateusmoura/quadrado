@@ -55,23 +55,24 @@
 ?>
 
 			<main role="main" class="home">
-				<section class="block__post block__home">
+				<section class="block__post block__home mateus">
 					<?php 
 						$args = array(
-						'numberposts'			=> 6,
-						'offset'				=> 0,
-						'category'				=> '',
+						'numberposts'			  => 6,
+						'offset'				    => 0,
+						'category'				  => '',
 						'category_name'			=> '',
-						'orderby'				=> 'post_date',
-						'order'					=> 'DESC',
-						'include'				=> '',
-						'exclude'				=> '',
+						'orderby'	          => 'post_date',
+						'order'		          => 'DESC',
+						'include'	          => '',
+						'exclude'	          => '',
 						//'meta_key'				=> '',
 						//'meta_value'			=> '',
-						'post_type'				=> $posts_types,
+						'post_type'				  => $posts_types,
 						'post_mime_type'		=> '',
-						'post_parent'			=> '',
-						'post_status'			=> 'publish',
+						'post_parent'			  => '',
+						'post_status'			  => 'publish',
+						'meta_value'	      => 'sem_posicao',
 						'suppress_filters'		=> true );
 
 						$recent_posts			= get_posts($args);
@@ -82,36 +83,40 @@
 						foreach ( $first_post as $post ) : setup_postdata( $post );
 							$postID 		= get_the_ID();
 							$date 			= get_the_date('d \d\e F \d\e Y', $postID);
-							$postType       = get_post_type($postID);
+							$postType		= get_post_type($postID);
+							$editLink		= get_edit_post_link($postID);
 					?>
 					<div class="center">
 						<div class="row">
-							<div class="block__post--title">
-								<h1><?php the_title(); ?></h1>
+							<div class="block__post--category">
+								<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
+							</div>
+							<div class="col-m-4">
+								<div class="block__post--title">
+									<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
-								<a href="<?php the_permalink(); ?>" class="btn btn-link btn-seemore">Ler post completo <i class="fa fa-arrow-right"></i></a>
+									<div class="block__post--time">
+										<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
+									</div>
 
-								<div class="block__post--time">
-									<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
 								</div>
 							</div>
 
-							<div class="block__post--content">
-								<div class="block__post--category align-right">
-									<a href="<?php bloginfo('url'); ?>/<?php echo $postType; ?>" class="btn btn-default"><?php echo change_post_type_name($postType); ?></a>
-								</div>
-
-								<div class="block__post--entries">
-									<div class="align-center" style="margin-bottom: 30px;">
-										<?php the_post_thumbnail(); ?>
+							<div class="col-m-8">
+								<div class="block__post--content">
+									<div class="block__post--entries">
+										<?php the_excerpt(); ?>
 									</div>
-									<?php echo excerpt(150); ?>
-								</div>
 
-								<div class="block__post--share">
-									<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
+									<div class="block__post--share">
+										<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
 
-									<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+										<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link btn-getsharecount" data-url="<?php echo get_permalink($postID); ?>" target="_blank"><i class="fa fa-share"></i></a>
+
+										<?php if (count($editLink)) { ?>
+										<a href="<?php echo $editLink; ?>" target="_blank" class="btn btn-link"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
+										<?php } ?>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -151,10 +156,11 @@
 										}
 
 										foreach ( $highlights_post_2 as $post ) : setup_postdata( $post );
-												$postID 		= get_the_ID();
-												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
+												$postID 				= get_the_ID();
+												$date 					= get_the_date('d \d\e F \d\e Y', $postID);
 												$positionImage	= get_field('posicao_da_imagem', $postID);
 												$postType       = get_post_type($postID);
+												$editLink				= get_edit_post_link($postID);
 									?>
 
 									<div class="block__post--highlights">
@@ -169,7 +175,10 @@
 										<div class="block__post--content">
 											<div class="block__post--share">
 												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
-												<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+												<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link btn-getsharecount" data-url="<?php echo get_permalink($postID); ?>" target="_blank"></a>
+												<?php if (count($editLink)) { ?>
+												<a href="<?php echo $editLink; ?>" target="_blank" class="btn btn-link"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
+												<?php } ?>
 											</div>
 
 											<div class="block__post--title">
@@ -208,6 +217,7 @@
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
 												$positionImage	= get_field('posicao_da_imagem', $postID);
 												$postType       = get_post_type($postID);
+												$editLink		= get_edit_post_link($postID);
 									?>
 
 									<div class="block__post--highlights">
@@ -222,7 +232,10 @@
 										<div class="block__post--content">
 											<div class="block__post--share">
 												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
-												<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+												<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link btn-getsharecount" data-url="<?php echo get_permalink($postID); ?>" target="_blank"></a>
+												<?php if (count($editLink)) { ?>
+												<a href="<?php echo $editLink; ?>" target="_blank" class="btn btn-link"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
+												<?php } ?>
 											</div>
 
 											<div class="block__post--title">
@@ -263,6 +276,7 @@
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
 												$positionImage	= get_field('posicao_da_imagem', $postID);
 												$postType       = get_post_type($postID);
+												$editLink		= get_edit_post_link($postID);
 									?>
 
 									<div class="block__post--highlights">
@@ -277,7 +291,10 @@
 										<div class="block__post--content">
 											<div class="block__post--share">
 												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
-												<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+												<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link btn-getsharecount" data-url="<?php echo get_permalink($postID); ?>" target="_blank"></a>
+												<?php if (count($editLink)) { ?>
+												<a href="<?php echo $editLink; ?>" target="_blank" class="btn btn-link"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
+												<?php } ?>
 											</div>
 
 											<div class="block__post--title">
@@ -304,21 +321,65 @@
 										</div>
 
 										<div class="row block__post--highlights-calendar">
+											<?php 
+												$date = date('Ymd');
+												$diasemana = array('Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado');
+												$meses = array('Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro');
+
+												$args = array(
+												'numberposts'			=> 3,
+												'order'					=> 'ASC',
+												'meta_query'	=> array(
+													'relation'		=> 'AND',
+													array(
+														'key'		=> 'evento_filtro',
+														'compare'	=> '>=',
+														'value'		=> $date,
+													)
+												),
+												'post_type'				=> array('agenda'),
+												'post_status'			=> 'publish'
+												);
+
+												$events					= get_posts($args);
+												$testeb         = randomGen(1,9,9);
+												$indexb         = 0;
+
+												foreach ( $events as $post ) : setup_postdata( $post );
+													$postID 		= get_the_ID();
+													$event_place	= get_field('cidade_estado_pais', $postID);
+													$date           = get_field('evento_filtro', $postID);
+													$link           = get_field('link', $event->ID);
+													$title_str      = get_the_title($postID);
+													$editLink		= get_edit_post_link($postID);
+
+													$date_format = date_create($date);
+													$date_format = date_format($date_format, 'Y-m-d');
+													$diasemana_numero = date('w', strtotime($date_format));
+
+													$timestamp = strtotime($date);
+
+													//var_dump($event_place)
+											?>
+
 											<div class="col-m-12">
 												<div class="block__calendar">
 													<div class="block__calendar--image">
-														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-1.png" alt="Feira livre">
+														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-<?php echo $testeb[$indexb]; ?>.jpg" alt="<?php the_title(); ?>">
 													</div>
 
 													<div class="block__calendar--title">
-														<a href="#this">Feira livre</a>
-														<a href="#this"><span>@ Eixão norte, 15h</span></a>
+														<a href="<?php echo $link; ?>"><?php echo title_limit($title_str, 4); ?></a>
+														<a href="<?php echo $link; ?>"><span>@ <?php echo $event_place; ?>, 15h</span></a>
+														<?php if (count($editLink)) { ?>
+														<a href="<?php echo $editLink; ?>" target="_blank" class="btn btn-link"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
+														<?php } ?>
 													</div>
 
 													<div class="block__calendar--date">
 														<a href="#this">
-															<span>domingo</span>
-															<p>24 <br /> <strong>maio</strong></p>
+															<span><?php echo $diasemana[$diasemana_numero]; ?></span>
+															<p><?php echo date('d', $timestamp); ?> <br /> <strong><?php echo date_i18n("M", $timestamp); ?></strong></p>
 														</a>
 													</div>
 
@@ -326,49 +387,7 @@
 												</div>
 											</div>
 
-											<div class="col-m-12">
-												<div class="block__calendar">
-													<div class="block__calendar--image">
-														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-2.png" alt="Picnik">
-													</div>
-
-													<div class="block__calendar--title">
-														<a href="#this">Picnik</a>
-														<a href="#this"><span>@ Praça dos cristais, 15h</span></a>
-													</div>
-
-													<div class="block__calendar--date">
-														<a href="#this">
-															<span>segunda</span>
-															<p>25 <br /> <strong>maio</strong></p>
-														</a>
-													</div>
-
-													<div class="block__calendar--overlay"></div>
-												</div>
-											</div>
-
-											<div class="col-m-12">
-												<div class="block__calendar">
-													<div class="block__calendar--image">
-														<img src="<?php bloginfo('template_url'); ?>/img/fke/calendar-image-3.png" alt="Feira livre">
-													</div>
-
-													<div class="block__calendar--title">
-														<a href="#this">Santuário apresenta...</a>
-														<a href="#this"><span>@ SQN 214, 15h</span></a>
-													</div>
-
-													<div class="block__calendar--date">
-														<a href="#this">
-															<span>sexta</span>
-															<p>30 <br /> <strong>maio</strong></p>
-														</a>
-													</div>
-
-													<div class="block__calendar--overlay"></div>
-												</div>
-											</div>
+											<?php $indexb++; endforeach; wp_reset_postdata(); ?>
 										</div>
 
 										<div class="block__actions">
@@ -404,6 +423,7 @@
 												$date 			= get_the_date('d \d\e F \d\e Y', $postID);
 												$positionImage	= get_field('posicao_da_imagem', $postID);
 												$postType       = get_post_type($postID);
+												$editLink		= get_edit_post_link($postID);
 									?>
 
 									<div class="block__post--highlights">
@@ -418,7 +438,10 @@
 										<div class="block__post--content">
 											<div class="block__post--share">
 												<a href="#this" class="btn btn-link"><i class="fa fa-comment"></i> <?php echo get_comments_number($postID); ?></a>
-												<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link" target="_blank"><i class="fa fa-share"></i> <?php echo get_facebook_share_count(get_permalink($postID)); ?></a>
+												<a href="http://www.facebook.com/share.php?u=<?php the_permalink(); ?>&title=<?php the_title(); ?>" class="btn btn-link btn-getsharecount" data-url="<?php echo get_permalink($postID); ?>" target="_blank"></a>
+												<?php if (count($editLink)) { ?>
+												<a href="<?php echo $editLink; ?>" target="_blank" class="btn btn-link"><i class="fa fa-pencil" aria-hidden="true"></i> Editar</a>
+												<?php } ?>
 											</div>
 
 											<div class="block__post--title">
@@ -449,7 +472,7 @@
 						</div>
 
 						<div id="google__map" class="block__map--google">
-							<img src="<?php bloginfo('template_url'); ?>/img/fke/mapa.png" alt="Google Maps - ONDE">
+							<!-- <img src="<?php bloginfo('template_url'); ?>/img/fke/mapa.png" alt="Google Maps - ONDE"> -->
 						</div>
 					</div>
 				</div>

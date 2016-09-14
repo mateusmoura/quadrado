@@ -55,6 +55,7 @@
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.OAuthFacebook.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Modal.js"></script>
 	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.Calendar.js"></script>
+	<script src="<?php bloginfo('template_url'); ?>/js/Modulos/MM.GetShareCountFB.js"></script>
 
 	<script src="https://maps.googleapis.com/maps/api/js"></script>
 

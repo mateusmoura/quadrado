@@ -51,6 +51,7 @@ var site = {
 
 		MM.Modal();
 		MM.ValidarFormularios($('form.validate'));
+		MM.GetShareCountFB();
 
 		if($('main').hasClass('about')) {
 			this.about();
