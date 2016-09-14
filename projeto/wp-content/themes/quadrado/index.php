@@ -93,7 +93,7 @@
 							</div>
 							<div class="col-m-4">
 								<div class="block__post--title">
-									<h1><?php the_title(); ?></h1>
+									<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 
 									<div class="block__post--time">
 										<p>Em <?php echo $date; ?> por <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ), get_the_author_meta( 'user_nicename' ) ); ?>" class="btn btn-link"><strong><?php the_author(); ?></strong></a></p>
