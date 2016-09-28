@@ -90,7 +90,10 @@ var site = {
 	},
 	/* Animation About page */
 	about: function () {
-		var blockClick = false;
+		var blockClick = false,
+				firstClickLeft = true,
+				firstClickRight = true;
+
 
 		$('.block__slider--item .block__slider--shadow').fadeOut(10);
 		$('.block__slider--item .block__slider--shadow').fadeIn(10);
@@ -113,15 +116,18 @@ var site = {
 			}, 500, function() {
 				/* stuff to do after animation is complete */
 				$(this).removeClass('active').addClass('left').css('left', 'auto');
-				//$('.block__slider--item.hidden:first').removeClass('hidden').addClass('right');
 			});
 
 			$('.block__slider--item.left').animate({
 				left: '-59%',
 			}, 500, function() {
 				/* stuff to do after animation is complete */
-				$('.block__slider--item.hidden:first').removeClass('hidden').addClass('right').css('left', 'auto').appendTo($('.block__slider'));
-				$(this).removeClass('left').addClass('hidden').css('left', 'auto');
+				if(firstClickLeft) {
+					$(this).addClass('timeclass');
+				} else {
+					$('.block__slider--item.hidden:first').removeClass('hidden').addClass('right').css('left', 'auto').appendTo($('.block__slider'));
+					$(this).removeClass('left').addClass('hidden').css('left', 'auto');
+				}
 			});
 
 			$('.block__slider--item.right').animate({
@@ -130,9 +136,12 @@ var site = {
 				/* stuff to do after animation is complete */
 				$(this).find('.block__slider--shadow').fadeOut();
 				$(this).removeClass('right').addClass('active').css('left', 'auto');
+				if(firstClickLeft) {
+					$('.block__slider--item.timeclass').removeClass('left timeclass').addClass('right').css('left', 'auto').insertAfter($(this));
+				}
 				$('.block__slider--item.active .block__slider--shadow').fadeOut();
 
-				blockClick = false;
+				blockClick = firstClickLeft = false;
 			});
 		}).on('click', '.btn-default.btn-right', function(event) {
 			event.preventDefault();
@@ -157,8 +166,12 @@ var site = {
 				right: '-59%',
 			}, 500, function() {
 				/* stuff to do after animation is complete */
-				$('.block__slider--item.hidden:first').removeClass('hidden').addClass('left').css('right', 'auto').insertBefore($('.block__slider--item.left:first'));
-				$(this).removeClass('right').addClass('hidden').css('right', 'auto');
+				if(firstClickRight) {
+					$(this).addClass('timeclass');
+				} else {
+					$('.block__slider--item.hidden:first').removeClass('hidden').addClass('left').css('right', 'auto').insertBefore($('.block__slider--item.left:first'));
+					$(this).removeClass('right').addClass('hidden').css('right', 'auto');
+				}
 			});
 
 			$('.block__slider--item.left').animate({
@@ -167,8 +180,11 @@ var site = {
 				/* stuff to do after animation is complete */
 				$(this).find('.block__slider--shadow').fadeOut();
 				$(this).removeClass('left').addClass('active').css('right', 'auto');
+				if(firstClickRight) {
+					$('.block__slider--item.timeclass').removeClass('right timeclass').addClass('left').css('right', 'auto').insertBefore($(this));
+				}
 				$('.block__slider--item.active .block__slider--shadow').fadeOut();
-				blockClick = false;
+				blockClick = firstClickRight = false;
 			});
 		});;
 	},
